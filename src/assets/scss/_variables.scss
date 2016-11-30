@@ -1,0 +1,20 @@
+$m: 480px;
+$l: 1024px;
+
+@mixin calc($key, $value) {
+  #{$key}: -webkit-calc(#{$value});
+  #{$key}: -moz-calc(#{$value});
+  #{$key}: calc(#{$value});
+}
+
+@mixin mq-m {
+  @media (min-width: #{$m})  {
+    @content;
+  }
+}
+@mixin mq-l {
+  @media (min-width: #{$l}) {
+    @content;
+  }
+}
+
