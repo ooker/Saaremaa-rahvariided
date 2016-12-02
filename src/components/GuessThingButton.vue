@@ -28,5 +28,6 @@
 </script>
 
 <style scoped>
-
+  /*flex-grow: 0;*/
+  /*flex-s*/
 </style>

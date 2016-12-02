@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <component :is="currentView"></component>
-    <bottom-bar></bottom-bar>
+    <component :is="currentView" :gd="gameData" :gi="gameIndex"></component>
+    <bottom-bar :gd="gameData"></bottom-bar>
     <nkl-score :score="gameScore"></nkl-score>
   </div>
 </template>
@@ -19,7 +19,7 @@
       return {
         currentView : "nkl-intro",
         views: ["nkl-intro", "nkl-guess-view"],
-        introText: "Kakummeri hepoo loorisaba tutt!",
+        gameData: eventBus.shuffle(eventBus.gameData),
         gameScore: 0,
         gameIndex: 0
       }
@@ -37,6 +37,9 @@
       eventBus.$on("scoreChanged", (s)=>{
         this.gameScore += s;
       } );
+
+      //console.log("App: " + this.gameData[0].name)
+      //console.log("Bus: " + eventBus.gameData[0].name)
 
     }
   }

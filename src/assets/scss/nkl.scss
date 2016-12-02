@@ -6,30 +6,33 @@ body {margin:0;padding:0;}
 
 img {
   border:0;
+  display:block;
+  margin: auto;
   width:100%;
   height:auto;
 }
 
 
 .nkl-viewContainer {
-  
+
   //background: $red;
-  height:100vh;
-  
+  // height:100vh;
+
   &--flex {
     display: flex;
     flex-direction: column;
-    
+
     @include mq-m{
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
+      height: 85vh;
     }
-    
+
   }
-  
+
   &__item {
     padding: 2vmin;
   }
-  
+
 }

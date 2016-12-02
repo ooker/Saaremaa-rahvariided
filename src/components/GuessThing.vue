@@ -2,7 +2,10 @@
   <div class="nkl-viewContainer nkl-viewContainer--flex">
 
     <div class="nkl-viewContainer__item image">
-        <img src="../assets/img/game/ese-01_600.jpg" alt="">
+        <img :src="image" alt="Mõista-mõista, mis see on">
+        <!-- <img :src="loadImg(this.image)" /> -->
+        <!-- <img src="../assets/ese-01_600.jpg"  /> -->
+        <!-- <img src="../assets/img/game/ese-01_600.jpg" alt="Mõista-mõista, mis see on"> -->
     </div>
 
     <div class="nkl-viewContainer__item content">
@@ -31,43 +34,66 @@
   import GuessThingResponse from "../components/GuessThingResponse.vue";
 
   export default {
-      data (){
-        return {
-          kihelkond : eventBus.gameData[eventBus.gameIndex],
-          choices : ["essa", "tessa", "kossa"],
-          rightChoice : "essa",
-          currentChoice: null,
-          guessScore: 60,
-          penalty: 10
-        }
-      },
-      components : {
-        "nkl-guess-thing-button": GuessThingButton,
-        "nkl-guess-thing-response": GuessThingResponse
-      },
-      methods : {
-        checkAnswer(d){
-          if (d == "wrong") {
-            this.guessScore -= this.penalty;
-            this.currentChoice = "wrong";
-          } else if (d == "right") {
-            eventBus.changeScore(this.guessScore);
-            this.currentChoice = "right";
-          }
-        },
-        responseClosed(){
-          this.currentChoice = null;
-        }
+    // gd: gameData, gi: gameIndex
+    props: ["gd", "gi"],
+    data (){
+      return {
+        image : require("../assets/img/game/" + this.gd[this.gi].item.img) ,
+        choices : [],
+        rightChoice : "",
+        currentChoice: null,
+        guessScore: 60,
+        penalty: 10
       }
+    },
+    components : {
+      "nkl-guess-thing-button": GuessThingButton,
+      "nkl-guess-thing-response": GuessThingResponse
+    },
+    methods : {
+      checkAnswer(d){
+        if (d == "wrong") {
+          this.guessScore -= this.penalty;
+          this.currentChoice = "wrong";
+        } else if (d == "right") {
+          eventBus.changeScore(this.guessScore);
+          this.currentChoice = "right";
+        }
+      },
+
+      responseClosed(){
+        this.currentChoice = null;
+      }
+    },
+    created(){
+      this.choices.push(this.gd[this.gi].item.name);
+      for (var value of this.gd[this.gi].options) {
+        this.choices.push(value);
+      }
+      this.choices = eventBus.shuffle(this.choices);
+      this.rightChoice = this.gd[this.gi].item.name;
+    }
   }
 </script>
 
 <style scoped lang="sass">
-
+  @import "../assets/scss/variables.scss";
   .image {
+
     flex: 0 1 40%;
+    text-align: center;
+    padding-top:5vh;
     img {
+      width: 90%;
       border-radius: 50%;
+    }
+    @include mq-m {
+
+      // padding-top:0;
+      img {
+        width: 90%;
+        max-width: 500px;
+      }
     }
   }
 
@@ -80,8 +106,10 @@
   .buttons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     button {
-      flex: 0 1 33.3%;
+      margin: 1vw;
+      flex: 0 1 auto;
     }
   }
 
