@@ -58,6 +58,7 @@
         } else if (d == "right") {
           eventBus.changeScore(this.guessScore);
           this.currentChoice = "right";
+          eventBus.changeView("nkl-map");
         }
       },
 

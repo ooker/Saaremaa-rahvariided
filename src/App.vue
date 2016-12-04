@@ -10,6 +10,7 @@
   import {eventBus} from "./main";
   import Intro from "./components/Intro.vue";
   import GuessThing from "./components/GuessThing.vue";
+  import GameMap from "./components/Map.vue";
   import Score from "./components/Score.vue";
   import BottomBar from "./components/BottomBar.vue";
 
@@ -18,7 +19,7 @@
     data () {
       return {
         currentView : "nkl-intro",
-        views: ["nkl-intro", "nkl-guess-view"],
+        views: ["nkl-intro", "nkl-guess-view", "nkl-map"],
         gameData: eventBus.shuffle(eventBus.gameData),
         gameScore: 0,
         gameIndex: 0
@@ -27,6 +28,7 @@
     components : {
       "nkl-intro" : Intro,
       "nkl-guess-thing": GuessThing,
+      "nkl-map" : GameMap,
       "nkl-score": Score,
       "bottom-bar": BottomBar
     },
