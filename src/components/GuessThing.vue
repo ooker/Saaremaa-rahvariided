@@ -21,7 +21,9 @@
         </div>
     </div>
 
-    <nkl-guess-thing-response v-if="currentChoice" :choice="currentChoice" @closeMe="responseClosed"></nkl-guess-thing-response>
+    <transition name="fade">
+      <nkl-guess-thing-response v-if="currentChoice" :choice="currentChoice" @closeMe="responseClosed"></nkl-guess-thing-response>
+    </transition>
 
   </div>
 </template>
