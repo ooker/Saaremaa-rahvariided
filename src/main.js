@@ -1,7 +1,6 @@
 //require("!style-loader!css-loader!sass-loader!./assets/scss/nkl.scss");
 require("./assets/scss/nkl.scss");
 
-
 import Vue from 'vue'
 import App from './App.vue'
 
@@ -11,16 +10,18 @@ var gameData = [
     "item" : {
       "name" : "Sariküll",
       "img" :  "ese-02_600.jpg",
-      "thumb" : "ese-02_200.jpg"
+      "thumb" : "ese-02_200.jpg",
+      "options" : [
+        "Rullkrae",
+        "Lihaküünal",
+        "Uskumatu ime",
+        "Sall"
+      ],
+      "itemFound" : false
     },
-    "options" : [
-      "Rullkrae",
-      "Lihaküünal",
-      "Uskumatu ime",
-      "Sall"
-    ],
     "map" : {
-      position: {lat: 58.098358, lng: 22.231077}
+      position: {lat: 58.098358, lng: 22.231077},
+      placeFound : false
     }
   },
   {
@@ -28,15 +29,18 @@ var gameData = [
     "item" : {
       "name" : "Jämaja ese",
       "img" :  "ese-02_600.jpg",
-      "thumb" : "ese-02_200.jpg"
+      "thumb" : "ese-02_200.jpg",
+      "options" : [
+        "Koorikvest",
+        "Pidulik keeks",
+        "Harilik uba"
+      ],
+      "itemFound" : false
     },
-    "options" : [
-      "Koorikvest",
-      "Pidulik keeks",
-      "Harilik uba"
-    ],
+
     "map" : {
-      position: {lat: 58.012714, lng: 22.052888}
+      position: {lat: 58.012714, lng: 22.052888},
+      placeFound : false
     }
   },
   {
@@ -44,15 +48,17 @@ var gameData = [
     "item" : {
       "name" : "Kihelkonna ese",
       "img" :  "ese-01_600.jpg",
-      "thumb" : "ese-01_200.jpg"
+      "thumb" : "ese-01_200.jpg",
+      "options" : [
+        "Tibu-tiss",
+        "Laevastik",
+        "Reeglikauss"
+      ],
+      "itemFound" : false
     },
-    "options" : [
-      "Tibu-tiss",
-      "Laevastik",
-      "Reeglikauss"
-    ],
     "map" : {
-      position: {lat: 58.360297, lng: 22.035814}
+      position: {lat: 58.360297, lng: 22.035814},
+      placeFound : false
     }
   },
   {
@@ -60,15 +66,17 @@ var gameData = [
     "item" : {
       "name" : "Püha ese",
       "img" :  "ese-01_600.jpg",
-      "thumb" : "ese-01_200.jpg"
+      "thumb" : "ese-01_200.jpg",
+      "options" : [
+        "Laparootsor",
+        "Püha müha",
+        "Laimukarikas"
+      ],
+      "itemFound" : false
     },
-    "options" : [
-      "Laparootsor",
-      "Püha müha",
-      "Laimukarikas"
-    ],
     "map" : {
-      position: {lat: 58.300548, lng: 22.725704} 
+      position: {lat: 58.300548, lng: 22.725704},
+      placeFound : false
     }
   }
 
@@ -84,9 +92,17 @@ export const eventBus = new Vue({
     changeView(viewName){
       this.$emit("viewChanged", viewName);
     },
-
     changeScore(value){
-      this.$emit("scoreChanged", value)
+      this.$emit("scoreChanged", value);
+    },
+    changeRound(){
+      this.$emit("roundChanged", this.gameIndex);
+    },
+    foundItem(){
+      this.$emit("itemFound");
+    },
+    foundPlace(){
+      this.$emit("placeFound");
     },
 
     shuffle(sourceArray) {
@@ -107,18 +123,6 @@ new Vue({
 });
 
 
-
-//----- Helpers
-
-/*function shuffle(sourceArray) {
-  for (var i = 0; i < sourceArray.length - 1; i++) {
-    var j = i + Math.floor(Math.random() * (sourceArray.length - i));
-    var temp = sourceArray[j];
-    sourceArray[j] = sourceArray[i];
-    sourceArray[i] = temp;
-  }
-  return sourceArray;
-}*/
 
 /*
 

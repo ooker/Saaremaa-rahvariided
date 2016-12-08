@@ -1,38 +1,25 @@
 <template>
   <div class="nkl-bottomBar">
 
-    <figure v-for="(place, index) in this.gd" class="item">
-      <figcaption >
-        <img :src="imgArr[index]" />
-        <!-- <img src="../assets/ese-01_200.jpg" />  -->
-        <p>{{ place.item.name }}</p>
-        <p>{{ place.name}}</p>
-      </figcaption>
-    </figure>
+    <nkl-bottom-bar-item
+      v-for="place in this.gd"
+        :place="place"
+        :itemFound="place.item.itemFound"
+        :placeFound="place.map.placeFound"
+
+      class="nkl-bottomBar__item"></nkl-bottom-bar-item>
 
   </div>
 </template>
 
 <script>
 
+  import BottomBarItem from "../components/BottomBarItem.vue";
+
   export default {
     props: ["gd"],
-    data(){
-      return {
-          imgArr : []
-      }
-    },
-    methods : {
-
-    },
-    created(){
-      let url;
-      for (var i=0; i<this.gd.length; i++) {
-        url = this.gd[i].item.thumb;
-        url = require("../assets/img/game/" + url);
-        this.imgArr.push(url);
-      }
-
+    components : {
+      "nkl-bottom-bar-item": BottomBarItem,
     }
   }
 </script>
@@ -51,27 +38,11 @@
 
     @include mq-l{
       display: flex;
-      justify-content: space-around;
-      align-items: center;
+      justify-content: center;
+      align-items: baseline;
     }
   }
-  .item {
-    flex: 0 1 9%;
-    text-align: center;
-    img {
-      width: 70%;
-      max-width: 70px;
-      border-radius: 50%;
+    .nkl-bottomBar__item {
+
     }
-    p {
-      display:none;
-      margin:0;
-    }
-    &--active {
-      margin-top: -4vmin;
-      p {
-        display: block;
-      }
-    }
-  }
 </style>

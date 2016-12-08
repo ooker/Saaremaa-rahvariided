@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <component :is="currentView" :gd="gameData" :gi="gameIndex"></component>
-    <bottom-bar :gd="gameData"></bottom-bar>
+    <nkl-bottom-bar :gd="gameData"></nkl-bottom-bar>
     <nkl-score :score="gameScore"></nkl-score>
   </div>
 </template>
@@ -19,7 +19,6 @@
     data () {
       return {
         currentView : "nkl-intro",
-        views: ["nkl-intro", "nkl-guess-view", "nkl-map"],
         gameData: eventBus.shuffle(eventBus.gameData),
         gameScore: 0,
         gameIndex: 0
@@ -30,7 +29,7 @@
       "nkl-guess-thing": GuessThing,
       "nkl-map" : GameMap,
       "nkl-score": Score,
-      "bottom-bar": BottomBar
+      "nkl-bottom-bar": BottomBar
     },
     created(){
       eventBus.$on("viewChanged", (newView)=>{
@@ -39,6 +38,20 @@
       eventBus.$on("scoreChanged", (s)=>{
         this.gameScore += s;
       } );
+      eventBus.$on("roundChanged", (r)=>{
+        if(this.gameIndex < 3) {
+          this.gameIndex++;
+        } else {
+          this.gameIndex = 0;
+        }
+      } );
+      eventBus.$on("itemFound", ()=>{
+          this.gameData[this.gameIndex].item.itemFound = true;
+      } );
+      eventBus.$on("placeFound", ()=>{
+          this.gameData[this.gameIndex].map.placeFound = true;
+      } );
+
 
       //console.log("App: " + this.gameData[0].name)
       //console.log("Bus: " + eventBus.gameData[0].name)

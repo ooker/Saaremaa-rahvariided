@@ -42,7 +42,7 @@
       return {
         image : require("../assets/img/game/" + this.gd[this.gi].item.img) ,
         choices : [],
-        rightChoice : "",
+        //rightChoice : false,
         currentChoice: null,
         guessScore: 60,
         penalty: 10
@@ -60,17 +60,17 @@
         } else if (d == "right") {
           eventBus.changeScore(this.guessScore);
           this.currentChoice = "right";
+          eventBus.foundItem();
           eventBus.changeView("nkl-map");
         }
       },
-
       responseClosed(){
         this.currentChoice = null;
       }
     },
     created(){
       this.choices.push(this.gd[this.gi].item.name);
-      for (var value of this.gd[this.gi].options) {
+      for (var value of this.gd[this.gi].item.options) {
         this.choices.push(value);
       }
       this.choices = eventBus.shuffle(this.choices);

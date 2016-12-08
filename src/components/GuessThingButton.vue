@@ -1,5 +1,5 @@
 <template>
-  <button @click="clicked">{{myName}}</button>
+  <button @click="clicked">{{name}}</button>
 </template>
 
 
@@ -9,14 +9,14 @@
     props: ["name", "right", "current"],
     data () {
       return {
-        myName: this.name,
-        myRight: this.right
+        //myName: this.name,
+        //myRight: this.right
       }
 
     },
     methods: {
       clicked () {
-        if (this.myName == this.myRight) {
+        if (this.name == this.right) {
           this.$emit("choiceMade", "right");
         } else {
           this.$emit("choiceMade", "wrong");
