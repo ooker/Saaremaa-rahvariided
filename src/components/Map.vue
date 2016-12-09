@@ -20,14 +20,14 @@
         </gmap-map>
       </div>
 
-      <transition name="fade">
+      <!-- <transition name="fade"> -->
         <div class="map__contentContainer" v-if="isGuessed">
 
 
           <div class="map__contentContainer__info">
-            <h1>Heihoo</h1>
-            <p>
-              Siia tuleb {{gd[gi].name}} tekst.
+            <h1>{{gd[gi].name}}</h1>
+            <p v-html="gd[gi].info">
+
             </p>
             <a @click="next" class="button">EDASI</a>
           </div>
@@ -40,7 +40,7 @@
 
 
         </div>
-      </transition>
+      <!-- </transition> -->
 
     </div><!-- //.nkl-viewContainer -->
 
@@ -93,12 +93,19 @@
 
       markerClicked (e) {
         if(e.right == true){
-          //console.log("KAART: " + this.$refs.mymap.$mapObject);
-          this.center = {lat: e.position.lat, lng:e.position.lng+0.13 }
-          this.zoom = 11;
-          this.$refs.mymap.resizePreserveCenter();
           eventBus.foundPlace();
           this.isGuessed = true;
+
+          this.center = {lat: e.position.lat, lng:e.position.lng }
+          this.zoom = 10;
+
+          let dadaa = this;
+          setTimeout(
+            function(){
+                dadaa.$refs.mymap.resizePreserveCenter();
+            }, 500
+          );
+
         }
       },
       next(){
@@ -211,6 +218,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2vh 2vw;
+    line-height: 1.6;
+    text-align: center;
+    color: white;
 
     h1 {
       text-align: center;

@@ -45,13 +45,10 @@
     }
     p {
       margin:0;
+      font-size: 0.75rem;
+      text-transform: uppercase;
     }
-
-
   }
-    .showItem {
-      background-color: yellow;
-    }
 
     .active {
       opacity: 1;

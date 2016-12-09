@@ -17,7 +17,7 @@ var gameData = [
         "Uskumatu ime",
         "Sall"
       ],
-      "info" : "Rahvarõivad õmmeldi sageli ilma taskuteta. Selle asemel sidusid naised paremale puusale lahttasku. Need tehti väga uhked ja kaunistati mitmel erineval viisil aplikatsiooni, paelte ja tikandiga. Tikandis kasutati sageli värvilisest klaasist ümmargusi ja torukujulisi helmeid.",
+      "itemInfo" : "Rahvarõivad õmmeldi sageli ilma taskuteta. Selle asemel sidusid naised paremale puusale lahttasku. Need tehti väga uhked ja kaunistati mitmel erineval viisil aplikatsiooni, paelte ja tikandiga. Tikandis kasutati sageli värvilisest klaasist ümmargusi ja torukujulisi helmeid.",
       "itemFound" : false
     },
     "map" : {
@@ -37,7 +37,7 @@ var gameData = [
         "Pidulik keeks",
         "Harilik uba"
       ],
-      "info" : "Jämaja (saksa keeles Jamma) hõlmas suurema osa Sõrve poolsaarest. Poolsaarel asunud kihelkonda ümbritses pea terves ulatuses meri. Kaasaegse haldusjaotuse järgi kattus Jämaja kihelkond üldjoontes praeguse Torgu vallaga. Jämaja Kolmainu kirik ehitati väga põhjalikult ümber 19. sajandi keskpaiku. Sõrve sääre tipus oleva tuletorni ajalugu ulatub tagasi aastasse 1684. Poolsaare läänerannikul paiknev Ohessaare pank ei ole oma mõõtmetelt kuigi märkimisväärne, kuid see-eest leidub siin rohkesti kivistisi.",
+      "itemInfo" : "19. sajandi lõpus kanti pappalusel tanu asemel meelsamini varrastel kootud kirimütsi e tuttmütsi. Tavaliselt kooti musta põhja sisse punased laiemad vöödid peente valgete triipude ja tähnidega. Pika sopi otsa kinnitati tutt, mis Jämaja kihelkonnas tehti eriti suur ja uhke. Selle valmistamiseks kasutati poepitsi ja -paelu ning kirjusid riideribasid.",
       "itemFound" : false
     },
 
@@ -45,7 +45,7 @@ var gameData = [
       position: {lat: 58.012714, lng: 22.052888},
       placeFound : false
     },
-    "info" : "19. sajandi lõpus kanti pappalusel tanu asemel meelsamini varrastel kootud kirimütsi e tuttmütsi. Tavaliselt kooti musta põhja sisse punased laiemad vöödid peente valgete triipude ja tähnidega. Pika sopi otsa kinnitati tutt, mis Jämaja kihelkonnas tehti eriti suur ja uhke. Selle valmistamiseks kasutati poepitsi- ja paelu ning kirjusid riideribasid."
+    "info" : "Jämaja (saksa keeles Jamma) hõlmas suurema osa Sõrve poolsaarest. Poolsaarel asunud kihelkonda ümbritses pea terves ulatuses meri. Kaasaegse haldusjaotuse järgi kattus Jämaja kihelkond üldjoontes praeguse Torgu vallaga. Jämaja Kolmainu kirik ehitati väga põhjalikult ümber 19. sajandi keskpaiku. Sõrve sääre tipus oleva tuletorni ajalugu ulatub tagasi aastasse 1684. Poolsaare läänerannikul paiknev Ohessaare pank ei ole oma mõõtmetelt kuigi märkimisväärne, kuid see-eest leidub siin rohkesti kivistisi."
   },
   {
     "name" : "Kihelkonna",
@@ -58,14 +58,14 @@ var gameData = [
         "Laevastik",
         "Reeglikauss"
       ],
-      "info" : "Kihelkonna vanem must seelik ümbrik kaunistati allääres värviliste riideribadega. Et tihedalt volditud seelik oleks veidike kohevam aeti selle serva kas traat või männijuur. Hiljem hakati musta seelikukanga sisse kuduma punaseid laiemaid vööte, mida ääristasid värvilised kitsamad triibud.",
+      "itemInfo" : "Kihelkonna vanem must seelik ümbrik kaunistati allääres värviliste riideribadega. Et tihedalt volditud seelik oleks veidike kohevam aeti selle serva kas traat või männijuur. Hiljem hakati musta seelikukanga sisse kuduma punaseid laiemaid vööte, mida ääristasid värvilised kitsamad triibud.",
       "itemFound" : false
     },
     "map" : {
       position: {lat: 58.360297, lng: 22.035814},
       placeFound : false
     },
-    "info" : "Kihelkonna (saksa keeles Kielkond) oli Saaremaa ja ühtlasi kogu Eesti läänepoolseim kihelkond. Tänapäevase haldusjaotuse järgi hõlmas Kihelkonna kihelkond praeguse Kihelkonna ja endise Lümanda valla ning tüki Salme vallast. Kihelkonna keskaegne Miikaeli kirik sai oma sihvaka torni alles 1899. aastal. Kihelkonna piiridesse jääb Vilsandi saar oma linnuriigiga, Harilaiu poolsaar viltuse majakaga, Odalätsi allikad, vanim ja kõrgeim koht Saaremaal – Viidumäe."
+    "info" : "Kihelkonna <i>(saksa keeles Kielkond)</i> oli Saaremaa ja ühtlasi kogu Eesti läänepoolseim kihelkond. Tänapäevase haldusjaotuse järgi hõlmas Kihelkonna kihelkond praeguse Kihelkonna ja endise Lümanda valla ning tüki Salme vallast. Kihelkonna keskaegne Miikaeli kirik sai oma sihvaka torni alles 1899. aastal. Kihelkonna piiridesse jääb Vilsandi saar oma linnuriigiga, Harilaiu poolsaar viltuse majakaga, Odalätsi allikad, vanim ja kõrgeim koht Saaremaal – Viidumäe."
   },
   {
     "name" : "Püha",
@@ -78,7 +78,7 @@ var gameData = [
         "Püha müha",
         "Laimukarikas"
       ],
-      "info" : "Kirivöö oli kõige levinum vöö, mis kooti villasest ja linasest lõngast. Vöö pidi ulatuma 2–3 korda ümber keha ja selle laius oli mõnikord kuni 8 cm. Vöökorrad mähiti kõik üksteise peale, paistma jäi ainult pealmine kord.",
+      "itemInfo" : "Kirivöö oli kõige levinum vöö, mis kooti villasest ja linasest lõngast. Vöö pidi ulatuma 2–3 korda ümber keha ja selle laius oli mõnikord kuni 8 cm. Vöökorrad mähiti kõik üksteise peale, paistma jäi ainult pealmine kord.",
       "itemFound" : false
     },
     "map" : {
