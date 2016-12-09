@@ -1,11 +1,11 @@
 <template>
-  <figure class="bottomBar__item">
+  <figure class="bottomBar__item" :class="{active:itemFound}">
       <div>
         <img :src="this.img" />
       </div>
-      <figcaption>
-        <p v-if="itemFound==true">Essa</p>
-        <p v-if="placeFound==true">Tessa</p>
+      <figcaption v-if="itemFound">
+        <p>{{this.place.item.name}}</p>
+        <p>{{this.place.name}}</p>
       </figcaption>
     </figure>
 </template>
@@ -15,11 +15,10 @@
   import {eventBus} from "../main";
 
   export default {
-    props: ["place", "itemFound", "placeFound"],
+    props: ["place", "itemFound"],
     data(){
       return {
-          img : require("../assets/img/game/" + this.place.item.img),
-          //itemFound : this.itemFound
+          img : require("../assets/img/game/" + this.place.item.img)
       }
     }
   }
@@ -33,32 +32,36 @@
     text-align: center;
     margin: 0;
     padding: 0;
-    transition: all 0.5s ease;
+    opacity: 0.25;
 
     img {
       display: block;
       width: 50%;
-      max-width: 70%;
+      //max-width: 70%;
       border-radius: 50%;
-      margin: 0 auto;
+      margin: 0 auto 1vh auto;
+      box-shadow: 0 0 5px 2px hsla(0, 0%, 0%, 0.3);
+      transition: all 0.5s ease;
     }
     p {
-      //display:none;
       margin:0;
     }
-    &--active {
-      margin-top: -4vmin;
-      p {
-        display: block;
-      }
-    }
-      &:hover {
-        flex: 0 1 20%;
-        margin-top: -70px;
-        transition: all 0.5s ease;
-      }
+
+
   }
     .showItem {
       background-color: yellow;
+    }
+
+    .active {
+      opacity: 1;
+
+      &:hover {
+        img {
+          width: 70%;
+          margin-bottom: 2vh;
+          transition: all 0.5s ease;
+        }
+      }
     }
 </style>

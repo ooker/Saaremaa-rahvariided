@@ -1,39 +1,57 @@
 <template>
-  <div class="nkl-viewContainer nkl-viewContainer--flex">
-    <div class="map-container">
-      <gmap-map
-        :center="center"
-        :zoom="zoom"
-        :options="mapOptions"
-        :bounds="mapBounds"
-        ref="mymap"
-      >
-        <gmap-marker
-          v-for="m in mapMarkers"
-          :position="m.position"
-          :clickable="true"
-          :draggable="false"
-          :isRight="m.right"
-          @click="markerClicked(m)"
-        ></gmap-marker>
-      </gmap-map>
-    </div>
-    <transition name="fade">
-      <div class="content-container" v-if="isGuessed">
-        <h1>Heihoo</h1>
-        <p>
-          Siia tuleb {{gd[gi].name}} tekst.
-        </p>
-        <a @click="next" class="button">EDASI</a>
+  <div>
+    <div class="nkl-viewContainer nkl-viewContainer--flex">
+      <div class="map__mapContainer">
+        <gmap-map
+          :center="center"
+          :zoom="zoom"
+          :options="mapOptions"
+          :bounds="mapBounds"
+          ref="mymap"
+        >
+          <gmap-marker
+            v-for="m in mapMarkers"
+            :position="m.position"
+            :clickable="true"
+            :draggable="false"
+            :isRight="m.right"
+            @click="markerClicked(m)"
+          ></gmap-marker>
+        </gmap-map>
       </div>
-    </transition>
-    <div class="infoPanel">
+
+      <transition name="fade">
+        <div class="map__contentContainer" v-if="isGuessed">
+
+
+          <div class="map__contentContainer__info">
+            <h1>Heihoo</h1>
+            <p>
+              Siia tuleb {{gd[gi].name}} tekst.
+            </p>
+            <a @click="next" class="button">EDASI</a>
+          </div>
+
+          <div class="map__contentContainer__costume">
+            <img :src="this.costumeImg" />
+          </div>
+
+
+
+
+        </div>
+      </transition>
+
+    </div><!-- //.nkl-viewContainer -->
+
+    <transition name="fade">
+      <div class="map__infoPanel" v-if="!isGuessed">
         <h1>{{gd[gi].name}} kihelkond</h1>
         <p>
           Proovi, mitme korraga leiad õige koha üles.
         </p>
-    </div>
-
+      </div>
+    </transition>
     <!-- <nkl-guess-thing-response v-if="currentChoice" :choice="currentChoice" @closeMe="responseClosed"></nkl-guess-thing-response> -->
 
   </div>
@@ -66,6 +84,7 @@
         mapOptions : {},
         mapBounds : {},
         //currentPlace: "",
+        costumeImg : require("../assets/img/game/" + this.gd[this.gi].item.img),
         isGuessed : false
       }
     },
@@ -74,16 +93,12 @@
 
       markerClicked (e) {
         if(e.right == true){
-
-
-
-          console.log("KAART: " + this.$refs.mymap.$mapObject);
+          //console.log("KAART: " + this.$refs.mymap.$mapObject);
           this.center = {lat: e.position.lat, lng:e.position.lng+0.13 }
           this.zoom = 11;
           this.$refs.mymap.resizePreserveCenter();
           eventBus.foundPlace();
           this.isGuessed = true;
-
         }
       },
       next(){
@@ -179,17 +194,24 @@
 <style scoped lang="sass">
   @import "../assets/scss/variables.scss";
 
-  .map-container {
+  .map__mapContainer {
     flex:1 0 33.333%;
     height:100%;
   }
-  .content-container {
-    flex: 1 0 33.333%;
+  .map__contentContainer {
+    flex: 1 0 66.666%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .map__contentContainer__info {
+    flex:1 0 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+
     h1 {
       text-align: center;
     }
@@ -202,8 +224,18 @@
       background: rgba(0, 0, 0, 0.6);
     }
   }
+  .map__contentContainer__costume {
+    flex:0 1 auto;
+    height: 100%;
+    background-color: white;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
 
-  .infoPanel {
+
+  .map__infoPanel {
     position: absolute;
     top: 1vh;
     left: 1vh;

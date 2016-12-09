@@ -38,19 +38,20 @@
       eventBus.$on("scoreChanged", (s)=>{
         this.gameScore += s;
       } );
-      eventBus.$on("roundChanged", (r)=>{
+      eventBus.$on("roundChanged", ()=>{
         if(this.gameIndex < 3) {
           this.gameIndex++;
         } else {
+          // Game Over
           this.gameIndex = 0;
         }
       } );
       eventBus.$on("itemFound", ()=>{
           this.gameData[this.gameIndex].item.itemFound = true;
       } );
-      eventBus.$on("placeFound", ()=>{
+      /*eventBus.$on("placeFound", ()=>{
           this.gameData[this.gameIndex].map.placeFound = true;
-      } );
+      } );*/
 
 
       //console.log("App: " + this.gameData[0].name)

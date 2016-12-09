@@ -21,6 +21,7 @@ img {
   &--flex {
     display: flex;
     flex-direction: column;
+    height: 100vh;
 
     @include mq-m{
       flex-direction: row;

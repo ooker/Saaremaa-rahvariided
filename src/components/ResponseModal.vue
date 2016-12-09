@@ -1,5 +1,5 @@
 <template>
-  <div class="nkl-guessThing__response">
+  <div class="nkl-responseModal">
     <div v-if="myChoice === 'wrong'">
       <h1>Too bad!</h1>
     </div>
@@ -30,11 +30,11 @@
 <style scoped lang="sass">
   @import "../assets/scss/variables.scss";
 
-  .nkl-guessThing__response {
+  .nkl-responseModal {
     position: absolute;
     top:10vh;
     right:20vw;
-  
+
     background: hsla( 0, 0%, 0%, 0.6);
 
     @include mq-m {

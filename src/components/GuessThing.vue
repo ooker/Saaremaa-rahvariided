@@ -22,7 +22,7 @@
     </div>
 
     <transition name="fade">
-      <nkl-guess-thing-response v-if="currentChoice" :choice="currentChoice" @closeMe="responseClosed"></nkl-guess-thing-response>
+      <nkl-response-modal v-if="currentChoice" :choice="currentChoice" @closeMe="responseClosed"></nkl-response-modal>
     </transition>
 
   </div>
@@ -33,7 +33,7 @@
 
   import {eventBus} from "../main";
   import GuessThingButton from "../components/GuessThingButton.vue";
-  import GuessThingResponse from "../components/GuessThingResponse.vue";
+  import ResponseModal from "../components/ResponseModal.vue";
 
   export default {
     // gd: gameData, gi: gameIndex
@@ -50,7 +50,7 @@
     },
     components : {
       "nkl-guess-thing-button": GuessThingButton,
-      "nkl-guess-thing-response": GuessThingResponse
+      "nkl-response-modal": ResponseModal
     },
     methods : {
       checkAnswer(d){

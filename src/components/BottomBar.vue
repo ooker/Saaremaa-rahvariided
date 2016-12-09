@@ -5,7 +5,6 @@
       v-for="place in this.gd"
         :place="place"
         :itemFound="place.item.itemFound"
-        :placeFound="place.map.placeFound"
 
       class="nkl-bottomBar__item"></nkl-bottom-bar-item>
 
@@ -32,17 +31,17 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 15vh;
+
     background: hsla(0, 0%, 0%, 0.8);
     color: white;
 
     @include mq-l{
       display: flex;
+
       justify-content: center;
-      align-items: baseline;
+      align-items: flex-end;
+      height: 15vh;
+      padding-bottom: 2vh;
     }
   }
-    .nkl-bottomBar__item {
-
-    }
 </style>
