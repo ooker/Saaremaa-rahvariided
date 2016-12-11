@@ -99,10 +99,10 @@
           this.center = {lat: e.position.lat, lng:e.position.lng }
           this.zoom = 10;
 
-          let dadaa = this;
+          let self = this;
           setTimeout(
             function(){
-                dadaa.$refs.mymap.resizePreserveCenter();
+                self.$refs.mymap.resizePreserveCenter();
             }, 500
           );
 

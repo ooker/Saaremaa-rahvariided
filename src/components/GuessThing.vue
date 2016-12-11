@@ -8,7 +8,7 @@
         <!-- <img src="../assets/img/game/ese-01_600.jpg" alt="Mõista-mõista, mis see on"> -->
     </div>
 
-    <div class="nkl-viewContainer__item content">
+    <div class="nkl-viewContainer__item content" v-if="!itemFound">
         <h1>Mis see on?</h1>
         <div class="buttons">
           <nkl-guess-thing-button
@@ -20,9 +20,18 @@
           ></nkl-guess-thing-button>
         </div>
     </div>
+    <div v-else class="nkl-viewContainer__item content">
+      <h1>{{this.rightChoice}}</h1>
+      <p v-html="gd[gi].item.itemInfo">
+
+      </p>
+      <button @click="next">EDASI</button>
+    </div>
 
     <transition name="fade">
-      <nkl-response-modal v-if="currentChoice" :choice="currentChoice" @closeMe="responseClosed"></nkl-response-modal>
+      <nkl-response-modal v-if="currentChoice==='wrong'"
+      :choice="currentChoice"
+      @closeMe="responseClosed"></nkl-response-modal>
     </transition>
 
   </div>
@@ -42,7 +51,7 @@
       return {
         image : require("../assets/img/game/" + this.gd[this.gi].item.img) ,
         choices : [],
-        //rightChoice : false,
+        itemFound : false,
         currentChoice: null,
         guessScore: 60,
         penalty: 10
@@ -61,11 +70,15 @@
           eventBus.changeScore(this.guessScore);
           this.currentChoice = "right";
           eventBus.foundItem();
-          eventBus.changeView("nkl-map");
+          this.itemFound = true;
+          //eventBus.changeView("nkl-map");
         }
       },
       responseClosed(){
         this.currentChoice = null;
+      },
+      next(){
+        eventBus.changeView("nkl-map");
       }
     },
     created(){

@@ -1,5 +1,5 @@
 <template>
-  <button @click="clicked">{{name}}</button>
+  <button @click="clicked" class="nkl-button ">{{name}}</button>
 </template>
 
 

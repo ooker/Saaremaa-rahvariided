@@ -5,7 +5,7 @@
       </div>
       <figcaption v-if="itemFound">
         <p>{{this.place.item.name}}</p>
-        <p>{{this.place.name}}</p>
+        <p style="opacity:0.4">{{this.place.name}}</p>
       </figcaption>
     </figure>
 </template>
@@ -45,7 +45,7 @@
     }
     p {
       margin:0;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
     }
   }

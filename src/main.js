@@ -8,14 +8,14 @@ var gameData = [
   {
     "name" : "Anseküla",
     "item" : {
-      "name" : "Sariküll",
+      "name" : "Lahttasku",
       "img" :  "ese-02_600.jpg",
       "thumb" : "ese-02_200.jpg",
       "options" : [
-        "Rullkrae",
-        "Lihaküünal",
-        "Uskumatu ime",
-        "Sall"
+        "Ridiküll",
+        "Kosjakott",
+        "Poekott",
+        "Peokott"
       ],
       "itemInfo" : "Rahvarõivad õmmeldi sageli ilma taskuteta. Selle asemel sidusid naised paremale puusale lahttasku. Need tehti väga uhked ja kaunistati mitmel erineval viisil aplikatsiooni, paelte ja tikandiga. Tikandis kasutati sageli värvilisest klaasist ümmargusi ja torukujulisi helmeid.",
       "itemFound" : false
@@ -29,15 +29,16 @@ var gameData = [
   {
     "name" : "Jämaja",
     "item" : {
-      "name" : "Jämaja ese",
-      "img" :  "ese-02_600.jpg",
-      "thumb" : "ese-02_200.jpg",
+      "name" : "Kirimüts",
+      "img" :  "item_jamaja_600.jpg",
+      "thumb" : "item_jamaja_200.jpg",
       "options" : [
-        "Koorikvest",
-        "Pidulik keeks",
-        "Harilik uba"
+        "Tutik",
+        "Pühadepibo",
+        "Poistelõks",
+        "Täitare"
       ],
-      "itemInfo" : "19. sajandi lõpus kanti pappalusel tanu asemel meelsamini varrastel kootud kirimütsi e tuttmütsi. Tavaliselt kooti musta põhja sisse punased laiemad vöödid peente valgete triipude ja tähnidega. Pika sopi otsa kinnitati tutt, mis Jämaja kihelkonnas tehti eriti suur ja uhke. Selle valmistamiseks kasutati poepitsi ja -paelu ning kirjusid riideribasid.",
+      "itemInfo" : "19. sajandi lõpus kanti pappalusel tanu asemel meelsamini varrastel kootud <b>kirimütsi</b> e tuttmütsi. Tavaliselt kooti musta põhja sisse punased laiemad vöödid peente valgete triipude ja tähnidega. Pika sopi otsa kinnitati tutt, mis Jämaja kihelkonnas tehti eriti suur ja uhke. Selle valmistamiseks kasutati poepitsi ja -paelu ning kirjusid riideribasid.",
       "itemFound" : false
     },
 
@@ -45,18 +46,19 @@ var gameData = [
       position: {lat: 58.012714, lng: 22.052888},
       placeFound : false
     },
-    "info" : "Jämaja (saksa keeles Jamma) hõlmas suurema osa Sõrve poolsaarest. Poolsaarel asunud kihelkonda ümbritses pea terves ulatuses meri. Kaasaegse haldusjaotuse järgi kattus Jämaja kihelkond üldjoontes praeguse Torgu vallaga. Jämaja Kolmainu kirik ehitati väga põhjalikult ümber 19. sajandi keskpaiku. Sõrve sääre tipus oleva tuletorni ajalugu ulatub tagasi aastasse 1684. Poolsaare läänerannikul paiknev Ohessaare pank ei ole oma mõõtmetelt kuigi märkimisväärne, kuid see-eest leidub siin rohkesti kivistisi."
+    "info" : "Jämaja <i class='special'>(saksa keeles Jamma)</i> hõlmas suurema osa Sõrve poolsaarest. Poolsaarel asunud kihelkonda ümbritses pea terves ulatuses meri. Kaasaegse haldusjaotuse järgi kattus Jämaja kihelkond üldjoontes praeguse Torgu vallaga. Jämaja Kolmainu kirik ehitati väga põhjalikult ümber 19. sajandi keskpaiku. Sõrve sääre tipus oleva tuletorni ajalugu ulatub tagasi aastasse 1684. Poolsaare läänerannikul paiknev Ohessaare pank ei ole oma mõõtmetelt kuigi märkimisväärne, kuid see-eest leidub siin rohkesti kivistisi."
   },
   {
     "name" : "Kihelkonna",
     "item" : {
-      "name" : "Kihelkonna ese",
+      "name" : "Ümbrik",
       "img" :  "ese-01_600.jpg",
       "thumb" : "ese-01_200.jpg",
       "options" : [
-        "Tibu-tiss",
-        "Laevastik",
-        "Reeglikauss"
+        "Panderoll",
+        "Postipakk",
+        "Tumeseelik",
+        "Toomapood"
       ],
       "itemInfo" : "Kihelkonna vanem must seelik ümbrik kaunistati allääres värviliste riideribadega. Et tihedalt volditud seelik oleks veidike kohevam aeti selle serva kas traat või männijuur. Hiljem hakati musta seelikukanga sisse kuduma punaseid laiemaid vööte, mida ääristasid värvilised kitsamad triibud.",
       "itemFound" : false
@@ -70,13 +72,14 @@ var gameData = [
   {
     "name" : "Püha",
     "item" : {
-      "name" : "Püha ese",
+      "name" : "Kirivöö",
       "img" :  "ese-01_600.jpg",
       "thumb" : "ese-01_200.jpg",
       "options" : [
-        "Laparootsor",
-        "Püha müha",
-        "Laimukarikas"
+        "Pidulint",
+        "Punapael",
+        "Rästikupael",
+        "Salakirjak"
       ],
       "itemInfo" : "Kirivöö oli kõige levinum vöö, mis kooti villasest ja linasest lõngast. Vöö pidi ulatuma 2–3 korda ümber keha ja selle laius oli mõnikord kuni 8 cm. Vöökorrad mähiti kõik üksteise peale, paistma jäi ainult pealmine kord.",
       "itemFound" : false
@@ -85,7 +88,7 @@ var gameData = [
       position: {lat: 58.300548, lng: 22.725704},
       placeFound : false
     },
-    "info" : "Püha (saksa keeles Pyha) asus Saaremaa kaguosas. Kaasaegse haldusjaotuse järgi kattus Püha kihelkond enamikus osas praeguse Pihtla vallaga. Püha Jakobi kirikut hakati kihelkonna keskusesse rajama juba 13. sajandil. Kihelkonna suurimaks vaatamisväärsuseks on Kaali kraater e järv."
+    "info" : "Püha (saksa keeles Pyha) asus Saaremaa kaguosas. Kaasaegse haldusjaotuse järgi kattus Püha kihelkond enamikus osas praeguse Pihtla vallaga. Püha Jakobi kirikut hakati kihelkonna keskusesse rajama juba 13. sajandil. Kihelkonna suurimaks vaatamisväärsuseks on Kaali meteoriidikraater."
   }
 
 ];

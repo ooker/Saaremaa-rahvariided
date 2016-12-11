@@ -1,9 +1,28 @@
-$m: 480px;
-$l: 1024px;
-$xl: 1600px;
+$mq-m: 480px;
+$mq-l: 1024px;
+$mq-xl: 1600px;
+
+
 
 $font-main: 'Roboto Condensed', sans-serif;
 $font-special: 'Germania One', cursive;
+
+$nkl-unit: 1rem;
+$nkl-unit-multiplier: 1.25;
+
+$nkl-m     : $nkl-unit;
+$nkl-l     : $nkl-m * $nkl-unit-multiplier;
+$nkl-xl    : $nkl-l * $nkl-unit-multiplier;
+$nkl-xxl   : $nkl-xl * $nkl-unit-multiplier;
+$nkl-xxxl  : $nkl-xxl * $nkl-unit-multiplier;
+$nkl-4xl   : $nkl-xxxl * $nkl-unit-multiplier;
+$nkl-5xl   : $nkl-4xl * $nkl-unit-multiplier;
+$nkl-s     : $nkl-m / $nkl-unit-multiplier;
+$nkl-xs    : $nkl-s / $nkl-unit-multiplier;
+$nkl-xxs   : $nkl-xs / $nkl-unit-multiplier;
+$nkl-xxxs  : $nkl-xxs / $nkl-unit-multiplier;
+$nkl-4xs   : $nkl-xxxs / $nkl-unit-multiplier;
+$nkl-5xs   : $nkl-4xs / $nkl-unit-multiplier;
 
 @mixin calc($key, $value) {
   #{$key}: -webkit-calc(#{$value});
@@ -12,12 +31,17 @@ $font-special: 'Germania One', cursive;
 }
 
 @mixin mq-m {
-  @media (min-width: #{$m})  {
+  @media (min-width: #{$mq-m})  {
     @content;
   }
 }
 @mixin mq-l {
-  @media (min-width: #{$l}) {
+  @media (min-width: #{$mq-l}) {
+    @content;
+  }
+}
+@mixin mq-xl {
+  @media (min-width: #{$mq-xl}) {
     @content;
   }
 }
