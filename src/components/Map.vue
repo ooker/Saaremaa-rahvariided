@@ -17,6 +17,11 @@
             :isRight="m.right"
             @click="markerClicked(m)"
           ></gmap-marker>
+
+          <gmap-info-window class="map__markerInfo"
+            :position = "this.center"
+            :opened = "this.isGuessed"
+            :content = "gd[gi].name.toUpperCase()"></gmap-info-window>
         </gmap-map>
       </div>
 
@@ -66,7 +71,7 @@
 
 <script>
   import * as VueGoogleMaps from 'vue2-google-maps';
-  import {load, Map, Marker} from 'vue2-google-maps';
+  import {load, Map, Marker, InfoWindow} from 'vue2-google-maps';
   import Vue from 'vue';
   import {eventBus} from "../main";
 
@@ -79,7 +84,8 @@
   export default {
     components: {
       gmapMap: Map,
-      gmapMarker: Marker
+      gmapMarker: Marker,
+      gmapInfoWindow: InfoWindow
     },
     props: ["gd", "gi"],
     data () {
@@ -101,16 +107,18 @@
       markerClicked (e) {
         if(e.right == true){
           eventBus.foundPlace();
-          this.isGuessed = true;
 
-          this.center = {lat: e.position.lat, lng:e.position.lng }
-          this.zoom = 10;
-
+          //this.center = {lat: e.position.lat, lng:e.position.lng }
           let self = this;
+          let place = e;
+
           setTimeout(
             function(){
-                self.$refs.mymap.resizePreserveCenter();
-            }, 500
+              self.center = {lat: place.position.lat, lng:place.position.lng };
+              self.zoom = 10;
+              self.$refs.mymap.resizePreserveCenter();
+              self.isGuessed = true;
+            }, 200
           );
 
         }
@@ -211,11 +219,12 @@
   .map__mapContainer {
     flex:1 0 33.333%;
     height:70vh;
-
-    @include mq-l{
+    
+    @include mq-l {
       height: 85vh;
     }
   }
+
   .map__contentContainer {
     flex: 1 0 66.666%;
     display: flex;
@@ -224,14 +233,13 @@
     align-items: center;
     overflow: hidden;
 
-
     @include mq-m {
       flex-direction: row;
     }
 
     @include mq-l{
       height: 85vh;
-      height: 100%;
+      //height: 100%;
     }
   }
 
@@ -291,4 +299,8 @@
         margin: 0.5rem 0;
       }
   }
+
+    .gm-style-iw {
+      color: black;
+    }
 </style>

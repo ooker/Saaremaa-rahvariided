@@ -28,7 +28,7 @@
     font-family: $font-special;
     font-size: 2.5rem;
     line-height: 1;
-    color: white;
+    color: $nkl-yellow--pale;
 
     background: rgba(0, 0, 0, 0.6);
   }

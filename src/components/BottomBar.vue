@@ -32,7 +32,7 @@
     left: 0;
     width: 100%;
 
-    background: hsla(0, 0%, 0%, 0.8);
+    background: hsla(0, 0%, 0%, 0.3);
     color: white;
 
     @include mq-l{
@@ -41,7 +41,7 @@
       justify-content: center;
       align-items: flex-end;
       height: 15vh;
-      padding-bottom: 2vh;
+      padding-bottom: 1.5vh;
     }
   }
 </style>

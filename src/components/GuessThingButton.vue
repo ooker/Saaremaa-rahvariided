@@ -1,33 +1,20 @@
 <template>
-  <button @click="clicked" class="nkl-button ">{{name}}</button>
+  <button @click="clicked" class="nkl-button">{{name}}</button>
 </template>
-
 
 <script>
   export default {
-
-    props: ["name", "right", "current"],
-    data () {
-      return {
-        //myName: this.name,
-        //myRight: this.right
-      }
-
-    },
+    props: ["name", "right"],
     methods: {
       clicked () {
         if (this.name == this.right) {
-          this.$emit("choiceMade", "right");
+          this.$emit("choiceMade", true);
         } else {
-          this.$emit("choiceMade", "wrong");
+          this.$emit("choiceMade", false);
         }
       }
-
     }
   }
 </script>
 
-<style scoped>
-  /*flex-grow: 0;*/
-  /*flex-s*/
-</style>
+<style scoped></style>

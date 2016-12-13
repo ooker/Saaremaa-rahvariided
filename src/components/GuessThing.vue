@@ -1,5 +1,5 @@
 <template>
-  <div class="nkl-viewContainer">
+  <div class="nkl-viewContainer zigzag">
 
     <div class="nkl-viewContainer__item nkl-guessThing__image">
         <img :src="image" alt="Mõista-mõista, mis see on">
@@ -17,14 +17,16 @@
             :right="rightChoice"
             :current="currentChoice"
             @choiceMade = "checkAnswer"
+            class="nkl-button"
           ></nkl-guess-thing-button>
         </div>
     </div>
     <div v-else class="nkl-viewContainer__item nkl-guessThing__content">
       <h1>{{this.rightChoice}}</h1>
-      <p v-html="gd[gi].item.itemInfo">
-
-      </p>
+      <hr />
+      <p v-html="gd[gi].item.itemInfo"></p>
+      <hr />
+      <p></p>
       <button @click="next">EDASI</button>
     </div>
 
@@ -63,10 +65,10 @@
     },
     methods : {
       checkAnswer(d){
-        if (d == "wrong") {
+        if (d == false) {
           this.guessScore -= this.penalty;
           this.currentChoice = "wrong";
-        } else if (d == "right") {
+        } else if (d == true) {
           eventBus.changeScore(this.guessScore);
           this.currentChoice = "right";
           eventBus.foundItem();
@@ -96,7 +98,6 @@
   @import "../assets/scss/variables.scss";
 
   .nkl-guessThing__image {
-
     flex: 0 1 40%;
     text-align: center;
     display: flex;
@@ -134,6 +135,7 @@
     align-items: center;
     h1 {
       text-align: center;
+      font-size: 3rem;
     }
     @include mq-l {
       height: 85vh;
@@ -143,9 +145,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    button {
+    .nkl-button {
       margin: 1vw;
       flex: 0 1 auto;
+    }
+    .nkl-button--disabled {
+      background-color: rgba(0,0,0,0.3);
     }
   }
 
