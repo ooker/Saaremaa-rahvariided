@@ -65,7 +65,7 @@
 
   #app {
     min-height: 100vh;
-    background: #666;
+    /*background: #666;*/
   }
 
 </style>

@@ -6,13 +6,27 @@ html {margin:0; padding: 0;box-sizing: border-box;}
 @import "transitions";
 
 body {
-  margin:0;padding:0;
+  margin:0; padding:0;
   font-family: $font-main;
+  color: white;
+  /*background:
+radial-gradient(circle, transparent 20%, #222 20%, #222 80%, transparent 80%, transparent),
+radial-gradient(circle, transparent 20%, #222 20%, #222 80%, transparent 80%, transparent) 50px 50px,
+linear-gradient(#2d2d2d 8px, transparent 8px) 0 -4px,
+linear-gradient(90deg, #2d2d2d 8px, transparent 8px) -4px 0;
+background-size:100px 100px, 100px 100px, 50px 50px, 50px 1px;*/
+//background-color: #222;
+background:
+  linear-gradient(45deg, #282c34 33.333%, #2d313b 33.333%, #2d313b 66.667%, #282c34 66.667%),
+  linear-gradient(-45deg, #282c34 33.333%, #2d313b 33.333%, #2d313b 66.667%, #282c34 66.667%);
+background-size: 12px 12px;
+
 }
 
 h1, h2, h3, h4 {
   font-family: $font-special;
   font-weight: normal;
+  color: white;
 }
 
 img {
@@ -25,22 +39,15 @@ img {
 
 .nkl-viewContainer {
 
-  //background: $red;
-  // height:100vh;
+  display: flex;
+  flex-direction: column;
 
-  &--flex {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-
-    @include mq-m{
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      height: 85vh;
-    }
-
+  @include mq-l{
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
+
 
   &__item {
     padding: 2vmin;
@@ -78,6 +85,38 @@ img {
   }
 }
 
-.special {
-  background-color: black;
+.zigzag {
+  position: relative;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    z-index: -1;
+
+    background:
+      linear-gradient(45deg, #666 33.333%, transparent 33.333%, transparent 66.667%, #666 66.667%),
+      linear-gradient(-45deg, #666 33.333%, transparent 33.333%, transparent 66.667%, #666 66.667%);
+    background-size: 20px 10px;
+    background-position: -3px top;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    z-index:-1;
+
+    background:
+      linear-gradient(-45deg, transparent 33.333%, #555 33.333%, #555 66.667%, transparent 66.667%),
+      linear-gradient(45deg, transparent 33.333%, #555 33.333%, #555 66.667%, transparent 66.667%);
+    background-size: 20px 10px;
+    //background-position: -3px top;
+  }
 }

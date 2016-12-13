@@ -3,8 +3,8 @@
       <div>
         <img :src="this.img" />
       </div>
-      <figcaption v-if="itemFound">
-        <p>{{this.place.item.name}}</p>
+      <figcaption >
+        <p v-if="itemFound">{{this.place.item.name}}</p>
         <p style="opacity:0.4">{{this.place.name}}</p>
       </figcaption>
     </figure>
@@ -37,7 +37,7 @@
     img {
       display: block;
       width: 50%;
-      //max-width: 70%;
+      max-width: 10vh;
       border-radius: 50%;
       margin: 0 auto 1vh auto;
       box-shadow: 0 0 5px 2px hsla(0, 0%, 0%, 0.3);
@@ -55,8 +55,9 @@
 
       &:hover {
         img {
-          width: 70%;
-          margin-bottom: 2vh;
+          width: 85%;
+          max-width: 100%;
+          //margin-bottom: 2vh;
           transition: all 0.5s ease;
         }
       }

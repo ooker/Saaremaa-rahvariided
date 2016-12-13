@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="nkl-viewContainer nkl-viewContainer--flex">
+    <div class="nkl-viewContainer">
       <div class="map__mapContainer">
         <gmap-map
           :center="center"
@@ -24,16 +24,22 @@
         <div class="map__contentContainer" v-if="isGuessed">
 
 
-          <div class="map__contentContainer__info">
-            <h1>{{gd[gi].name}}</h1>
-            <p v-html="gd[gi].info">
+          <div class="map__contentContainer__info zigzag">
 
+            <div style="margin:auto;">
+
+            <h1>{{gd[gi].name}}</h1>
+            <hr />
+            <p v-html="gd[gi].info">
+            <hr />
             </p>
             <a @click="next" class="button">EDASI</a>
+            </div>
+
           </div>
 
-          <div class="map__contentContainer__costume">
-            <img :src="this.costumeImg" />
+          <div class="map__contentContainer__costume" :style="{ backgroundImage: 'url(' + costumeImg + ')' }">
+            <!-- <img :src="this.costumeImg" /> -->
           </div>
 
 
@@ -84,7 +90,8 @@
         mapOptions : {},
         mapBounds : {},
         //currentPlace: "",
-        costumeImg : require("../assets/img/game/" + this.gd[this.gi].item.img),
+        costumeImg : require("../assets/img/game/" + this.gd[this.gi].costume),
+        // costumeImg : "../assets/" + this.gd[this.gi].costume,
         isGuessed : false
       }
     },
@@ -203,46 +210,70 @@
 
   .map__mapContainer {
     flex:1 0 33.333%;
-    height:100%;
+    height:70vh;
+
+    @include mq-l{
+      height: 85vh;
+    }
   }
   .map__contentContainer {
     flex: 1 0 66.666%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  .map__contentContainer__info {
-    flex:1 0 50%;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2vh 2vw;
+    overflow: hidden;
+
+
+    @include mq-m {
+      flex-direction: row;
+    }
+
+    @include mq-l{
+      height: 85vh;
+      height: 100%;
+    }
+  }
+
+  .map__contentContainer__info {
+    flex:1 0 50%;
+    display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    height: 100%;
+    padding: 2vh 3vw;
     line-height: 1.6;
     text-align: center;
     color: white;
+    overflow-y: auto;
 
     h1 {
       text-align: center;
     }
-    .button {
-      display: block;
-      flex:0 1 auto;
-      padding: 1vmin;
-      color: white;
-      cursor: pointer;
-      background: rgba(0, 0, 0, 0.6);
+    hr {
+      width: 90%;
+    }
+    @include mq-l {
+      height: 85vh;
     }
   }
   .map__contentContainer__costume {
-    flex:0 1 auto;
-    height: 100%;
-    background-color: white;
+    flex: 1 0 50%;
+    height : 100%;
+
+    background-size: cover;
+    background-position: center;
     img {
-      display: block;
-      width: 100%;
+      object-fit: contain;
+      // display: block;
+      // width: 100%;
+      // min-height: 100%;
     }
+
+      @include mq-l {
+        height: 85vh;
+      }
   }
 
 

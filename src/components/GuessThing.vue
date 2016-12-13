@@ -1,14 +1,14 @@
 <template>
-  <div class="nkl-viewContainer nkl-viewContainer--flex">
+  <div class="nkl-viewContainer">
 
-    <div class="nkl-viewContainer__item image">
+    <div class="nkl-viewContainer__item nkl-guessThing__image">
         <img :src="image" alt="Mõista-mõista, mis see on">
         <!-- <img :src="loadImg(this.image)" /> -->
         <!-- <img src="../assets/ese-01_600.jpg"  /> -->
         <!-- <img src="../assets/img/game/ese-01_600.jpg" alt="Mõista-mõista, mis see on"> -->
     </div>
 
-    <div class="nkl-viewContainer__item content" v-if="!itemFound">
+    <div class="nkl-viewContainer__item nkl-guessThing__content" v-if="!itemFound">
         <h1>Mis see on?</h1>
         <div class="buttons">
           <nkl-guess-thing-button
@@ -20,7 +20,7 @@
           ></nkl-guess-thing-button>
         </div>
     </div>
-    <div v-else class="nkl-viewContainer__item content">
+    <div v-else class="nkl-viewContainer__item nkl-guessThing__content">
       <h1>{{this.rightChoice}}</h1>
       <p v-html="gd[gi].item.itemInfo">
 
@@ -94,29 +94,49 @@
 
 <style scoped lang="sass">
   @import "../assets/scss/variables.scss";
-  .image {
+
+  .nkl-guessThing__image {
 
     flex: 0 1 40%;
     text-align: center;
-    padding-top:5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5vh;
+
     img {
       width: 90%;
       border-radius: 50%;
+      box-shadow: 0 0 1.5vw 0px rgba(0,0,0,0.8);
     }
-    @include mq-m {
 
-      // padding-top:0;
+    @include mq-m {
       img {
-        width: 90%;
-        max-width: 500px;
+        max-width: 450px;
+      }
+    }
+
+    @include mq-l {
+      padding-top: 0;
+      height: 85vh;
+      img {
+        max-width: none;
+        box-shadow: 0 0 0.7vw 0px rgba(0,0,0,0.8);
       }
     }
   }
 
-  .content {
+  .nkl-guessThing__content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     h1 {
       text-align: center;
+    }
+    @include mq-l {
+      height: 85vh;
     }
   }
   .buttons {
