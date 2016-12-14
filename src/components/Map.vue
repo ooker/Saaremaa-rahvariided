@@ -32,13 +32,12 @@
           <div class="map__contentContainer__info zigzag">
 
             <div style="margin:auto;">
-
-            <h1>{{gd[gi].name}}</h1>
-            <hr />
-            <p v-html="gd[gi].info">
-            <hr />
-            </p>
-            <a @click="next" class="button">EDASI</a>
+              <h1>{{gd[gi].name}}</h1>
+              <hr />
+              <p v-html="gd[gi].info">
+              <hr />
+              </p>
+              <a @click="next" class="nkl-button">EDASI</a>
             </div>
 
           </div>
@@ -219,7 +218,7 @@
   .map__mapContainer {
     flex:1 0 33.333%;
     height:70vh;
-    
+
     @include mq-l {
       height: 85vh;
     }
@@ -253,7 +252,7 @@
     padding: 2vh 3vw;
     line-height: 1.6;
     text-align: center;
-    color: white;
+    color: $nkl-white;
     overflow-y: auto;
 
     h1 {
@@ -266,22 +265,17 @@
       height: 85vh;
     }
   }
+
   .map__contentContainer__costume {
     flex: 1 0 50%;
     height : 100%;
 
     background-size: cover;
     background-position: center;
-    img {
-      object-fit: contain;
-      // display: block;
-      // width: 100%;
-      // min-height: 100%;
-    }
 
-      @include mq-l {
-        height: 85vh;
-      }
+    @include mq-l {
+      height: 85vh;
+    }
   }
 
 

@@ -9,17 +9,17 @@ body {
   margin:0; padding:0;
   font-family: $font-main;
   //color: white;
-  /*background:
-radial-gradient(circle, transparent 20%, #222 20%, #222 80%, transparent 80%, transparent),
-radial-gradient(circle, transparent 20%, #222 20%, #222 80%, transparent 80%, transparent) 50px 50px,
-linear-gradient(#2d2d2d 8px, transparent 8px) 0 -4px,
-linear-gradient(90deg, #2d2d2d 8px, transparent 8px) -4px 0;
-background-size:100px 100px, 100px 100px, 50px 50px, 50px 1px;*/
-//background-color: #222;
-background:
-  linear-gradient(45deg, #282c34 33.333%, #2d313b 33.333%, #2d313b 66.667%, #282c34 66.667%),
-  linear-gradient(-45deg, #282c34 33.333%, #2d313b 33.333%, #2d313b 66.667%, #282c34 66.667%);
-background-size: 12px 12px;
+  background:
+radial-gradient(circle, transparent 20%, $nkl-gray--dark 20%, $nkl-gray--darkest 80%, transparent 80%, transparent),
+radial-gradient(circle, transparent 20%, $nkl-gray--darkest 20%, $nkl-gray--darkest 80%, transparent 80%, transparent) 50px 50px,
+linear-gradient($nkl-gray--dark 8px, transparent 8px) 0 -4px,
+linear-gradient(90deg, $nkl-gray--dark 8px, transparent 8px) -4px 0;
+background-size:100px 100px, 100px 100px, 50px 50px, 50px 1px;
+background-color: $nkl-gray--darkest;
+/*background:
+  linear-gradient(45deg, $nkl-gray--darkest 33.333%, $nkl-gray--dark 33.333%, $nkl-gray--dark 66.667%, $nkl-gray--darkest 66.667%),
+  linear-gradient(-45deg, $nkl-gray--darkest 33.333%, $nkl-gray--dark 33.333%, $nkl-gray--dark 66.667%, $nkl-gray--darkest 66.667%);
+background-size: 12px 12px;*/
 
 }
 
@@ -41,11 +41,13 @@ img {
 
   display: flex;
   flex-direction: column;
+  padding-bottom: 20vh;
 
   @include mq-l{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding-bottom: 0;
   }
 
 
@@ -68,9 +70,10 @@ img {
   border-radius: $nkl-5xs;
   box-shadow: 0 0 4px 0px rgba(0,0,0,0.3);
   cursor: pointer;
-  transition: box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease, background-color 0.5s ease;
   &:hover {
     //transition: box-shadow 0.5s ease;
+    background-color: $nkl-green--map;
     box-shadow: 0 2px 6px 0px rgba(0,0,0,0.3);
   }
 
@@ -98,8 +101,8 @@ img {
     z-index: -1;
 
     background:
-      linear-gradient(45deg, #666 33.333%, transparent 33.333%, transparent 66.667%, #666 66.667%),
-      linear-gradient(-45deg, #666 33.333%, transparent 33.333%, transparent 66.667%, #666 66.667%);
+      linear-gradient(45deg, $nkl-gray 33.333%, transparent 33.333%, transparent 66.667%, $nkl-gray 66.667%),
+      linear-gradient(-45deg, $nkl-gray 33.333%, transparent 33.333%, transparent 66.667%, $nkl-gray 66.667%);
     background-size: 20px 10px;
     background-position: -3px top;
   }
@@ -114,8 +117,8 @@ img {
     z-index:-1;
 
     background:
-      linear-gradient(-45deg, transparent 33.333%, #555 33.333%, #555 66.667%, transparent 66.667%),
-      linear-gradient(45deg, transparent 33.333%, #555 33.333%, #555 66.667%, transparent 66.667%);
+      linear-gradient(-45deg, transparent 33.333%, $nkl-gray 33.333%, $nkl-gray 66.667%, transparent 66.667%),
+      linear-gradient(45deg, transparent 33.333%, $nkl-gray 33.333%, $nkl-gray 66.667%, transparent 66.667%);
     background-size: 20px 10px;
     //background-position: -3px top;
   }

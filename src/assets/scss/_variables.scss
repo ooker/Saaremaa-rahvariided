@@ -24,13 +24,14 @@ $nkl-xxxs  : $nkl-xxs / $nkl-unit-multiplier;
 $nkl-4xs   : $nkl-xxxs / $nkl-unit-multiplier;
 $nkl-5xs   : $nkl-4xs / $nkl-unit-multiplier;
 
-$nkl-yellow--pale: hsl(61, 53%, 49%);
+$nkl-yellow--pale: hsl(54, 57%, 53%);
+$nkl-gray: hsl(223, 13%, 25%);
 $nkl-gray--dark: hsl(223, 13%, 20%);
 $nkl-gray--darkest: hsl(220, 13%, 18%);
 $nkl-black: hsl(0, 0%, 5%);
-$nkl-white: hsl(0, 0%, 90%);
+$nkl-white: hsl(0, 0%, 85%);
 $nkl-blue--map: hsl(179, 93%, 28%);
-$nkl-green--map: hsl(96, 67%, 43%); 
+$nkl-green--map: hsl(96, 67%, 43%);
 
 @mixin calc($key, $value) {
   #{$key}: -webkit-calc(#{$value});

@@ -19,22 +19,25 @@
             @choiceMade = "checkAnswer"
             class="nkl-button"
           ></nkl-guess-thing-button>
+
         </div>
+        <transition name="fade">
+          <nkl-response-modal v-if="currentChoice===false"
+          :choice="currentChoice"
+          @closeMe="responseClosed"></nkl-response-modal>
+        </transition>
     </div>
     <div v-else class="nkl-viewContainer__item nkl-guessThing__content">
       <h1>{{this.rightChoice}}</h1>
+      <p class="" style="margin-top:0.5vh; text-transform:uppercase; font-size:0.8rem;"> {{ gd[gi].name }} kihelkonnast</p>
       <hr />
       <p v-html="gd[gi].item.itemInfo"></p>
       <hr />
       <p></p>
-      <button @click="next">EDASI</button>
+      <button @click="next" class="nkl-button">EDASI</button>
     </div>
 
-    <transition name="fade">
-      <nkl-response-modal v-if="currentChoice==='wrong'"
-      :choice="currentChoice"
-      @closeMe="responseClosed"></nkl-response-modal>
-    </transition>
+
 
   </div>
 </template>
@@ -67,10 +70,10 @@
       checkAnswer(d){
         if (d == false) {
           this.guessScore -= this.penalty;
-          this.currentChoice = "wrong";
+          this.currentChoice = false;
         } else if (d == true) {
           eventBus.changeScore(this.guessScore);
-          this.currentChoice = "right";
+          this.currentChoice = true;
           eventBus.foundItem();
           this.itemFound = true;
           //eventBus.changeView("nkl-map");
@@ -128,14 +131,26 @@
   }
 
   .nkl-guessThing__content {
+    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 $nkl-l;
+    text-align: center;
     h1 {
       text-align: center;
       font-size: 3rem;
+      color: $nkl-yellow--pale;
+      margin-bottom: 0;
+    }
+    hr {
+      width: 100%;
+    }
+    p {
+      color: $nkl-white;
+      line-height: 1.6;
     }
     @include mq-l {
       height: 85vh;
@@ -145,6 +160,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  
     .nkl-button {
       margin: 1vw;
       flex: 0 1 auto;

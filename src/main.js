@@ -14,8 +14,9 @@ var gameData = [
       "options" : [
         "Ridiküll",
         "Kosjakott",
-        "Poekott",
-        "Peokott"
+        "Vardakott",
+        "Peokott",
+        "Tubakatasku"
       ],
       "itemInfo" : "Rahvarõivad õmmeldi sageli ilma taskuteta. Selle asemel sidusid naised paremale puusale lahttasku. Need tehti väga uhked ja kaunistati mitmel erineval viisil aplikatsiooni, paelte ja tikandiga. Tikandis kasutati sageli värvilisest klaasist ümmargusi ja torukujulisi helmeid.",
       "itemFound" : false
@@ -34,10 +35,12 @@ var gameData = [
       "img" :  "item_placeholder_600.jpg",
       "thumb" : "item_placeholder_200.jpg",
       "options" : [
-        "Ridiküll",
-        "Kosjakott",
-        "Poekott",
-        "Peokott"
+        "Pidukossid",
+        "Kõpsutid",
+        "Hülgevarbad",
+        "Tipskorkiskingad",
+        "Kõvapastlad",
+        "Nakikingad"
       ],
       "itemInfo" : "Juba 1774. aastal on üles kirjutatud, et Saaremaal ei kanta viletsaid pastlaid, vaid saapaid ja ummiskingi. Varasemal ajal õmmeldi kingadele tald alla traadiga, hiljem tikutati – paks tallanahk kinnitati puust tikkudega.",
       "itemFound" : false
@@ -56,10 +59,11 @@ var gameData = [
       "img" :  "item_jamaja_600.jpg",
       "thumb" : "item_jamaja_200.jpg",
       "options" : [
-        "Tutik",
+        "Tuttpütt",
         "Pühadepibo",
         "Poistelõks",
-        "Lehva-lehva"
+        "Tuulelipp",
+        "Murumüts"
       ],
       "itemInfo" : "19. sajandi lõpus kanti pappalusel tanu asemel meelsamini varrastel kootud <b>kirimütsi</b> e tuttmütsi. Tavaliselt kooti musta põhja sisse punased laiemad vöödid peente valgete triipude ja tähnidega. Pika sopi otsa kinnitati tutt, mis Jämaja kihelkonnas tehti eriti suur ja uhke. Selle valmistamiseks kasutati poepitsi ja -paelu ning kirjusid riideribasid.",
       "itemFound" : false
@@ -102,9 +106,10 @@ var gameData = [
       "img" :  "item_placeholder_600.jpg",
       "thumb" : "item_placeholder_200.jpg",
       "options" : [
-        "Täditanu",
-        "Memmekiiver",
-        "Frauenkopfer"
+        "Porst",
+        "Umps",
+        "Toreon",
+        "Poistelõks"
       ],
       "itemInfo" : "Piduülikonna juurde kuuluvat liistikut peeti üheks uhkemaks iluasjaks. Vanemad liistikud olid üsna lühikesed ja mitmete kaunistustega. Kaelus ja hõlmad ääristati värvilise kandiga, ette õmmeldi tavaliselt punane lapp. Hõlmad hoiti koos malide – rattakujuliste tinanaastudega, millest läbitõmmatud punane pael seoti lipsuks.",
       "itemFound" : false
@@ -124,9 +129,10 @@ var gameData = [
       "thumb" : "item_placeholder_200.jpg",
       "options" : [
         "Panderoll",
-        "Postipakk",
+        "Pallapool",
         "Tumeseelik",
-        "Toomapood"
+        "Ülemeelik",
+        "Tule-eila-meile"
       ],
       "itemInfo" : "Kihelkonna vanem must seelik ümbrik kaunistati allääres värviliste riideribadega. Et tihedalt volditud seelik oleks veidike kohevam aeti selle serva kas traat või männijuur. Hiljem hakati musta seelikukanga sisse kuduma punaseid laiemaid vööte, mida ääristasid värvilised kitsamad triibud.",
       "itemFound" : false
@@ -145,9 +151,10 @@ var gameData = [
       "img" :  "item_karla_600.jpg",
       "thumb" : "item_karla_200.jpg",
       "options" : [
-        "Täditanu",
-        "Memmekiiver",
-        "Frauenkopfer"
+        "Kirikuub",
+        "Kört",
+        "Punaseelik",
+        "Vaatamind"
       ],
       "itemInfo" : "Vanemamoeline põikitriipudega ümbrik asendus 1870.–1880. aastatel kiutkuuega, mille kangasse kooti püstitriibud. See seelik oli pisut lühem ja kaharam ning seda volditi ainult ülaosas värvli juurest. Seeliku triibud olid kitsad ja tavaliselt tumedad. Väikesed voldid seati nii, et alati jäi üks värvitoon – enamasti punane, voldi harjale.",
       "itemFound" : false
@@ -166,9 +173,10 @@ var gameData = [
       "img" :  "item_mustjala_600.jpg",
       "thumb" : "item_mustjala_200.jpg",
       "options" : [
-        "Täditanu",
-        "Memmekiiver",
-        "Frauenkopfer"
+        "Õhtuvatt",
+        "Kurtkampsun",
+        "Memmemunder",
+        "Punakrae-jakk"
       ],
       "itemInfo" : "Veidi allapoole ulatuvad abukäised oli avaralõikeline üleriie. Umbes abaluude kohalt algas sügav volt ja kummalgi puusal oli veel üks madal volt. Kaelus ja hõlmad kuni vöökohani kaunistati punasest kalevist kandiga.",
       "itemFound" : false
@@ -183,13 +191,15 @@ var gameData = [
   {
     "name" : "Pöide",
     "item" : {
-      "name" : "Abukäised",
+      "name" : "Ratasüll",
       "img" :  "item_poide_600.jpg",
       "thumb" : "item_poide_200.jpg",
       "options" : [
         "Täditanu",
-        "Memmekiiver",
-        "Frauenkopfer"
+        "Nõelatanu",
+        "Kauamängiv",
+        "Päikesekroon",
+        "Aupaiste"
       ],
       "itemInfo" : "Talimütsid e üllid olid Saaremaal üsna omapärase kujuga. Ratasülli lagipealse läbimõõt oli 25–29 cm. Äär valmistati u 7 cm laiusest mustast lambanaha siilust. Ülli ülemist serva hoidis sõõrina sisse painutatud puuvits. Sageli rohkem uhkuseasjaks olevale üllile seoti rätik peale – nii püsis see kindlamini peas ja talvel kaitses ka külma eest.",
       "itemFound" : false
@@ -208,10 +218,11 @@ var gameData = [
       "img" :  "item_pyha_600.jpg",
       "thumb" : "item_pyha_200.jpg",
       "options" : [
-        "Pidulint",
-        "Punapael",
+        "Kõlavöö",
+        "Laululint",
         "Rästikupael",
-        "Salakirjak"
+        "Salakirjak",
+        "Pihahoidja"
       ],
       "itemInfo" : "Kirivöö oli kõige levinum vöö, mis kooti villasest ja linasest lõngast. Vöö pidi ulatuma 2–3 korda ümber keha ja selle laius oli mõnikord kuni 8 cm. Vöökorrad mähiti kõik üksteise peale, paistma jäi ainult pealmine kord.",
       "itemFound" : false
@@ -233,8 +244,8 @@ var gameData = [
         "Totulotu",
         "Kikk-kõrumüts",
         "Pilotka",
-        "Küriksall",
-        "Ahvenamaa"
+        "Kikktanu",
+        "Sarvikpibo"
       ],
       "itemInfo" : "Saarlaste talimütsil – punase lagipealsega sariküllil oli kaks sarve. Need ja mütsi äär kaeti musta tallenahaga. Nagu ratasüllile nii ka sariküllile seoti rätik peale, et see kindlamini peas püsiks ja külma eest kaitseks. Kihelkonniti oli sarikülli kandmise viis erinev. Mõnel pool seati sarved ette ja taha, teisal jälle külgedele.",
       "itemFound" : false

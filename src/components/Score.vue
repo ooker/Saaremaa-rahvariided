@@ -30,6 +30,7 @@
     line-height: 1;
     color: $nkl-yellow--pale;
 
+    border: 2px $nkl-gray solid;
     background: rgba(0, 0, 0, 0.6);
   }
 </style>
