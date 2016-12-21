@@ -39,22 +39,18 @@
 <style scoped lang="sass">
   @import "../assets/scss/variables.scss";
 
-  .nkl-responseModal {
+  /*.nkl-responseModal {
     position: absolute;
     top:0;
     left:0;
     width: 100%;
     height: 100%;
     min-height: 250px;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    background: hsla( 0, 0%, 0%, 0.9);
-
-  }
+    background: hsla( 0, 0%, 0%, 0.9);}*/
 
 
 

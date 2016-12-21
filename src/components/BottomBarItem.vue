@@ -18,7 +18,7 @@
     props: ["place", "itemFound"],
     data(){
       return {
-          img : require("../assets/img/game/" + this.place.item.img)
+          img : require("../assets/img/game/" + this.place.item.thumb)
       }
     }
   }

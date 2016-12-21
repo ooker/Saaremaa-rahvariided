@@ -3,13 +3,11 @@
 
     <div class="nkl-viewContainer__item nkl-guessThing__image">
         <img :src="image" alt="Mõista-mõista, mis see on">
-        <!-- <img :src="loadImg(this.image)" /> -->
-        <!-- <img src="../assets/ese-01_600.jpg"  /> -->
-        <!-- <img src="../assets/img/game/ese-01_600.jpg" alt="Mõista-mõista, mis see on"> -->
     </div>
 
     <div class="nkl-viewContainer__item nkl-guessThing__content" v-if="!itemFound">
         <h1>Mis see on?</h1>
+        <hr />
         <div class="buttons">
           <nkl-guess-thing-button
             v-for="choice in choices"
@@ -23,7 +21,8 @@
         <transition name="fade">
           <nkl-response-modal v-if="currentChoice===false"
           :choice="currentChoice"
-          @closeMe="responseClosed"></nkl-response-modal>
+          @closeMe="responseClosed"
+          class="nkl-responseModal__item"></nkl-response-modal>
         </transition>
     </div>
 
@@ -171,5 +170,20 @@
       background-color: rgba(0,0,0,0.3);
     }
   }
+
+    .nkl-responseModal__item {
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: hsla( 0, 0%, 0%, 0.9);
+    }
+
 
 </style>

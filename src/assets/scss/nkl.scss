@@ -37,17 +37,26 @@ img {
   height:auto;
 }
 
+hr {
+  border: none;
+  border-bottom: 1px solid lighten($nkl-gray, 15%);
+  margin: 1rem 0;
+}
+
 .nkl-viewContainer {
 
   display: flex;
   flex-direction: column;
   padding-bottom: 20vh;
 
-  @include mq-l{
+  @include mq-m {
+    padding-bottom: 0;
+  }
+  @include mq-l {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 0;
+
   }
 
 

@@ -17,17 +17,16 @@
             :isRight="m.right"
             @click="markerClicked(m)"
           ></gmap-marker>
-
           <gmap-info-window class="map__markerInfo"
             :position = "this.center"
             :opened = "this.isGuessed"
-            :content = "gd[gi].name.toUpperCase()"></gmap-info-window>
+            :content = "gd[gi].name.toUpperCase()"
+          ></gmap-info-window>
         </gmap-map>
       </div>
 
       <!-- <transition name="fade"> -->
         <div class="map__contentContainer" v-if="isGuessed">
-
 
           <div class="map__contentContainer__info zigzag">
 
@@ -35,6 +34,8 @@
               <h1>{{gd[gi].name}}</h1>
               <hr />
               <p v-html="gd[gi].info">
+              <hr />
+              <img :src="viewImg" />
               <hr />
               </p>
               <a @click="next" class="nkl-button">EDASI</a>
@@ -45,9 +46,6 @@
           <div class="map__contentContainer__costume" :style="{ backgroundImage: 'url(' + costumeImg + ')' }">
             <!-- <img :src="this.costumeImg" /> -->
           </div>
-
-
-
 
         </div>
       <!-- </transition> -->
@@ -62,6 +60,13 @@
         </p>
       </div>
     </transition>
+
+    <transition name="fade">
+      <nkl-response-modal v-if="currentChoice===false"
+      :choice="currentChoice"
+      @closeMe="responseClosed"
+      class="nkl-responseModal__map"></nkl-response-modal>
+    </transition>
     <!-- <nkl-guess-thing-response v-if="currentChoice" :choice="currentChoice" @closeMe="responseClosed"></nkl-guess-thing-response> -->
 
   </div>
@@ -73,6 +78,7 @@
   import {load, Map, Marker, InfoWindow} from 'vue2-google-maps';
   import Vue from 'vue';
   import {eventBus} from "../main";
+  import ResponseModal from "../components/ResponseModal.vue";
 
   Vue.use(VueGoogleMaps, {
     load: {
@@ -84,7 +90,8 @@
     components: {
       gmapMap: Map,
       gmapMarker: Marker,
-      gmapInfoWindow: InfoWindow
+      gmapInfoWindow: InfoWindow,
+      "nkl-response-modal": ResponseModal
     },
     props: ["gd", "gi"],
     data () {
@@ -96,8 +103,10 @@
         mapBounds : {},
         //currentPlace: "",
         costumeImg : require("../assets/img/game/" + this.gd[this.gi].costume),
+        viewImg : require("../assets/img/game/" + this.gd[this.gi].view),
         // costumeImg : "../assets/" + this.gd[this.gi].costume,
-        isGuessed : false
+        isGuessed : false,
+        currentChoice : null
       }
     },
 
@@ -120,7 +129,13 @@
             }, 200
           );
 
+        } else if (e.right == false){
+          this.currentChoice = false;
+          console.log("VALE!");
         }
+      },
+      responseClosed(){
+        this.currentChoice = null;
       },
       next(){
         eventBus.changeRound();
@@ -197,6 +212,8 @@
         this.mapMarkers.push( {position:{lat:this.gd[i].map.position.lat, lng:this.gd[i].map.position.lng}} );
         if(i == this.gi){
           this.mapMarkers[i].right = true;
+        } else {
+          this.mapMarkers[i].right = false;
         }
       }
 
@@ -249,7 +266,7 @@
     // justify-content: center;
     // align-items: center;
     height: 100%;
-    padding: 2vh 3vw;
+    padding: 2vh 3vw 20vh 3vw;
     line-height: 1.6;
     text-align: center;
     color: $nkl-white;
@@ -257,10 +274,32 @@
 
     h1 {
       text-align: center;
+      color: $nkl-yellow--pale;
     }
+
     hr {
-      width: 90%;
+      //width: 90%;
+      border: none;
+      border-bottom: 1px solid lighten($nkl-gray, 15%);
+      &:nth-of-type(1) {
+        margin: 2vh 0 1vh 0;
+      }
+      &:nth-of-type(2) {
+        margin: 3vh 0 1vh 0;
+      }
+      &:last-of-type {
+        margin: 1vh 0 5vh 0;
+      }
     }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      border: 2px solid lighten($nkl-gray, 15%);
+      border-radius: 6px;
+      width: 96%;
+    }
+
     @include mq-l {
       height: 85vh;
     }
@@ -294,7 +333,24 @@
       }
   }
 
-    .gm-style-iw {
-      color: black;
-    }
+  .gm-style-iw {
+    color: black;
+  }
+
+  .nkl-responseModal__map {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: hsla( 0, 0%, 0%, 0.9);
+  }
+
+
+
 </style>
