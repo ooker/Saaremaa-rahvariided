@@ -20,11 +20,10 @@
         wrongPhrases: [
           "Mitte päris!", "Vale vastus!", "Uups!", "Ei ole õige!", "Kahjuks mitte!"
         ]
-
       }
     },
     computed: {
-      giveMeAPhrase : function(){
+      giveMeAPhrase(){
         let wrongPhrase = this.wrongPhrases[ Math.floor(Math.random()*this.wrongPhrases.length) ];
         return wrongPhrase;
       }

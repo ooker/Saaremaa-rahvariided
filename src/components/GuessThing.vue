@@ -19,7 +19,6 @@
             @choiceMade = "checkAnswer"
             class="nkl-button"
           ></nkl-guess-thing-button>
-
         </div>
         <transition name="fade">
           <nkl-response-modal v-if="currentChoice===false"
@@ -27,6 +26,7 @@
           @closeMe="responseClosed"></nkl-response-modal>
         </transition>
     </div>
+
     <div v-else class="nkl-viewContainer__item nkl-guessThing__content">
       <h1>{{this.rightChoice}}</h1>
       <p class="" style="margin-top:0.5vh; text-transform:uppercase; font-size:0.8rem;"> {{ gd[gi].name }} kihelkonnast</p>
@@ -35,6 +35,7 @@
       <hr />
       <p></p>
       <button @click="next" class="nkl-button">EDASI</button>
+
     </div>
 
 
@@ -123,6 +124,7 @@
     @include mq-l {
       padding-top: 0;
       height: 85vh;
+      justify-content: flex-end;
       img {
         max-width: none;
         box-shadow: 0 0 0.7vw 0px rgba(0,0,0,0.8);
@@ -160,7 +162,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  
+
     .nkl-button {
       margin: 1vw;
       flex: 0 1 auto;

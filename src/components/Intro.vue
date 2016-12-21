@@ -4,17 +4,17 @@
     <h1>Rahvarõivad</h1>
     <!-- <hr /> -->
     <div style="width:100%;margin:4vh auto;">
-      <svg viewBox="0 0 200 8">
+      <svg viewBox="0 0 100 2">
         <path fill="none" stroke="#777" stroke-width="2px" vector-effect="non-scaling-stroke"
-          d="M0,8 0,7 90,7 100,1 110,7 200,7 200,8"/>
+          d="M0,1.5 48,1.5 50,0 52,1.5 100,1.5"/>
       </svg>
     </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mollis tempor ex ac sollicitudin. Nulla facilisi. Suspendisse felis nisl, cursus non posuere sit amet, tempor non velit. Praesent fermentum quam a mollis scelerisque. Phasellus vel facilisis est, non congue nisi. Proin mi enim, fermentum ac nisi ac, vehicula blandit lectus. In vehicula justo lacus, sed molestie eros lacinia eu. Donec mollis molestie magna, in varius lorem condimentum sed.</p>
     <!-- <hr /> -->
     <div style="width:100%;margin:4vh auto;">
-      <svg viewBox="0 0 200 8">
+      <svg viewBox="0 0 100 2">
         <path fill="none" stroke="#777" stroke-width="2px" vector-effect="non-scaling-stroke"
-          d="M0,0 0,1 90,1 100,7 110,1 200,1 200,0"/>
+          d="M0,0.5 48,0.5 50,2 52,0.5 100,0.5"/>
       </svg>
     </div>
     <button class="nkl-button huge nkl-font--special" @click="launchGame">Mängima!</button>

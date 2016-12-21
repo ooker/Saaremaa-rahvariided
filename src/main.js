@@ -9,8 +9,8 @@ var gameData = [
     "name" : "Anseküla",
     "item" : {
       "name" : "Lahttasku",
-      "img" :  "item_placeholder_600.jpg",
-      "thumb" : "item_placeholder_200.jpg",
+      "img" :  "item_ansekyla_600.jpg",
+      "thumb" : "item_ansekyla_200.jpg",
       "options" : [
         "Ridiküll",
         "Kosjakott",
@@ -25,15 +25,15 @@ var gameData = [
       position: {lat: 58.098358, lng: 22.231077},
       placeFound : false
     },
-    "info" : "Anseküla (saksa keeles Anseküll) võttis enda alla Sõrve poolsaare kitsa kaela ja Saaremaa edelapoolsema nurga. Kaasaegse haldusjaotuse järgi kattus valdav osa Anseküla kihelkonnast praeguse Salme valla territooriumiga. Anseküla keskaegne Maarja kirik hävis täielikult 1944.aastal. Anseküla kihelkonna lauljad pidasid oma esimese laulupeo Massinõmmel juba 1863. aastal.",
+    "info" : "Anseküla (saksa keeles Anseküll) võttis enda alla Sõrve poolsaare kitsa kaela ja Saaremaa edelapoolsema nurga. Kaasaegse haldusjaotuse järgi kattus valdav osa Anseküla kihelkonnast praeguse Salme valla territooriumiga. Anseküla keskaegne Maarja kirik hävis täielikult 1944.aastal. Anseküla kihelkonna lauljad pidasid oma esimese laulupeo Massinõmmel juba 1863. aastal. <img src='/dist/view_ansekyla.jpg'>",
     "costume":"costume_ansekyla.jpg"
   },
   {
     "name" : "Jaani",
     "item" : {
       "name" : "Ummiskingad",
-      "img" :  "item_placeholder_600.jpg",
-      "thumb" : "item_placeholder_200.jpg",
+      "img" :  "item_jaani_600.jpg",
+      "thumb" : "item_jaani_200.jpg",
       "options" : [
         "Pidukossid",
         "Kõpsutid",
@@ -49,8 +49,8 @@ var gameData = [
       position: {lat: 58.613415, lng: 22.915182},
       placeFound : false
     },
-    "info" : "Jaani (saksa keeles St. Johannis) asus Saaremaa kirdeosas. Kaasaegse haldusjaotuse järgi hõlmas see väike kihelkond umbes praeguse Orissaare valla lääneosa. Kihelkonna keskse – Jaani kiriku ehitustöödega tehti algust Põhjasõja ajal. Jaani kihelkonda jäävad Pulli ja Paramaja pank, Järveküla järv.",
-    "costume":"costume_poide.jpg"
+    "info" : "Jaani (saksa keeles St. Johannis) asus Saaremaa kirdeosas. Kaasaegse haldusjaotuse järgi hõlmas see väike kihelkond umbes praeguse Orissaare valla lääneosa. Kihelkonna keskse – Jaani kiriku ehitustöödega tehti algust Põhjasõja ajal. Jaani kihelkonda jäävad Pulli ja Paramaja pank, Järveküla järv. <img src='/dist/view_jaani.jpg'>",
+    "costume":"costume_jaani.jpg"
   },
   {
     "name" : "Jämaja",
@@ -73,7 +73,7 @@ var gameData = [
       position: {lat: 58.012714, lng: 22.052888},
       placeFound : false
     },
-    "info" : "Jämaja <i class='special'>(saksa keeles Jamma)</i> hõlmas suurema osa Sõrve poolsaarest. Poolsaarel asunud kihelkonda ümbritses pea terves ulatuses meri. Kaasaegse haldusjaotuse järgi kattus Jämaja kihelkond üldjoontes praeguse Torgu vallaga. Jämaja Kolmainu kirik ehitati väga põhjalikult ümber 19. sajandi keskpaiku. Sõrve sääre tipus oleva tuletorni ajalugu ulatub tagasi aastasse 1684. Poolsaare läänerannikul paiknev Ohessaare pank ei ole oma mõõtmetelt kuigi märkimisväärne, kuid see-eest leidub siin rohkesti kivistisi.",
+    "info" : "Jämaja <i class='special'>(saksa keeles Jamma)</i> hõlmas suurema osa Sõrve poolsaarest. Poolsaarel asunud kihelkonda ümbritses pea terves ulatuses meri. Kaasaegse haldusjaotuse järgi kattus Jämaja kihelkond üldjoontes praeguse Torgu vallaga. Jämaja Kolmainu kirik ehitati väga põhjalikult ümber 19. sajandi keskpaiku. Sõrve sääre tipus oleva tuletorni ajalugu ulatub tagasi aastasse 1684. Poolsaare läänerannikul paiknev Ohessaare pank ei ole oma mõõtmetelt kuigi märkimisväärne, kuid see-eest leidub siin rohkesti kivistisi. <img src='/dist/view_jamaja.jpg'>",
     "costume":"costume_ansekyla.jpg"
   },
   {
@@ -96,15 +96,15 @@ var gameData = [
       position: {lat: 58.349067, lng: 22.509372},
       placeFound : false
     },
-    "info" : "Kaarma (saksa keeles <i>Karmel</i>) kihelkond asus Saaremaa keskel, ulatudes Kuressaare ümbruses mereni. Keskaegse Peeter-Pauli kiriku naabrusse jääb Kaarma maalinn. Kunagi tegutses Kaarmal õpetajate seminar, kus valmistati ette külakoolmeistreid. Kohalikust dolomiidikärjäärist võetud ehituskivi leidis kasutust ka kaugel väljaspool Saaremaad.",
+    "info" : "Kaarma (saksa keeles <i>Karmel</i>) kihelkond asus Saaremaa keskel, ulatudes Kuressaare ümbruses mereni. Keskaegse Peeter-Pauli kiriku naabrusse jääb Kaarma maalinn. Kunagi tegutses Kaarmal õpetajate seminar, kus valmistati ette külakoolmeistreid. Kohalikust dolomiidikärjäärist võetud ehituskivi leidis kasutust ka kaugel väljaspool Saaremaad. <img src='/dist/view_kaarma.jpg'>",
     "costume":"costume_kaarma.jpg"
   },
   {
     "name" : "Karja",
     "item" : {
       "name" : "Liistik",
-      "img" :  "item_placeholder_600.jpg",
-      "thumb" : "item_placeholder_200.jpg",
+      "img" :  "item_karja_600.jpg",
+      "thumb" : "item_karja_200.jpg",
       "options" : [
         "Porst",
         "Umps",
@@ -118,30 +118,30 @@ var gameData = [
       position: {lat: 58.523244, lng: 22.732552},
       placeFound : false
     },
-    "info" : "Karja (saksa keeles <i>Karris</i>) asus Saaremaa põhjaosas Soela väina ääres. Kaasaegse haldusjaotuse järgi hõlmas Karja kihelkond ligikaudu praeguse Leisi valla territooriumi.<br><br>Karja keskaegne Katariina kirik on tähelepanuväärne oma raidkaunistuste poolest.<br><br>Tuntud on Angla tuulikud ja vana maalinn Kooljamägedel.<br><br>Triigi sadama kaudu peeti ühendust nii Hiiumaa kui mandriga.",
+    "info" : "Karja (saksa keeles <i>Karris</i>) asus Saaremaa põhjaosas Soela väina ääres. Kaasaegse haldusjaotuse järgi hõlmas Karja kihelkond ligikaudu praeguse Leisi valla territooriumi.<br><br>Karja keskaegne Katariina kirik on tähelepanuväärne oma raidkaunistuste poolest.<br><br>Tuntud on Angla tuulikud ja vana maalinn Kooljamägedel.<br><br>Triigi sadama kaudu peeti ühendust nii Hiiumaa kui mandriga. <img src='/dist/view_karja.jpg'>",
     "costume":"costume_karja.jpg"
   },
   {
     "name" : "Kihelkonna",
     "item" : {
-      "name" : "Ümbrik",
-      "img" :  "item_placeholder_600.jpg",
-      "thumb" : "item_placeholder_200.jpg",
+      "name" : "Sariküll",
+      "img" :  "item_kihelkonna_600.jpg",
+      "thumb" : "item_kihelkonna_200.jpg",
       "options" : [
-        "Panderoll",
-        "Pallapool",
-        "Tumeseelik",
-        "Ülemeelik",
-        "Tule-eila-meile"
+        "Totulotu",
+        "Kikk-kõrumüts",
+        "Pilotka",
+        "Kikktanu",
+        "Sarvikpibo"
       ],
-      "itemInfo" : "Kihelkonna vanem must seelik ümbrik kaunistati allääres värviliste riideribadega. Et tihedalt volditud seelik oleks veidike kohevam aeti selle serva kas traat või männijuur. Hiljem hakati musta seelikukanga sisse kuduma punaseid laiemaid vööte, mida ääristasid värvilised kitsamad triibud.",
+      "itemInfo" : "Saare naise talvemütsil – punase lagipealsega sariküllil oli kaks sarve. Need ja mütsi äär kaeti musta tallenahaga. Sariküllile seoti rätik peale, et see kindlamini peas püsiks ja külma eest kaitseks. Kihelkonniti oli sarikülli kandmise viis erinev. Mõnel pool seati sarved ette ja taha, teisal jälle külgedele.",
       "itemFound" : false
     },
     "map" : {
       position: {lat: 58.360297, lng: 22.035814},
       placeFound : false
     },
-    "info" : "Kihelkonna <i>(saksa keeles Kielkond)</i> oli Saaremaa ja ühtlasi kogu Eesti läänepoolseim kihelkond. Tänapäevase haldusjaotuse järgi hõlmas Kihelkonna kihelkond praeguse Kihelkonna ja endise Lümanda valla ning tüki Salme vallast. Kihelkonna keskaegne Miikaeli kirik sai oma sihvaka torni alles 1899. aastal. Kihelkonna piiridesse jääb Vilsandi saar oma linnuriigiga, Harilaiu poolsaar viltuse majakaga, Odalätsi allikad, vanim ja kõrgeim koht Saaremaal – Viidumäe.",
+    "info" : "Kihelkonna <i>(saksa keeles Kielkond)</i> oli Saaremaa ja ühtlasi kogu Eesti läänepoolseim kihelkond. Tänapäevase haldusjaotuse järgi hõlmas Kihelkonna kihelkond praeguse Kihelkonna ja endise Lümanda valla ning tüki Salme vallast. Kihelkonna keskaegne Miikaeli kirik sai oma sihvaka torni alles 1899. aastal. Kihelkonna piiridesse jääb Vilsandi saar oma linnuriigiga, Harilaiu poolsaar viltuse majakaga, Odalätsi allikad, vanim ja kõrgeim koht Saaremaal – Viidumäe. <img src='/dist/view_kihelkonna.jpg'>",
     "costume":"costume_kihelkonna.jpg"
   },
   {
@@ -163,7 +163,7 @@ var gameData = [
       position: {lat: 58.333498, lng: 22.258482},
       placeFound : false
     },
-    "info" : "Kärla (saksa keeles Kergel) oli ainus Saaremaa kihelkond, millel puudus merepiir. Varasema haldusjaotuse järgi hõlmas Kärla kihelkond endise Kärla valla territooriumi. Kärla Maarja Magdaleena kirik ehitati 19. sajandi II veerandil lammutatud keskaegse kiriku asemele. Suuremalt jaolt Kärla kihelkonda jääv Karujärv on Saaremaa suurim ja üks ilusaimatest järvedest. Hirmuste mäel on aga Saaremaa vägilase Suure Tõllu viimne puhkepaik.",
+    "info" : "Kärla (saksa keeles Kergel) oli ainus Saaremaa kihelkond, millel puudus merepiir. Varasema haldusjaotuse järgi hõlmas Kärla kihelkond endise Kärla valla territooriumi. Kärla Maarja Magdaleena kirik ehitati 19. sajandi II veerandil lammutatud keskaegse kiriku asemele. Suuremalt jaolt Kärla kihelkonda jääv Karujärv on Saaremaa suurim ja üks ilusaimatest järvedest. Hirmuste mäel on aga Saaremaa vägilase Suure Tõllu viimne puhkepaik. <img src='/dist/view_karla.jpg'>",
     "costume":"costume_karla.jpg"
   },
   {
@@ -185,7 +185,7 @@ var gameData = [
       position: {lat: 58.462323, lng: 22.235696},
       placeFound : false
     },
-    "info" : "Mustjala (saksa keeles Mustel) oli mereäärne kihelkond Saaremaa loodeosas. Kaasaegse haldusjaotuse järgi kattus Mustjala kihelkond tänapäevase Mustjala vallaga. Mustjala Anna kirik ei saanud oma nime pühaku järgi nagu see tavaliselt käis, vaid hoopis Taani asekuberneri abikaasa nime järgi. Tähelepanuväärne on Panga e Mustjala pank, mis on Saaremaa kõrgeim pank. Tükk maad madalam Ninase (Tagaranna) pank samanimelisel poolsaarel on omapärase sakilise ülaservaga.",
+    "info" : "Mustjala (saksa keeles Mustel) oli mereäärne kihelkond Saaremaa loodeosas. Kaasaegse haldusjaotuse järgi kattus Mustjala kihelkond tänapäevase Mustjala vallaga. Mustjala Anna kirik ei saanud oma nime pühaku järgi nagu see tavaliselt käis, vaid hoopis Taani asekuberneri abikaasa nime järgi. Tähelepanuväärne on Panga e Mustjala pank, mis on Saaremaa kõrgeim pank. Tükk maad madalam Ninase (Tagaranna) pank samanimelisel poolsaarel on omapärase sakilise ülaservaga. <img src='/dist/view_mustjala.jpg'>",
     "costume":"costume_mustjala.jpg"
   },
   {
@@ -208,7 +208,7 @@ var gameData = [
       position: {lat: 58.509506, lng: 23.049149},
       placeFound : false
     },
-    "info" : "Pöide (saksa keeles Peude) kihelkond asus Saaremaa idaosas. Kaasaegse haldusjaotuse järgi hõlmas Pöide kihelkond nüüdse Pöide ja Valjala valla ning osa Orissaare valla idapoolsest alast. Kihelkonna keskuses olev Pöide Maarja kirik on Saaremaa suurim kirik. Pöide kihelkonda jäävad Maasilinna ordulinnuse varemed, Kahutsi maalinn, Koigi raba, Kübassaare poolsaar.",
+    "info" : "Pöide (saksa keeles Peude) kihelkond asus Saaremaa idaosas. Kaasaegse haldusjaotuse järgi hõlmas Pöide kihelkond nüüdse Pöide ja Valjala valla ning osa Orissaare valla idapoolsest alast. Kihelkonna keskuses olev Pöide Maarja kirik on Saaremaa suurim kirik. Pöide kihelkonda jäävad Maasilinna ordulinnuse varemed, Kahutsi maalinn, Koigi raba, Kübassaare poolsaar. <img src='/dist/view_poide.jpg'>",
     "costume":"costume_poide.jpg"
   },
   {
@@ -224,37 +224,37 @@ var gameData = [
         "Salakirjak",
         "Pihahoidja"
       ],
-      "itemInfo" : "Kirivöö oli kõige levinum vöö, mis kooti villasest ja linasest lõngast. Vöö pidi ulatuma 2–3 korda ümber keha ja selle laius oli mõnikord kuni 8 cm. Vöökorrad mähiti kõik üksteise peale, paistma jäi ainult pealmine kord.",
+      "itemInfo" : "Kirivöö oli kõige levinum vöö, mis kooti villasest ja linasest lõngast. Vöö pidi ulatuma 2–3 korda ümber keha ja selle laius oli mõnikord kuni 8 cm. Vöökorrad mähiti kõik üksteise peale, paistma jäi ainult pealmine kord. ",
       "itemFound" : false
     },
     "map" : {
       position: {lat: 58.300548, lng: 22.725704},
       placeFound : false
     },
-    "info" : "Püha (saksa keeles Pyha) asus Saaremaa kaguosas. Kaasaegse haldusjaotuse järgi kattus Püha kihelkond enamikus osas praeguse Pihtla vallaga. Püha Jakobi kirikut hakati kihelkonna keskusesse rajama juba 13. sajandil. Kihelkonna suurimaks vaatamisväärsuseks on Kaali meteoriidikraater.",
+    "info" : "Püha (saksa keeles Pyha) asus Saaremaa kaguosas. Kaasaegse haldusjaotuse järgi kattus Püha kihelkond enamikus osas praeguse Pihtla vallaga. Püha Jakobi kirikut hakati kihelkonna keskusesse rajama juba 13. sajandil. Püha kihelkonna suurimaks vaatamisväärsuseks on Kaali meteoriidikraater. <hr><img src='/dist/view_pyha.jpg'>",
     "costume":"costume_pyha.jpg"
   },
   {
     "name" : "Valjala",
     "item" : {
-      "name" : "Sariküll",
+      "name" : "Pikk-kuub",
       "img" :  "item_valjala_600.jpg",
       "thumb" : "item_valjala_200.jpg",
       "options" : [
-        "Totulotu",
-        "Kikk-kõrumüts",
-        "Pilotka",
-        "Kikktanu",
-        "Sarvikpibo"
+        "Mulgi kuub",
+        "Kuft",
+        "Suurtükk",
+        "Lambakantsik",
+        "Ümbrik"
       ],
-      "itemInfo" : "Saarlaste talimütsil – punase lagipealsega sariküllil oli kaks sarve. Need ja mütsi äär kaeti musta tallenahaga. Nagu ratasüllile nii ka sariküllile seoti rätik peale, et see kindlamini peas püsiks ja külma eest kaitseks. Kihelkonniti oli sarikülli kandmise viis erinev. Mõnel pool seati sarved ette ja taha, teisal jälle külgedele.",
+      "itemInfo" : "Pikk-kuube kanti kirikusse minnes. Kindlasti pidid välja paistma kuue alt kõik seljas olevad pidulikud riided. 19. sajandi alguses oli levinud avara tüüriga kuub, mille keset selga abaluude kõrguselt algasid kolm sügavalt sisse pressitud volti. Peale seljavoltide oli Valjalas veel kummalgi küljel kaenla alt algav madal volt.",
       "itemFound" : false
     },
     "map" : {
       position: {lat: 58.408213, lng: 22.788948},
       placeFound : false
     },
-    "info" : "Valjala (saksa keeles Wolde) kihelkond asus Saaremaa kaguosas. Kaasaegse haldusjaotuse järgi hõlmas Valjala kihelkond ligikaudu praeguse Valjala valla ala. Valjala Martini kirik on Saaremaa kihelkonna kirikutest vanim, mille ehitamisega alustati juba pärast Saaremaa alistamist. Valjalas asub ka muistne maalinn, mis oli Saaremaa tugevaim. Selle alistumist 1227. aastal võib pidada ka muistse vabadusvõitluse lõpuks.",
+    "info" : "Valjala (saksa keeles Wolde) kihelkond asus Saaremaa kaguosas. Kaasaegse haldusjaotuse järgi hõlmas Valjala kihelkond ligikaudu praeguse Valjala valla ala. Valjala Martini kirik on Saaremaa kihelkonna kirikutest vanim, mille ehitamisega alustati juba pärast Saaremaa alistamist. Valjalas asub ka muistne maalinn, mis oli Saaremaa tugevaim. Selle alistumist 1227. aastal võib pidada ka muistse vabadusvõitluse lõpuks. <img src='/dist/view_valjala.jpg'>",
     "costume":"costume_valjala.jpg"
   }
 
