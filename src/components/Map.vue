@@ -15,6 +15,7 @@
             :clickable="true"
             :draggable="false"
             :isRight="m.right"
+            :name="m.name"
             @click="markerClicked(m)"
           ></gmap-marker>
           <gmap-info-window class="map__markerInfo"
@@ -64,6 +65,7 @@
     <transition name="fade">
       <nkl-response-modal v-if="currentChoice===false"
       :choice="currentChoice"
+      :message="wrongMessage"
       @closeMe="responseClosed"
       class="nkl-responseModal__map"></nkl-response-modal>
     </transition>
@@ -106,7 +108,9 @@
         viewImg : require("../assets/img/game/" + this.gd[this.gi].view),
         // costumeImg : "../assets/" + this.gd[this.gi].costume,
         isGuessed : false,
-        currentChoice : null
+        currentChoice : null,
+        rightPos : {},
+        wrongMessage: ""
       }
     },
 
@@ -131,7 +135,8 @@
 
         } else if (e.right == false){
           this.currentChoice = false;
-          console.log("VALE!");
+          this.wrongMessage = "See on hoopis <b class='nkl-important'>" + e.name.toUpperCase() + "</b> mis asub õigest kohast umbes <b class='nkl-important'>" + Math.round(this.getDistance(e.position, this.rightPos)) + " km</b> kaugusel.";
+          console.log(this.wrongMessage);
         }
       },
       responseClosed(){
@@ -140,6 +145,22 @@
       next(){
         eventBus.changeRound();
         eventBus.changeView("nkl-guess-thing");
+      },
+      rad(x) {
+        return x * Math.PI / 180;
+      },
+      getDistance(p1, p2) {
+        var R = 6378137; // Earth’s mean radius in meter
+        var dLat = this.rad(p2.lat - p1.lat);
+        var dLong = this.rad(p2.lng - p1.lng);
+        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(this.rad(p1.lat)) * Math.cos(this.rad(p2.lat)) *
+        Math.sin(dLong / 2) * Math.sin(dLong / 2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        var d = R * c;
+        //console.log("DISTANTS:" + Math.round(d/1000));
+        return d/1000;
+
       }
     },
     created(){
@@ -210,8 +231,11 @@
 
       for (var i=0; i<this.gd.length; i++) {
         this.mapMarkers.push( {position:{lat:this.gd[i].map.position.lat, lng:this.gd[i].map.position.lng}} );
+        this.mapMarkers[i].name = this.gd[i].name;
         if(i == this.gi){
           this.mapMarkers[i].right = true;
+          this.rightPos.lat = this.gd[i].map.position.lat;
+          this.rightPos.lng = this.gd[i].map.position.lng;
         } else {
           this.mapMarkers[i].right = false;
         }
@@ -220,10 +244,10 @@
       //this.currentPlace = this.gd[this.gi].name;
       //this.$emit('fitBounds', this.mapBounds);
 
-      this.mapBounds.north = 58.639969;
-      this.mapBounds.west = 21.757071;
-      this.mapBounds.south = 57.891453;
-      this.mapBounds.east = 23.431412;
+      // this.mapBounds.north = 58.639969;
+      // this.mapBounds.west = 21.757071;
+      // this.mapBounds.south = 57.891453;
+      // this.mapBounds.east = 23.431412;
 
     }
   }

@@ -1,22 +1,26 @@
 <template>
   <div class="nkl-responseModal">
     <div v-if="myChoice === false">
-      <h1>{{ giveMeAPhrase }}</h1>
+      <h2>{{ giveMeAPhrase }}</h2>
+      <p v-if="showMessage === true" v-html="message"></p>
     </div>
-    <div v-else="myChoice === true">
-      <h1>Well done!</h1>
-    </div>
-    <button @click="clicked" class="nkl-button">PROOVIN UUESTI</button>
+
+    <!--<div v-else="myChoice === true">
+      <h1>Hea töö!</h1>
+    </div>-->
+    <button @click="clicked" class="nkl-button">PROOVI UUESTI</button>
   </div>
 </template>
 
 
 <script>
   export default {
-    props: ["choice"],
+    props: ["choice", "message"],
     data(){
       return {
         myChoice : this.choice,
+        extraMessage : this.message,
+        showMessage : false,
         wrongPhrases: [
           "Mitte päris!", "Vale vastus!", "Uups!", "Ei ole õige!", "Kahjuks mitte!"
         ]
@@ -26,6 +30,12 @@
       giveMeAPhrase(){
         let wrongPhrase = this.wrongPhrases[ Math.floor(Math.random()*this.wrongPhrases.length) ];
         return wrongPhrase;
+      }
+    },
+    created(){
+      //console.log(message);
+      if(this.message != undefined) {
+        this.showMessage = true;
       }
     },
     methods : {
@@ -38,6 +48,28 @@
 
 <style scoped lang="sass">
   @import "../assets/scss/variables.scss";
+
+  .nkl-responseModal {
+    padding: 2vh 3vw;
+  }
+  h2 {
+    font-size: $nkl-xxxl;
+    margin-bottom: $nkl-s;
+    color: $nkl-yellow--pale;
+    text-align: center;
+
+  }
+  p {
+    color:#fff;
+    text-align: center;
+    margin-bottom: $nkl-xl;
+  }
+  hr {
+    width:50%;
+  }
+    b {
+      color: $nkl-yellow--pale;
+    }
 
   /*.nkl-responseModal {
     position: absolute;
