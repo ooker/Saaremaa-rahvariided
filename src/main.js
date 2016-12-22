@@ -27,7 +27,8 @@ var gameData = [
     },
     "info" : "Anseküla (saksa keeles Anseküll) võttis enda alla Sõrve poolsaare kitsa kaela ja Saaremaa edelapoolsema nurga. Tänapäeva mõistes kattus valdav osa Anseküla kihelkonnast praeguse Salme vallaga. Anseküla keskaegne Maarja kirik hävis täielikult 1944. aastal maailmasõjas. Anseküla kihelkonnas peeti esimene laulupidu Massinõmmel juba 1863. aastal.",
     "costume":"costume_ansekyla.jpg",
-    "view" : "view_ansekyla.jpg"
+    "view" : "view_ansekyla.jpg",
+    "viewInfo" : "Anseküla kirik enne 1944. aastat"
   },
   {
     "name" : "Jaani",
@@ -50,9 +51,10 @@ var gameData = [
       position: {lat: 58.613415, lng: 22.915182},
       placeFound : false
     },
-    "info" : "Jaani (saksa keeles St. Johannis) asus Saaremaa kirdeosas. Tänapäeva mõistes hõlmas see väike kihelkond umbes praeguse Orissaare valla lääneosa. Kihelkonna keskse – Jaani kiriku ehitustöödega tehti algust Põhjasõja ajal. Jaani kihelkonda jäävad Pulli ja Paramaja pank ning Järveküla järv.",
+    "info" : "Jaani <i>(saksa keeles St. Johannis)</i> asus Saaremaa kirdeosas. Tänapäeva mõistes hõlmas see väike kihelkond umbes praeguse Orissaare valla lääneosa. Kihelkonna keskse – <b>Jaani kiriku</b> ehitustöödega tehti algust Põhjasõja ajal. Jaani kihelkonda jäävad <b>Pulli</b> ja <b>Paramaja pank</b> ning <b>Järveküla järv</b>.",
     "costume":"costume_jaani.jpg",
-    "view" : "view_jaani.jpg"
+    "view" : "view_jaani.jpg",
+    "viewInfo" : "Jaani kirik asub merest vaid mõnesaja meetri kaugusel."
   },
   {
     "name" : "Jämaja",
@@ -77,7 +79,8 @@ var gameData = [
     },
     "info" : "Jämaja <i>(saksa keeles Jamma)</i> hõlmas suurema osa Sõrve poolsaarest. Poolsaarel asunud kihelkonda ümbritses pea terves ulatuses meri. Tänapäeva mõistes kattus Jämaja kihelkond üldjoontes praeguse Torgu vallaga. Jämaja Kolmainu kirik ehitati väga põhjalikult ümber 19. sajandi keskpaiku. Sõrve sääre tipus oleva tuletorni ajalugu ulatub tagasi aastasse 1684. Poolsaare läänerannikul paiknev Ohessaare pank ei ole kuigi kõrge, kuid see-eest leidub siin rohkesti huvitavaid kivistisi.",
     "costume":"costume_ansekyla.jpg",
-    "view" : "view_jamaja.jpg"
+    "view" : "view_jamaja.jpg",
+    "viewInfo" : "Päris Sõrve sääre tipus asub 52 m kõrgune tuletorn."
   },
   {
     "name" : "Kaarma",
@@ -101,7 +104,8 @@ var gameData = [
     },
     "info" : "Kaarma <i>(saksa keeles Karmel)</i> kihelkond asus Saaremaa keskel, ulatudes Kuressaare ümbruses mereni. Keskaegse Peeter-Pauli kiriku naabrusse jääb Kaarma maalinn. Kunagi tegutses Kaarmal õpetajate seminar, kus valmistati ette külakoolmeistreid. Kohalikust dolomiidikärjäärist võetud ehituskivi leidis kasutust ka kaugel väljaspool Saaremaad.",
     "costume":"costume_kaarma.jpg",
-    "view" : "view_kaarma.jpg"
+    "view" : "view_kaarma.jpg",
+    "viewInfo" : "Kaarma maalinn asub päris kiriku kõrval. Tihti ehitatigi kirikud maarahvale olulistesse paikadesse."
   },
   {
     "name" : "Karja",
@@ -124,7 +128,8 @@ var gameData = [
     },
     "info" : "Karja (saksa keeles <i>Karris</i>) asus Saaremaa põhjaosas Soela väina ääres. Tänapäeva mõistes hõlmas Karja kihelkond ligikaudu praeguse Leisi valla territooriumi.<br>Karja keskaegne Katariina kirik on tähelepanuväärne oma raidkaunistuste poolest.<br>Tuntud on Angla tuulikud ja vana maalinn Kooljamägedel.<br>Triigi sadama kaudu peeti ühendust nii Hiiumaa kui mandriga.",
     "costume":"costume_karja.jpg",
-    "view" : "view_karja.jpg"
+    "view" : "view_karja.jpg",
+    "viewInfo" : "Anglas asub viis hästi säilinud tuulikut."
   },
   {
     "name" : "Kihelkonna",
@@ -148,7 +153,8 @@ var gameData = [
     },
     "info" : "Kihelkonna <i>(saksa keeles Kielkond)</i> oli Saaremaa ja ühtlasi kogu Eesti läänepoolseim kihelkond. Tänapäeva mõistes hõlmas Kihelkonna kihelkond praeguse Kihelkonna ja endise Lümanda valla ning tüki Salme vallast. Kihelkonna keskaegne Miikaeli kirik sai oma sihvaka torni alles 1899. aastal. Säilinud on ka eraldi asuv kellatorn. Kihelkonna piiridesse jääb Vilsandi saar oma linnuriigiga, Harilaiu poolsaar viltuse majakaga, Odalätsi allikad, vanim ja kõrgeim koht Saaremaal – Viidumäe.",
     "costume":"costume_kihelkonna.jpg",
-    "view" : "view_kihelkonna.jpg"
+    "view" : "view_kihelkonna.jpg",
+    "viewInfo" : "Harilaiu viltune majakas on viltu nagu kuulus Pisa torn Itaalias"
   },
   {
     "name" : "Kärla",
@@ -171,7 +177,8 @@ var gameData = [
     },
     "info" : "Kärla <i>(saksa keeles Kergel)</i> oli <b>ainus</b> Saaremaa kihelkond, millel puudus merepiir. Varasema haldusjaotuse järgi hõlmas Kärla kihelkond endise Kärla valla territooriumi. Kärla Maarja Magdaleena kirik ehitati 19. sajandi II veerandil lammutatud keskaegse kiriku asemele. Suuremalt jaolt Kärla kihelkonda jääv Karujärv on Saaremaa suurim ja üks ilusaimatest järvedest. Hirmuste mäel on aga Saaremaa vägilase <b>Suure Tõllu</b> viimne puhkepaik.",
     "costume":"costume_karla.jpg",
-    "view" : "view_karla.jpg"
+    "view" : "view_karla.jpg",
+    "viewInfo" : "Karujärve rand. Vahel kui merevesi on liiga külm, saab järves ujuda."
   },
   {
     "name" : "Mustjala",
@@ -194,7 +201,8 @@ var gameData = [
     },
     "info" : "Mustjala <i>(saksa keeles Mustel)</i> oli mereäärne kihelkond Saaremaa loodeosas. Tänapäeva mõistes  kattus Mustjala kihelkond praeguse Mustjala vallaga. Mustjala Anna kirik ei saanud oma nime pühaku järgi nagu see tavaliselt käis, vaid hoopis Taani asekuberneri abikaasa nime järgi. Tähelepanuväärne on Panga e Mustjala pank, mis on Saaremaa kõrgeim pank. Tükk maad madalam Ninase (Tagaranna) pank samanimelisel poolsaarel on omapärase sakilise ülaservaga.",
     "costume":"costume_mustjala.jpg",
-    "view" : "view_mustjala.jpg"
+    "view" : "view_mustjala.jpg",
+    "viewInfo" : "PAnga pank"
   },
   {
     "name" : "Pöide",
@@ -218,7 +226,8 @@ var gameData = [
     },
     "info" : "Pöide <i>(saksa keeles Peude)</i> kihelkond asus Saaremaa idaosas. Tänapäeva mõistes hõlmas Pöide kihelkond nüüdse Pöide ja Valjala valla ning Orissaare valla idapoolse ala. Kihelkonna keskuses olev Pöide Maarja kirik on Saaremaa suurim kirik. Pöide kihelkonda jäävad Maasilinna ordulinnuse varemed, Kahutsi maalinn, Koigi raba, Kübassaare poolsaar.",
     "costume":"costume_poide.jpg",
-    "view" : "view_poide.jpg"
+    "view" : "view_poide.jpg",
+    "viewInfo" : "Orissaare staadioni keskel kasvav tamm kuulutati 2015. a. maailma &quot;aasta puuks&quot;"
   },
   {
     "name" : "Püha",
@@ -242,7 +251,8 @@ var gameData = [
     },
     "info" : "Püha <i>(saksa keeles Pyha)</i> asus Saaremaa kaguosas. Tänapäeva mõistes kattus Püha kihelkond enamikus osas praeguse Pihtla vallaga. Püha Jakobi kirikut hakati kihelkonna keskusesse rajama juba 13. sajandil. Püha kihelkonna suurimaks vaatamisväärsuseks on Kaali meteoriidikraater.",
     "costume":"costume_pyha.jpg",
-    "view" : "view_pyha.jpg"
+    "view" : "view_pyha.jpg",
+    "viewInfo" : ""
   },
   {
     "name" : "Valjala",
@@ -265,7 +275,9 @@ var gameData = [
       placeFound : false
     },
     "info" : "Valjala <i>(saksa keeles Wolde)</i> kihelkond asus Saaremaa kaguosas. Tänapäeva mõistes hõlmas Valjala kihelkond ligikaudu praeguse Valjala valla ala. Valjala <b>Martini kirik</b> on Saaremaa kihelkonna kirikutest vanim, mille ehitamisega alustati kohe pärast Saaremaa alistamist. Valjalas asub ka muistne maalinn, mis oli Saaremaa tugevaim. Selle alistumist 1227. aastal võib pidada ka muistse vabadusvõitluse lõpuks.",
-    "costume":"costume_valjala.jpg"
+    "costume":"costume_valjala.jpg",
+    "view" : "view_valjala.jpg",
+    "viewInfo" : "Valjala maalinn langes muistses saarlaste vabadusvõitluses viimasena."
   }
 
 ];

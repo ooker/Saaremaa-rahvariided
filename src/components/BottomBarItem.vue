@@ -32,11 +32,11 @@
     text-align: center;
     margin: 0;
     padding: 0;
-    opacity: 0.25;
+    opacity: 0;
 
     img {
       display: block;
-      width: 50%;
+      width: 60%;
       max-width: 10vh;
       border-radius: 50%;
       margin: 0 auto 1vh auto;

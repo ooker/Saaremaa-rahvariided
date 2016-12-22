@@ -26,19 +26,18 @@
         </gmap-map>
       </div>
 
-      <!-- <transition name="fade"> -->
+      <transition name="fade">
         <div class="map__contentContainer" v-if="isGuessed">
 
-          <div class="map__contentContainer__info zigzag">
+          <div class="map__contentContainer__info nkl-zigzag">
 
             <div style="margin:auto;">
               <h1>{{gd[gi].name}}</h1>
               <hr />
-              <p v-html="gd[gi].info">
-              <hr />
+              <p v-html="gd[gi].info"></p>
               <img :src="viewImg" />
+              <p v-html="gd[gi].viewInfo" class="viewInfo"></p>
               <hr />
-              </p>
               <a @click="next" class="nkl-button">EDASI</a>
             </div>
 
@@ -49,7 +48,7 @@
           </div>
 
         </div>
-      <!-- </transition> -->
+      </transition>
 
     </div><!-- //.nkl-viewContainer -->
 
@@ -128,7 +127,7 @@
             function(){
               self.center = {lat: place.position.lat, lng:place.position.lng };
               self.zoom = 10;
-              self.$refs.mymap.resizePreserveCenter();
+              //self.$refs.mymap.resizePreserveCenter();
               self.isGuessed = true;
             }, 200
           );
@@ -168,6 +167,9 @@
       this.mapOptions = {
         mapTypeControl: false,
         streetViewControl: false,
+        zoomControlOptions: {
+          position: google.maps.ControlPosition.RIGHT_CENTER
+        },
         styles : [
           { "elementType": "labels",
             "stylers": [{ "visibility": "off" }]
@@ -261,7 +263,7 @@
     height:70vh;
 
     @include mq-l {
-      height: 85vh;
+      height: 90vh;
     }
   }
 
@@ -278,7 +280,7 @@
     }
 
     @include mq-l{
-      height: 85vh;
+      height: 90vh;
       //height: 100%;
     }
   }
@@ -324,20 +326,27 @@
       width: 96%;
     }
 
+    .viewInfo {
+      font-style: italic;
+      font-size: $nkl-s;
+      color: $nkl-white;
+    }
+
     @include mq-l {
-      height: 85vh;
+      height: 90vh;
     }
   }
 
   .map__contentContainer__costume {
-    flex: 1 0 50%;
+    flex: 0 1 400px;
+    // max-width: 600px;
     height : 100%;
 
     background-size: cover;
     background-position: center;
 
     @include mq-l {
-      height: 85vh;
+      height: 90vh;
     }
   }
 

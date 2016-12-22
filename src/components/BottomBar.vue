@@ -32,7 +32,7 @@
     left: 0;
     width: 100%;
 
-    background: hsla(0, 0%, 0%, 0.3);
+    background: hsla(0, 0%, 0%, 0.8);
     color: white;
 
     @include mq-l{
@@ -40,7 +40,8 @@
 
       justify-content: center;
       align-items: flex-end;
-      height: 15vh;
+      height: 10vh;
+      // min-height: 80px;
       padding-bottom: 1.5vh;
     }
   }

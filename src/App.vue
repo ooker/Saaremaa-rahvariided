@@ -39,7 +39,7 @@
         this.gameScore += s;
       } );
       eventBus.$on("roundChanged", ()=>{
-        if(this.gameIndex < 3) {
+        if(this.gameIndex < 10) {
           this.gameIndex++;
         } else {
           // Game Over

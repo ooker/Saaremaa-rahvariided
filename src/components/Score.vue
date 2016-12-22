@@ -26,11 +26,11 @@
     align-items: center;
 
     font-family: $font-special;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     line-height: 1;
-    color: $nkl-yellow--pale;
+    color: $nkl-white;
 
-    border: 2px $nkl-gray solid;
-    background: rgba(0, 0, 0, 0.6);
+    border: 3px $nkl-yellow--pale solid;
+    background: rgba(0, 0, 0, 0.8);
   }
 </style>

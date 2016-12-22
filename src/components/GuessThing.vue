@@ -1,5 +1,5 @@
 <template>
-  <div class="nkl-viewContainer zigzag">
+  <div class="nkl-viewContainer nkl-zigzag">
 
     <div class="nkl-viewContainer__item nkl-guessThing__image">
         <img :src="image" alt="Mõista-mõista, mis see on">
@@ -122,7 +122,7 @@
 
     @include mq-l {
       padding-top: 0;
-      height: 85vh;
+      height: 90vh;
       justify-content: flex-end;
       img {
         max-width: none;
@@ -154,7 +154,7 @@
       line-height: 1.6;
     }
     @include mq-l {
-      height: 85vh;
+      height: 90vh;
     }
   }
   .buttons {

@@ -34,6 +34,7 @@ img {
   display:block;
   margin: auto;
   width:100%;
+  max-width: 600px;
   height:auto;
 }
 
@@ -48,6 +49,7 @@ hr {
   display: flex;
   flex-direction: column;
   padding-bottom: 20vh;
+
 
   @include mq-m {
     padding-bottom: 0;
@@ -97,7 +99,7 @@ hr {
   }
 }
 
-.zigzag {
+.nkl-zigzag {
   position: relative;
   &:before {
     content: "";
