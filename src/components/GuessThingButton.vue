@@ -1,10 +1,19 @@
 <template>
-  <button @click="clicked" class="nkl-button">{{name}}</button>
+  <button
+    @click="clicked"
+    :disabled = "isClicked"
+    :class = "{ 'nkl-btn--disabled' : this.isClicked }"
+    class="nkl-btn">{{name}}</button>
 </template>
 
 <script>
   export default {
     props: ["name", "right"],
+    data() {
+      return {
+        isClicked : false
+      }
+    },
     methods: {
       clicked () {
         if (this.name == this.right) {
@@ -12,6 +21,7 @@
         } else {
           this.$emit("choiceMade", false);
         }
+        this.isClicked = true;
       }
     }
   }

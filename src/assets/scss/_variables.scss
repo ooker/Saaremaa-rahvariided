@@ -1,8 +1,7 @@
-$mq-m: 480px;
+$mq-s: 480px;
+$mq-m: 640px;
 $mq-l: 1024px;
 $mq-xl: 1600px;
-
-
 
 $font-main: 'Roboto Condensed', sans-serif;
 $font-special: 'Germania One', cursive;
@@ -39,6 +38,11 @@ $nkl-green--map: hsl(96, 67%, 43%);
   #{$key}: calc(#{$value});
 }
 
+@mixin mq-s {
+  @media (min-width: #{$mq-s})  {
+    @content;
+  }
+}
 @mixin mq-m {
   @media (min-width: #{$mq-m})  {
     @content;

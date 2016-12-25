@@ -38,25 +38,24 @@
               <img :src="viewImg" />
               <p v-html="gd[gi].viewInfo" class="viewInfo"></p>
               <hr />
-              <a @click="next" class="nkl-button">EDASI</a>
             </div>
 
           </div>
 
-          <div class="map__contentContainer__costume" :style="{ backgroundImage: 'url(' + costumeImg + ')' }">
-            <!-- <img :src="this.costumeImg" /> -->
+          <!-- <div class="map__contentContainer__costume" :style="{ backgroundImage: 'url(' + costumeImg + ')' }"> -->
+          <div class="map__contentContainer__costume">
+            <img :src="this.costumeImg" />
           </div>
 
         </div>
       </transition>
-
     </div><!-- //.nkl-viewContainer -->
 
-    <transition name="fade">
+    <transition name="fade" appear>
       <div class="map__infoPanel" v-if="!isGuessed">
         <h1>{{gd[gi].name}} kihelkond</h1>
         <p>
-          Proovi, mitme korraga leiad õige koha üles.
+          Proovi, mitme korraga leiad õige kihelkonnakeskuse üles.
         </p>
       </div>
     </transition>
@@ -68,6 +67,14 @@
       @closeMe="responseClosed"
       class="nkl-responseModal__map"></nkl-response-modal>
     </transition>
+
+    <!-- <transition name="btnfly"> -->
+      <a @click="next"
+        class="nkl-btn nkl-btn__next"
+        :class ="{ 'nkl-btn__next--show' : isGuessed }"
+        >EDASI</a>
+    <!-- </transition> -->
+
     <!-- <nkl-guess-thing-response v-if="currentChoice" :choice="currentChoice" @closeMe="responseClosed"></nkl-guess-thing-response> -->
 
   </div>
@@ -102,10 +109,8 @@
         mapMarkers : [],
         mapOptions : {},
         mapBounds : {},
-        //currentPlace: "",
         costumeImg : require("../assets/img/game/" + this.gd[this.gi].costume),
         viewImg : require("../assets/img/game/" + this.gd[this.gi].view),
-        // costumeImg : "../assets/" + this.gd[this.gi].costume,
         isGuessed : false,
         currentChoice : null,
         rightPos : {},
@@ -129,21 +134,24 @@
               self.zoom = 10;
               //self.$refs.mymap.resizePreserveCenter();
               self.isGuessed = true;
-            }, 200
+            }, 300
           );
 
         } else if (e.right == false){
           this.currentChoice = false;
           this.wrongMessage = "See on hoopis <b class='nkl-important'>" + e.name.toUpperCase() + "</b> mis asub õigest kohast umbes <b class='nkl-important'>" + Math.round(this.getDistance(e.position, this.rightPos)) + " km</b> kaugusel.";
-          console.log(this.wrongMessage);
         }
       },
       responseClosed(){
         this.currentChoice = null;
       },
       next(){
-        eventBus.changeRound();
-        eventBus.changeView("nkl-guess-thing");
+        if(this.gi < 2){
+          eventBus.changeRound();
+          eventBus.changeView("nkl-guess-thing");
+        } else {
+          eventBus.changeView("nkl-game-over");
+        }
       },
       rad(x) {
         return x * Math.PI / 180;
@@ -259,9 +267,8 @@
   @import "../assets/scss/variables.scss";
 
   .map__mapContainer {
-    flex:1 0 33.333%;
-    height:70vh;
-
+    flex: 1 0 33.333%;
+    height: 60vh;
     @include mq-l {
       height: 90vh;
     }
@@ -281,6 +288,7 @@
 
     @include mq-l{
       height: 90vh;
+
       //height: 100%;
     }
   }
@@ -292,13 +300,16 @@
     // justify-content: center;
     // align-items: center;
     height: 100%;
-    padding: 2vh 3vw 20vh 3vw;
+    padding: 2vh 3vw 16vh 3vw;
     line-height: 1.6;
     text-align: center;
     color: $nkl-white;
     overflow-y: auto;
 
     h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0;
+      line-height: 1;
       text-align: center;
       color: $nkl-yellow--pale;
     }
@@ -321,9 +332,10 @@
     img {
       display: block;
       margin: 0 auto;
+      width: 96%;
+      max-width: 600px;
       border: 2px solid lighten($nkl-gray, 15%);
       border-radius: 6px;
-      width: 96%;
     }
 
     .viewInfo {
@@ -338,18 +350,19 @@
   }
 
   .map__contentContainer__costume {
-    flex: 0 1 400px;
+    flex: 0 1 500px;
+    align-self: flex-start;
     // max-width: 600px;
     height : 100%;
 
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
 
     @include mq-l {
       height: 90vh;
     }
   }
-
 
   .map__infoPanel {
     position: absolute;
@@ -361,14 +374,12 @@
     h1 {
       margin: 0;
     }
-      p {
-        margin: 0.5rem 0;
-      }
+    p {
+      margin: 0.5rem 0;
+    }
   }
 
-  .gm-style-iw {
-    color: black;
-  }
+
 
   .nkl-responseModal__map {
     position: absolute;
@@ -384,6 +395,26 @@
     background: hsla( 0, 0%, 0%, 0.9);
   }
 
+  .nkl-btn__next {
+    position: fixed;
+    right: 2vw;
+    bottom: 2vh;
+    padding: 2vh 2vw;
+    font-family: $font-special;
+    font-size: $nkl-xxl;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+    border: 3px solid $nkl-white;
+    transform: translate(2vw, 0);
+    opacity: 0;
+  }
+
+  .nkl-btn__next--show {
+    transition: all 1s 2s ease;
+    transform: translate(0vw, 0);
+    opacity:1;
+  }
 
 
+  // gmaps infowindow style
+  .gm-style-iw { color: black; }
 </style>

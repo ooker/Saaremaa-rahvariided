@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <component :is="currentView" :gd="gameData" :gi="gameIndex"></component>
+    <transition name="fade" mode="out-in" >
+      <component :is="currentView" :gd="gameData" :gi="gameIndex"></component>
+    </transition>
+    
     <nkl-bottom-bar :gd="gameData"></nkl-bottom-bar>
     <nkl-score :score="gameScore"></nkl-score>
   </div>
@@ -8,11 +11,13 @@
 
 <script>
   import {eventBus} from "./main";
-  import Intro from "./components/Intro.vue";
-  import GuessThing from "./components/GuessThing.vue";
-  import GameMap from "./components/Map.vue";
-  import Score from "./components/Score.vue";
   import BottomBar from "./components/BottomBar.vue";
+  import GameMap from "./components/Map.vue";
+  import GameOver from "./components/GameOver.vue";
+  import GuessThing from "./components/GuessThing.vue";
+  import Intro from "./components/Intro.vue";
+  import Score from "./components/Score.vue";
+
 
   export default {
     name: 'app',
@@ -26,10 +31,11 @@
     },
     components : {
       "nkl-intro" : Intro,
-      "nkl-guess-thing": GuessThing,
+      "nkl-guess-thing" : GuessThing,
       "nkl-map" : GameMap,
-      "nkl-score": Score,
-      "nkl-bottom-bar": BottomBar
+      "nkl-score" : Score,
+      "nkl-bottom-bar" : BottomBar,
+      "nkl-game-over" : GameOver
     },
     created(){
       eventBus.$on("viewChanged", (newView)=>{
@@ -39,33 +45,18 @@
         this.gameScore += s;
       } );
       eventBus.$on("roundChanged", ()=>{
-        if(this.gameIndex < 10) {
-          this.gameIndex++;
-        } else {
-          // Game Over
-          this.gameIndex = 0;
-        }
+        this.gameIndex++;
       } );
       eventBus.$on("itemFound", ()=>{
           this.gameData[this.gameIndex].item.itemFound = true;
       } );
-      /*eventBus.$on("placeFound", ()=>{
-          this.gameData[this.gameIndex].map.placeFound = true;
-      } );*/
-
-
-      //console.log("App: " + this.gameData[0].name)
-      //console.log("Bus: " + eventBus.gameData[0].name)
-
     }
   }
 </script>
 
-<style>
 
+<style>
   #app {
     min-height: 100vh;
-    /*background: #666;*/
   }
-
 </style>

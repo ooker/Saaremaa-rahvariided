@@ -5,6 +5,7 @@
         <img :src="image" alt="Mõista-mõista, mis see on">
     </div>
 
+    <transition name="fade" mode="out-in">
     <div class="nkl-viewContainer__item nkl-guessThing__content" v-if="!itemFound">
         <h1>Mis see on?</h1>
         <hr />
@@ -15,7 +16,7 @@
             :right="rightChoice"
             :current="currentChoice"
             @choiceMade = "checkAnswer"
-            class="nkl-button"
+            class="nkl-btn"
           ></nkl-guess-thing-button>
         </div>
         <transition name="fade">
@@ -32,11 +33,11 @@
       <hr />
       <p v-html="gd[gi].item.itemInfo"></p>
       <hr />
-      <p></p>
-      <button @click="next" class="nkl-button">EDASI</button>
+      <button @click="next" class="nkl-btn">EDASI</button>
 
     </div>
 
+    </transition>
 
 
   </div>
@@ -71,6 +72,7 @@
         if (d == false) {
           this.guessScore -= this.penalty;
           this.currentChoice = false;
+
         } else if (d == true) {
           eventBus.changeScore(this.guessScore);
           this.currentChoice = true;
@@ -166,24 +168,25 @@
       margin: 1vw;
       flex: 0 1 auto;
     }
-    .nkl-button--disabled {
-      background-color: rgba(0,0,0,0.3);
-    }
+  }
+  .nkl-button--disabled {
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0.6;
   }
 
-    .nkl-responseModal__item {
-      position: absolute;
-      top:0;
-      left:0;
-      width: 100%;
-      height: 100%;
-      min-height: 250px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: hsla( 0, 0%, 0%, 0.9);
-    }
+  .nkl-responseModal__item {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: hsla( 0, 0%, 0%, 0.9);
+  }
 
 
 </style>

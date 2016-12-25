@@ -8,7 +8,7 @@
     <!--<div v-else="myChoice === true">
       <h1>Hea töö!</h1>
     </div>-->
-    <button @click="clicked" class="nkl-button">PROOVI UUESTI</button>
+    <button @click="clicked" class="nkl-btn">PROOVI UUESTI</button>
   </div>
 </template>
 

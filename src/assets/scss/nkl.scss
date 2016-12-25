@@ -45,11 +45,9 @@ hr {
 }
 
 .nkl-viewContainer {
-
   display: flex;
   flex-direction: column;
   padding-bottom: 20vh;
-
 
   @include mq-m {
     padding-bottom: 0;
@@ -58,22 +56,20 @@ hr {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
   }
-
 
   &__item {
     padding: 2vmin;
   }
-
 }
 
 .nkl-font--special {
   font-family: $font-special;
 }
 
-.nkl-button {
+.nkl-btn {
   padding: $nkl-s $nkl-l;
+  margin: $nkl-xs;
   background-color: hsl(191, 62%, 33%);
   color: white;
   font-size: $nkl-m;
@@ -82,8 +78,8 @@ hr {
   box-shadow: 0 0 4px 0px rgba(0,0,0,0.3);
   cursor: pointer;
   transition: box-shadow 0.5s ease, background-color 0.5s ease;
+
   &:hover {
-    //transition: box-shadow 0.5s ease;
     background-color: $nkl-green--map;
     box-shadow: 0 2px 6px 0px rgba(0,0,0,0.3);
   }
@@ -99,6 +95,12 @@ hr {
   }
 }
 
+.nkl-btn--disabled {
+  background: #000;
+  opacity: 0.25;
+  pointer-events:none;
+}
+
 .nkl-zigzag {
   position: relative;
   &:before {
@@ -110,7 +112,6 @@ hr {
     width: 8px;
     height: 100%;
     z-index: -1;
-
     background:
       linear-gradient(45deg, $nkl-gray 33.333%, transparent 33.333%, transparent 66.667%, $nkl-gray 66.667%),
       linear-gradient(-45deg, $nkl-gray 33.333%, transparent 33.333%, transparent 66.667%, $nkl-gray 66.667%);
@@ -126,12 +127,10 @@ hr {
     width: 8px;
     height: 100%;
     z-index:-1;
-
     background:
       linear-gradient(-45deg, transparent 33.333%, $nkl-gray 33.333%, $nkl-gray 66.667%, transparent 66.667%),
       linear-gradient(45deg, transparent 33.333%, $nkl-gray 33.333%, $nkl-gray 66.667%, transparent 66.667%);
     background-size: 20px 10px;
-    //background-position: -3px top;
   }
 }
 
