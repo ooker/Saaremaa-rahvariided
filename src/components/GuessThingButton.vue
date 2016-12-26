@@ -27,4 +27,10 @@
   }
 </script>
 
-<style scoped></style>
+<style scoped>
+  button {
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    line-height: 1;
+  }
+</style>

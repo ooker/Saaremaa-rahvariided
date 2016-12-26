@@ -1,5 +1,5 @@
-html {margin:0; padding: 0;box-sizing: border-box;}
-*, *:after, *:before {box-sizing: inherit;}
+html {margin:0; padding:0; box-sizing:border-box;}
+*, *:after, *:before {box-sizing:inherit;}
 
 
 @import "variables";
@@ -20,13 +20,12 @@ background-color: $nkl-gray--darkest;
   linear-gradient(45deg, $nkl-gray--darkest 33.333%, $nkl-gray--dark 33.333%, $nkl-gray--dark 66.667%, $nkl-gray--darkest 66.667%),
   linear-gradient(-45deg, $nkl-gray--darkest 33.333%, $nkl-gray--dark 33.333%, $nkl-gray--dark 66.667%, $nkl-gray--darkest 66.667%);
 background-size: 12px 12px;*/
-
 }
 
 h1, h2, h3, h4 {
   font-family: $font-special;
   font-weight: normal;
-  color: white;
+  color: $nkl-yellow--pale;
 }
 
 img {
@@ -47,7 +46,7 @@ hr {
 .nkl-viewContainer {
   display: flex;
   flex-direction: column;
-  padding-bottom: 20vh;
+  padding-bottom: 5vh;
 
   @include mq-m {
     padding-bottom: 0;
@@ -99,6 +98,14 @@ hr {
   background: #000;
   opacity: 0.25;
   pointer-events:none;
+}
+
+.nkl-label {
+  background: black;
+  border-radius: 6px;
+  color: white;
+  padding: 5px 8px;
+  //transform: translate(-100px, 34px) rotateZ(-7deg);
 }
 
 .nkl-zigzag {

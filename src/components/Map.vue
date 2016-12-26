@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nkl-viewContainer">
-      <div class="map__mapContainer">
+      <div class="map__mapContainer" :class="{'map__mapContainer--found':isGuessed}">
         <gmap-map
           :center="center"
           :zoom="zoom"
@@ -43,7 +43,7 @@
           </div>
 
           <!-- <div class="map__contentContainer__costume" :style="{ backgroundImage: 'url(' + costumeImg + ')' }"> -->
-          <div class="map__contentContainer__costume">
+          <div class="map__contentContainer__costume nkl-zigzag">
             <img :src="this.costumeImg" />
           </div>
 
@@ -122,19 +122,21 @@
 
       markerClicked (e) {
         if(e.right == true){
-          eventBus.foundPlace();
+          //eventBus.foundPlace();
 
           //this.center = {lat: e.position.lat, lng:e.position.lng }
           let self = this;
           let place = e;
+          self.center = {lat: place.position.lat, lng:place.position.lng };
 
           setTimeout(
             function(){
-              self.center = {lat: place.position.lat, lng:place.position.lng };
               self.zoom = 10;
-              //self.$refs.mymap.resizePreserveCenter();
+
               self.isGuessed = true;
-            }, 300
+              //self.$refs.mymap.resizePreserveCenter();
+
+            }, 100
           );
 
         } else if (e.right == false){
@@ -267,7 +269,14 @@
   @import "../assets/scss/variables.scss";
 
   .map__mapContainer {
-    flex: 1 0 33.333%;
+    flex: 1 0 100%;
+    height: 100vh;
+    @include mq-l {
+      height: 90vh;
+    }
+  }
+  .map__mapContainer--found {
+    flex: 1 1 33.333%;
     height: 60vh;
     @include mq-l {
       height: 90vh;
@@ -279,7 +288,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    //align-items: center;
     overflow: hidden;
 
     @include mq-m {
@@ -288,7 +297,7 @@
 
     @include mq-l{
       height: 90vh;
-
+      align-items: center;
       //height: 100%;
     }
   }
@@ -300,7 +309,7 @@
     // justify-content: center;
     // align-items: center;
     height: 100%;
-    padding: 2vh 3vw 16vh 3vw;
+    padding: 2vh 3vw 4vh 3vw;
     line-height: 1.6;
     text-align: center;
     color: $nkl-white;
@@ -315,7 +324,6 @@
     }
 
     hr {
-      //width: 90%;
       border: none;
       border-bottom: 1px solid lighten($nkl-gray, 15%);
       &:nth-of-type(1) {
@@ -331,7 +339,7 @@
 
     img {
       display: block;
-      margin: 0 auto;
+      margin: $nkl-xl auto 0 auto;
       width: 96%;
       max-width: 600px;
       border: 2px solid lighten($nkl-gray, 15%);
@@ -346,29 +354,51 @@
 
     @include mq-l {
       height: 90vh;
+      padding: 2vh 3vw 16vh 3vw;
     }
   }
 
   .map__contentContainer__costume {
-    flex: 0 1 500px;
-    align-self: flex-start;
-    // max-width: 600px;
-    height : 100%;
+    flex: 1 0 50%;
 
-    background-size: contain;
-    background-position: center top;
-    background-repeat: no-repeat;
+    img {
+      display: block;
+      margin: $nkl-m auto;
+      width: 90%;
+      max-width: 600px;
+      border: 2px solid lighten($nkl-gray, 15%);
+      border-radius: 6px;
+    }
+
+    @include mq-m {
+      min-height : 100%;
+      img {
+          margin: $nkl-5xl auto;
+      }
+    }
 
     @include mq-l {
-      height: 90vh;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        border: none;
+        border-radius: 0;
+        margin: auto;
+        width: 100%;
+      }
     }
   }
 
   .map__infoPanel {
-    position: absolute;
-    top: 1vh;
-    left: 1vh;
+    position: fixed;
+    bottom: 4vh;
+    left: 0;
     padding: 1vh 2vw;
+    width: 100%;
     background: rgba(0,0,0,0.6);
     color: white;
     h1 {
@@ -377,8 +407,36 @@
     p {
       margin: 0.5rem 0;
     }
+    @include mq-m {
+      top: 1vh;
+      left: 1vh;
+      bottom:auto;
+      width: auto;
+    }
   }
 
+
+  .nkl-btn__next {
+    position: fixed;
+    right: 2vw;
+    bottom: 2vh;
+    padding: $nkl-s $nkl-l;;
+    font-family: $font-special;
+    font-size: $nkl-xxl;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+    border: 3px solid $nkl-white;
+    transform: translate(2vw, 0);
+    opacity: 0;
+    @include mq-l {
+      bottom: 15vh;
+    }
+  }
+
+  .nkl-btn__next--show {
+    transition: transform 1s 2s ease, opacity 1s 2s ease, background 0.5s;
+    transform: translate(0vw, 0);
+    opacity:1;
+  }
 
 
   .nkl-responseModal__map {
@@ -394,26 +452,6 @@
     flex-direction: column;
     background: hsla( 0, 0%, 0%, 0.9);
   }
-
-  .nkl-btn__next {
-    position: fixed;
-    right: 2vw;
-    bottom: 2vh;
-    padding: 2vh 2vw;
-    font-family: $font-special;
-    font-size: $nkl-xxl;
-    box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
-    border: 3px solid $nkl-white;
-    transform: translate(2vw, 0);
-    opacity: 0;
-  }
-
-  .nkl-btn__next--show {
-    transition: all 1s 2s ease;
-    transform: translate(0vw, 0);
-    opacity:1;
-  }
-
 
   // gmaps infowindow style
   .gm-style-iw { color: black; }

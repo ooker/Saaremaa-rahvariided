@@ -6,37 +6,44 @@
     </div>
 
     <transition name="fade" mode="out-in">
-    <div class="nkl-viewContainer__item nkl-guessThing__content" v-if="!itemFound">
-        <h1>Mis see on?</h1>
+      <div
+        v-if="!itemFound"
+        key="searching"
+        class="nkl-viewContainer__item nkl-guessThing__content">
+
+          <transition name="fly" appear ><div class="nkl-label">ARVA ÄRA</div></transition>
+
+          <h1>Mis see on?</h1>
+          <hr />
+          <div class="nkl-guessThing__buttons">
+            <nkl-guess-thing-button
+              v-for="choice in choices"
+              :name="choice"
+              :right="rightChoice"
+              :current="currentChoice"
+              @choiceMade = "checkAnswer"
+              class="nkl-btn"
+            ></nkl-guess-thing-button>
+          </div>
+          <transition name="fade">
+            <nkl-response-modal v-if="currentChoice===false"
+            :choice="currentChoice"
+            @closeMe="responseClosed"
+            class="nkl-responseModal__item"></nkl-response-modal>
+          </transition>
+      </div>
+      <div
+        v-if="itemFound"
+        key="found"
+        class="nkl-viewContainer__item nkl-guessThing__content">
+        <h1>{{this.rightChoice}}</h1>
+        <p class="" style="margin-top:0.5vh; text-transform:uppercase; font-size:0.8rem;"> {{ gd[gi].name }} kihelkonnast</p>
         <hr />
-        <div class="buttons">
-          <nkl-guess-thing-button
-            v-for="choice in choices"
-            :name="choice"
-            :right="rightChoice"
-            :current="currentChoice"
-            @choiceMade = "checkAnswer"
-            class="nkl-btn"
-          ></nkl-guess-thing-button>
-        </div>
-        <transition name="fade">
-          <nkl-response-modal v-if="currentChoice===false"
-          :choice="currentChoice"
-          @closeMe="responseClosed"
-          class="nkl-responseModal__item"></nkl-response-modal>
-        </transition>
-    </div>
+        <p v-html="gd[gi].item.itemInfo"></p>
+        <hr />
+        <button @click="next" class="nkl-btn">EDASI</button>
 
-    <div v-else class="nkl-viewContainer__item nkl-guessThing__content">
-      <h1>{{this.rightChoice}}</h1>
-      <p class="" style="margin-top:0.5vh; text-transform:uppercase; font-size:0.8rem;"> {{ gd[gi].name }} kihelkonnast</p>
-      <hr />
-      <p v-html="gd[gi].item.itemInfo"></p>
-      <hr />
-      <button @click="next" class="nkl-btn">EDASI</button>
-
-    </div>
-
+      </div>
     </transition>
 
 
@@ -113,6 +120,7 @@
     img {
       width: 90%;
       border-radius: 50%;
+      max-width: 450px;
       box-shadow: 0 0 1.5vw 0px rgba(0,0,0,0.8);
     }
 
@@ -140,7 +148,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 $nkl-l;
+    padding: 0 $nkl-m $nkl-5xl $nkl-m ;
     text-align: center;
     h1 {
       text-align: center;
@@ -157,14 +165,15 @@
     }
     @include mq-l {
       height: 90vh;
+      padding: 0 $nkl-5xl 0 $nkl-m;
     }
   }
-  .buttons {
+  .nkl-guessThing__buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 
-    .nkl-button {
+    .nkl-btn {
       margin: 1vw;
       flex: 0 1 auto;
     }
@@ -188,5 +197,26 @@
     background: hsla( 0, 0%, 0%, 0.9);
   }
 
+
+
+
+  /*.fly-enter {
+    opacity: 0;
+    transform: rotateZ(0) translateY(0px);
+  }*/
+  .fly-enter-active {
+    //opacity: 0.5;
+    //transform: rotateZ(-7deg) translateY(30px);
+    //transition: opacity 2s;
+  }
+  /*.fly-leave{
+    opacity: 0.5;
+    transform: rotateZ(-7deg) translateY(30px);
+  }*/
+  /*.fly-leave-active{
+    opacity: 0;
+    transform: rotateZ(-7deg) translateY(0);
+    transition: all 0.5s;
+  }*/
 
 </style>

@@ -289,6 +289,9 @@ export const eventBus = new Vue({
     gameIndex : 0
   },
   methods : {
+    startGame(){
+      this.$emit("gameStarted");
+    },
     changeView(viewName){
       this.$emit("viewChanged", viewName);
     },
@@ -301,9 +304,9 @@ export const eventBus = new Vue({
     foundItem(){
       this.$emit("itemFound");
     },
-    foundPlace(){
+    /*foundPlace(){
       this.$emit("placeFound");
-    },
+    },*/
 
     shuffle(sourceArray) {
       for (var i = 0; i < sourceArray.length - 1; i++) {

@@ -3,9 +3,9 @@
     <transition name="fade" mode="out-in" >
       <component :is="currentView" :gd="gameData" :gi="gameIndex"></component>
     </transition>
-    
-    <nkl-bottom-bar :gd="gameData"></nkl-bottom-bar>
-    <nkl-score :score="gameScore"></nkl-score>
+
+    <nkl-bottom-bar :gd="gameData" v-if="gameStarted"></nkl-bottom-bar>
+    <nkl-score :score="gameScore" v-if="gameStarted"></nkl-score>
   </div>
 </template>
 
@@ -26,7 +26,8 @@
         currentView : "nkl-intro",
         gameData: eventBus.shuffle(eventBus.gameData),
         gameScore: 0,
-        gameIndex: 0
+        gameIndex: 0,
+        gameStarted: false
       }
     },
     components : {
@@ -38,6 +39,9 @@
       "nkl-game-over" : GameOver
     },
     created(){
+      eventBus.$on("gameStarted", ()=>{
+        this.gameStarted = true;
+      } );
       eventBus.$on("viewChanged", (newView)=>{
         this.currentView = newView;
       } );
@@ -55,8 +59,11 @@
 </script>
 
 
-<style>
+<style lang="sass">
+  //@import "assets/scss/variables.scss";
   #app {
     min-height: 100vh;
+    max-width: 1500px;
+    margin: auto;
   }
 </style>
