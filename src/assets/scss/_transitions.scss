@@ -13,22 +13,23 @@
   opacity: 0;
 }
 
-// FLY-FROM-RIGHT
-.fly-enter {
-  // opacity: 0;
-  transform: translateX("40px");
+
+
+/*.fly-enter {
+  opacity: 0;
+  transform: rotateZ(0) translate(-100px, 0px);
 }
 .fly-enter-active {
-  // opacity: 1;
-  transform: translateX("0");
-  transition: transform 1s;
+  animation: fly-in 0.7s ease-out forwards;
 }
-.fly-leave {
 
-  transform: translateX("0");
-}
-.fly-leave-active {
-  // opacity: 0;
-  transform: translateX("20px");
-  transition: transform .7s ease-in;
-}
+@keyframes fly-in {
+  0% {
+    opacity: 0;
+    transform: rotateZ(0) translate(-100px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(-7deg) translateY(-100px, 26px);
+  }
+}*/

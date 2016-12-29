@@ -25,7 +25,7 @@
       return {
         currentView : "nkl-intro",
         gameData: eventBus.shuffle(eventBus.gameData),
-        gameScore: 0,
+        gameScore: 500,
         gameIndex: 0,
         gameStarted: false
       }
@@ -46,7 +46,9 @@
         this.currentView = newView;
       } );
       eventBus.$on("scoreChanged", (s)=>{
+        //this.gameScore += s;
         this.gameScore += s;
+        eventBus.finalScore = this.gameScore;
       } );
       eventBus.$on("roundChanged", ()=>{
         this.gameIndex++;
@@ -54,6 +56,9 @@
       eventBus.$on("itemFound", ()=>{
           this.gameData[this.gameIndex].item.itemFound = true;
       } );
+      /*eventBus.$on("getGameScore", ()=>{
+          eventBus.finalScore = this.gameScore;
+      } );*/
     }
   }
 </script>

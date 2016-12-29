@@ -52,7 +52,7 @@
 
     .active {
       opacity: 1;
-
+      transition: all 0.5s ease;
       &:hover {
         img {
           width: 85%;

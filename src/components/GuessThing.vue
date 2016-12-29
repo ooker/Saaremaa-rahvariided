@@ -1,5 +1,5 @@
 <template>
-  <div class="nkl-viewContainer nkl-zigzag">
+  <div class="nkl-viewContainer">
 
     <div class="nkl-viewContainer__item nkl-guessThing__image">
         <img :src="image" alt="Mõista-mõista, mis see on">
@@ -13,7 +13,7 @@
 
           <transition name="fly" appear ><div class="nkl-label">ARVA ÄRA</div></transition>
 
-          <h1>Mis see on?</h1>
+          <h1>Mis on pildil?</h1>
           <hr />
           <div class="nkl-guessThing__buttons">
             <nkl-guess-thing-button
@@ -36,6 +36,9 @@
         v-if="itemFound"
         key="found"
         class="nkl-viewContainer__item nkl-guessThing__content">
+
+        <transition name="fly" appear ><div class="nkl-label">{{ chants[Math.floor(Math.random()*3)] }}</div></transition>
+
         <h1>{{this.rightChoice}}</h1>
         <p class="" style="margin-top:0.5vh; text-transform:uppercase; font-size:0.8rem;"> {{ gd[gi].name }} kihelkonnast</p>
         <hr />
@@ -64,10 +67,11 @@
       return {
         image : require("../assets/img/game/" + this.gd[this.gi].item.img) ,
         choices : [],
+        chants : ["ÕIGE VASTUS!", "VÄGA TUBLI!", "HEA TÖÖ!"],
         itemFound : false,
         currentChoice: null,
-        guessScore: 60,
-        penalty: 10
+        guessScore: 6,
+        penalty: 5
       }
     },
     components : {
@@ -78,10 +82,12 @@
       checkAnswer(d){
         if (d == false) {
           this.guessScore -= this.penalty;
+          eventBus.changeScore(eventBus.penalty);
           this.currentChoice = false;
 
         } else if (d == true) {
-          eventBus.changeScore(this.guessScore);
+          //eventBus.changeScore(this.guessScore);
+          eventBus.changeScore(eventBus.bonus);
           this.currentChoice = true;
           eventBus.foundItem();
           this.itemFound = true;
@@ -197,26 +203,30 @@
     background: hsla( 0, 0%, 0%, 0.9);
   }
 
+    .nkl-label {
+      opacity: 1;
+      transform: rotateZ(-7deg) translate(-100px, 26px);
+    }
 
 
 
-  /*.fly-enter {
+  .fly-enter {
     opacity: 0;
-    transform: rotateZ(0) translateY(0px);
-  }*/
-  .fly-enter-active {
-    //opacity: 0.5;
-    //transform: rotateZ(-7deg) translateY(30px);
-    //transition: opacity 2s;
+    transform: rotateZ(0) translate(-100px, 0px);
   }
-  /*.fly-leave{
-    opacity: 0.5;
-    transform: rotateZ(-7deg) translateY(30px);
-  }*/
-  /*.fly-leave-active{
-    opacity: 0;
-    transform: rotateZ(-7deg) translateY(0);
-    transition: all 0.5s;
-  }*/
+  .fly-enter-active {
+    animation: fly-in 0.7s ease-out forwards;
+  }
+
+  @keyframes fly-in {
+    0% {
+      opacity: 0;
+      transform: rotateZ(0) translate(-100px, 0px);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateZ(-7deg) translateY(-100px, 26px);
+    }
+  }
 
 </style>

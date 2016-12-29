@@ -51,11 +51,11 @@
       </transition>
     </div><!-- //.nkl-viewContainer -->
 
-    <transition name="fade" appear>
+    <transition name="infoPanel__anim" appear>
       <div class="map__infoPanel" v-if="!isGuessed">
         <h1>{{gd[gi].name}} kihelkond</h1>
         <p>
-          Proovi, mitme korraga leiad õige kihelkonnakeskuse üles.
+          Proovi, mitme korraga leiad {{gd[gi].name}} üles.
         </p>
       </div>
     </transition>
@@ -114,41 +114,49 @@
         isGuessed : false,
         currentChoice : null,
         rightPos : {},
-        wrongMessage: ""
+        wrongMessage: "",
+        guessScore: 11,
+        penalty: -5,
+        bonus: 20
       }
     },
 
     methods : {
 
       markerClicked (e) {
-        if(e.right == true){
-          //eventBus.foundPlace();
+        if(this.isGuessed == false) {
+          if(e.right == true){
+            //eventBus.foundPlace();
 
-          //this.center = {lat: e.position.lat, lng:e.position.lng }
-          let self = this;
-          let place = e;
-          self.center = {lat: place.position.lat, lng:place.position.lng };
+            //this.center = {lat: e.position.lat, lng:e.position.lng }
+            //eventBus.changeScore(this.guessScore);
+            eventBus.changeScore(eventBus.bonus);
+            let self = this;
+            let place = e;
+            self.center = { lat: place.position.lat, lng:place.position.lng };
 
-          setTimeout(
-            function(){
-              self.zoom = 10;
+            setTimeout(
+              function(){
+                self.zoom = 10;
+                self.isGuessed = true;
+                //self.$refs.mymap.resizePreserveCenter();
 
-              self.isGuessed = true;
-              //self.$refs.mymap.resizePreserveCenter();
+              }, 100
+            );
 
-            }, 100
-          );
-
-        } else if (e.right == false){
-          this.currentChoice = false;
-          this.wrongMessage = "See on hoopis <b class='nkl-important'>" + e.name.toUpperCase() + "</b> mis asub õigest kohast umbes <b class='nkl-important'>" + Math.round(this.getDistance(e.position, this.rightPos)) + " km</b> kaugusel.";
+          } else if (e.right == false){
+            this.guessScore -= this.penalty;
+            eventBus.changeScore(eventBus.penalty);
+            this.currentChoice = false;
+            this.wrongMessage = "See on hoopis <b class='nkl-important'>" + e.name.toUpperCase() + "</b> mis asub õigest kohast umbes <b class='nkl-important'>" + Math.round(this.getDistance(e.position, this.rightPos)) + " km</b> kaugusel.";
+          }
         }
       },
       responseClosed(){
         this.currentChoice = null;
       },
       next(){
-        if(this.gi < 2){
+        if(this.gi < 1){
           eventBus.changeRound();
           eventBus.changeView("nkl-guess-thing");
         } else {
@@ -256,10 +264,10 @@
       //this.currentPlace = this.gd[this.gi].name;
       //this.$emit('fitBounds', this.mapBounds);
 
-      // this.mapBounds.north = 58.639969;
-      // this.mapBounds.west = 21.757071;
-      // this.mapBounds.south = 57.891453;
-      // this.mapBounds.east = 23.431412;
+      this.mapBounds.north = 58.639969;
+      this.mapBounds.west = 21.757071;
+      this.mapBounds.south = 57.891453;
+      this.mapBounds.east = 23.431412;
 
     }
   }
@@ -433,9 +441,9 @@
   }
 
   .nkl-btn__next--show {
-    transition: transform 1s 2s ease, opacity 1s 2s ease, background 0.5s;
     transform: translate(0vw, 0);
     opacity:1;
+    transition: transform 1s 1s ease, opacity 1s 1s ease, background 0.5s;
   }
 
 
@@ -455,4 +463,42 @@
 
   // gmaps infowindow style
   .gm-style-iw { color: black; }
+
+
+
+  .infoPanel__anim-enter {
+    opacity:0;
+    transform: translateY(-30px);
+  }
+  .infoPanel__anim-enter-active {
+      animation: infoPanel__anim__kf-in 0.7s ease-out forwards;
+  }
+  .infoPanel__anim-leave {
+    opacity:1;
+    transform: translateY(0);
+  }
+  .infoPanel__anim-leave-active {
+      animation: infoPanel__anim__kf-out 0.7s ease-in forwards;
+  }
+
+  @keyframes infoPanel__anim__kf-in {
+    0%{
+      opacity:0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity:1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes infoPanel__anim__kf-out {
+    0%{
+      opacity:1;
+      transform: translateY(0px);
+    }
+    100% {
+      opacity:0;
+      transform: translateY(-30px);
+    }
+  }
 </style>

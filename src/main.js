@@ -16,9 +16,10 @@ var gameData = [
         "Kosjakott",
         "Vardakott",
         "Peokott",
-        "Tubakatasku"
+        "Tubakatasku",
+        "Märss"
       ],
-      "itemInfo" : "Rahvarõivad õmmeldi sageli ilma taskuteta. Selle asemel sidusid naised paremale puusale lahttasku. Need tehti väga uhked ja kaunistati mitmel erineval viisil aplikatsiooni, paelte ja tikandiga. Tikandis kasutati sageli värvilisest klaasist ümmargusi ja torukujulisi helmeid.",
+      "itemInfo" : "Rahvarõivad õmmeldi sageli ilma taskuteta. Selle asemel sidusid naised paremale puusale <b class='nkl-important'>lahttasku</b>. Need tehti väga uhked ja kaunistati mitmel erineval viisil aplikatsiooni, paelte ja tikandiga. Tikandis kasutati sageli värvilisest klaasist ümmargusi ja torukujulisi helmeid.",
       "itemFound" : false
     },
     "map" : {
@@ -40,18 +41,17 @@ var gameData = [
         "Pidukossid",
         "Kõpsutid",
         "Hülgevarbad",
-        "Tipskorkiskingad",
-        "Kõvapastlad",
+        "Härraspastlad",
         "Nakikingad"
       ],
-      "itemInfo" : "Juba 1774. aastal on üles kirjutatud, et Saaremaal ei kanta viletsaid pastlaid, vaid saapaid ja ummiskingi. Varasemal ajal õmmeldi kingadele tald alla traadiga, hiljem tikutati – paks tallanahk kinnitati puust tikkudega.",
+      "itemInfo" : "Juba 1774. aastal on üles kirjutatud, et Saaremaal ei kanta viletsaid pastlaid, vaid saapaid ja <b class='nkl-important'>ummiskingi</b>. Varasemal ajal õmmeldi kingadele tald alla traadiga, hiljem tikutati – paks tallanahk kinnitati puust tikkudega.",
       "itemFound" : false
     },
     "map" : {
       position: {lat: 58.613415, lng: 22.915182},
       placeFound : false
     },
-    "info" : "<b>Jaani</b> <i>(saksa keeles St. Johannis)</i> asus Saaremaa kirdeosas. Tänapäeva mõistes hõlmas see väike kihelkond umbes praeguse Orissaare valla lääneosa. Kihelkonna keskse – <b>Jaani kiriku</b> ehitustöödega tehti algust Põhjasõja ajal. Jaani kihelkonda jäävad <b>Pulli</b> ja <b>Paramaja pank</b> ning <b>Järveküla järv</b>.",
+    "info" : "<b>Jaani</b> <i>(saksa keeles St. Johannis)</i> asus Saaremaa kirdeosas. Tänapäeva mõistes hõlmas see väike kihelkond enam-vähem praeguse Orissaare valla lääneosa. Kihelkonna keskse – <b>Jaani kiriku</b> ehitustöödega tehti algust Põhjasõja ajal. Jaani kihelkonda jäävad <b>Pulli</b> ja <b>Paramaja pank</b> ning <b>Järveküla järv</b>.",
     "costume":"costume_jaani.jpg",
     "view" : "view_jaani.jpg",
     "viewInfo" : "Jaani kirik asub merest vaid mõnesaja meetri kaugusel."
@@ -64,12 +64,12 @@ var gameData = [
       "thumb" : "item_jamaja_200.jpg",
       "options" : [
         "Tuttpütt",
-        "Pühadepibo",
+        "Pidu-pibo",
         "Poistelõks",
         "Tuulelipp",
         "Murumüts"
       ],
-      "itemInfo" : "19. sajandi lõpus kanti pappalusel tanu asemel meelsamini varrastel kootud <b>kirimütsi</b> e tuttmütsi. Tavaliselt kooti musta põhja sisse punased laiemad vöödid peente valgete triipude ja tähnidega. Pika sopi otsa kinnitati tutt, mis Jämaja kihelkonnas tehti eriti suur ja uhke. Selle valmistamiseks kasutati poepitsi ja -paelu ning kirjusid riideribasid.",
+      "itemInfo" : "19. sajandi lõpus kanti pappalusel tanu asemel meelsamini varrastel kootud <b class='nkl-important'>kirimütsi</b> e tuttmütsi. Tavaliselt kooti musta põhja sisse punased laiemad vöödid peente valgete triipude ja tähnidega. Pika sopi otsa kinnitati tutt, mis Jämaja kihelkonnas tehti eriti suur ja uhke. Selle valmistamiseks kasutati poepitsi ja -paelu ning kirjusid riideribasid.",
       "itemFound" : false
     },
 
@@ -95,7 +95,7 @@ var gameData = [
         "Kongtanu",
         "Mesipuu"
       ],
-      "itemInfo" : "Pinnmüts e kabimüts sai oma teise nimetuse kapja meenutava kuju tõttu. Pinnmüts ei olnud eriti laialdaselt levinud ja seda kanti peamiselt linna&shy;lähedastes kihelkondades. Mütsi pappalus kaeti lillelise siid- või sitsriidega ja kaunistati kardpaeltega. Mütsi kukla peale seoti lipsu pikad lindid, mille otsad langesid seljale.",
+      "itemInfo" : "<b class='nkl-important'>Pinnmüts</b> e kabimüts sai oma teise nimetuse kapja meenutava kuju tõttu. Pinnmüts ei olnud eriti laialdaselt levinud ja seda kanti peamiselt linna&shy;lähedastes kihelkondades. Mütsi pappalus kaeti lillelise siid- või sitsriidega ja kaunistati kardpaeltega. Mütsi kukla peale seoti lipsu pikad lindid, mille otsad langesid seljale.",
       "itemFound" : false
     },
     "map" : {
@@ -116,10 +116,11 @@ var gameData = [
       "options" : [
         "Porst",
         "Umps",
-        "Toreon",
-        "Poistelõks"
+        "Rakmed",
+        "Poistelõks",
+        "Nuustik"
       ],
-      "itemInfo" : "Piduülikonna juurde kuuluvat liistikut peeti üheks uhkemaks iluasjaks. Vanemad liistikud olid üsna lühikesed ja mitmete kaunistustega. Kaelus ja hõlmad ääristati värvilise kandiga, ette õmmeldi tavaliselt punane lapp. Hõlmad hoiti koos malide – ratta&shy;kujuliste tina&shy;naastudega, millest läbitõmmatud punane pael seoti lipsuks.",
+      "itemInfo" : "Piduülikonna juurde kuuluvat <b class='nkl-important'>liistikut</b> peeti üheks uhkemaks iluasjaks. Vanemad liistikud olid üsna lühikesed ja mitmete kaunistustega. Kaelus ja hõlmad ääristati värvilise kandiga, ette õmmeldi tavaliselt punane lapp. Hõlmad hoiti koos malide – ratta&shy;kujuliste tina&shy;naastudega, millest läbitõmmatud punane pael seoti lipsuks.",
       "itemFound" : false
     },
     "map" : {
@@ -144,7 +145,7 @@ var gameData = [
         "Kikktanu",
         "Sarvikpibo"
       ],
-      "itemInfo" : "Saare naise talvemütsil – punase lagi&shy;pealsega sariküllil oli kaks sarve. Need ja mütsi äär kaeti musta tallenahaga. Sariküllile seoti rätik peale, et see kindlamini peas püsiks ja külma eest kaitseks. Kihelkonniti oli sarikülli kandmise viis erinev. Mõnel pool seati sarved ette ja taha, teisal jälle külgedele.",
+      "itemInfo" : "Saare naise talvemütsil – punase lagi&shy;pealsega <b class='nkl-important'>sariküllil</b> oli kaks sarve. Need ja mütsi äär kaeti musta tallenahaga. Sariküllile seoti rätik peale, et see kindlamini peas püsiks ja külma eest kaitseks. Kihelkonniti oli sarikülli kandmise viis erinev. Mõnel pool seati sarved ette ja taha, teisal jälle külgedele.",
       "itemFound" : false
     },
     "map" : {
@@ -166,9 +167,10 @@ var gameData = [
         "Kirikuub",
         "Kört",
         "Punaseelik",
-        "Vaatamind"
+        "Vaatamind",
+        "Üleküla"
       ],
-      "itemInfo" : "Vanemamoeline põiki&shy;triipudega ümbrik asendus 1870.–1880. aastatel kiutkuuega, mille kangasse kooti püstitriibud. See seelik oli pisut lühem ja kaharam ning seda volditi ainult ülaosas värvli juurest. Seeliku triibud olid kitsad ja tavaliselt tumedad. Väikesed voldid seati nii, et alati jäi üks värvitoon – enamasti punane, voldi harjale.",
+      "itemInfo" : "Vanemamoeline põiki&shy;triipudega seelik ehk <i>&quot;ümbrik&quot;</i> asendus 1870.–1880. aastatel <b class='nkl-important'>kiutkuuega</b>, mille kangasse kooti püstitriibud. See seelik oli pisut lühem ja kaharam ning seda volditi ainult ülaosas värvli juurest. Seeliku triibud olid kitsad ja tavaliselt tumedad. Väikesed voldid seati nii, et alati jäi üks värvitoon – enamasti punane, voldi harjale.",
       "itemFound" : false
     },
     "map" : {
@@ -190,9 +192,10 @@ var gameData = [
         "Õhtuvatt",
         "Kurtkampsun",
         "Memmemunder",
-        "Punakrae-jakk"
+        "Punakrae-jakk",
+        "Tsutsufrei"
       ],
-      "itemInfo" : "Veidi allapoole ulatuvad abukäised oli avara&shy;lõikeline üleriie. Umbes abaluude kohalt algas sügav volt ja kummalgi puusal oli veel üks madal volt. Kaelus ja hõlmad kuni vöökohani kaunistati punasest kalevist kandiga.",
+      "itemInfo" : "Veidi allapoole ulatuvad <b class='nkl-important'>abukäised</b> oli avara&shy;lõikeline üleriie. Umbes abaluude kohalt algas sügav volt ja kummalgi puusal oli veel üks madal volt. Kaelus ja hõlmad kuni vöökohani kaunistati punasest kalevist kandiga.",
       "itemFound" : false
     },
     "map" : {
@@ -214,10 +217,10 @@ var gameData = [
         "Täditanu",
         "Nõelatanu",
         "Kauamängiv",
-        "Päikesekroon",
+        "Rataskroon",
         "Aupaiste"
       ],
-      "itemInfo" : "Talimütsid e üllid olid Saaremaal üsna omapärase kujuga. Ratasülli lagipealse läbimõõt oli 25–29 cm. Äär valmistati u 7 cm laiusest mustast lambanaha siilust. Ülli ülemist serva hoidis sõõrina sisse painutatud puuvits. Sageli rohkem uhkuseasjaks olevale üllile seoti rätik peale – nii püsis see kindlamini peas ja talvel kaitses ka külma eest.",
+      "itemInfo" : "Talimütsid e üllid olid Saaremaal üsna omapärase kujuga. <b class='nkl-important'>Ratasülli</b> lagipealse läbimõõt oli 25–29 cm. Äär valmistati u 7 cm laiusest mustast lambanaha siilust. Ülli ülemist serva hoidis sõõrina sisse painutatud puuvits. Sageli rohkem uhkuseasjaks olevale üllile seoti rätik peale – nii püsis see kindlamini peas ja talvel kaitses ka külma eest.",
       "itemFound" : false
     },
     "map" : {
@@ -242,14 +245,14 @@ var gameData = [
         "Salakirjak",
         "Pihahoidja"
       ],
-      "itemInfo" : "Kirivöö oli kõige levinum vöö, mis kooti villasest ja linasest lõngast. Vöö pidi ulatuma 2–3 korda ümber keha ja selle laius oli mõnikord kuni 8 cm. Vöökorrad mähiti kõik üksteise peale, paistma jäi ainult pealmine kord.",
+      "itemInfo" : "<b class='nkl-important'>Kirivöö</b> oli kõige levinum vöö, mis kooti villasest ja linasest lõngast. Vöö pidi ulatuma 2–3 korda ümber keha ja selle laius oli mõnikord kuni 8 cm. Vöökorrad mähiti kõik üksteise peale, paistma jäi ainult pealmine kord.",
       "itemFound" : false
     },
     "map" : {
       position: {lat: 58.300548, lng: 22.725704},
       placeFound : false
     },
-    "info" : "<b>Püha</b> <i>(saksa keeles Pyha)</i> asus Saaremaa kaguosas. Tänapäeva mõistes kattus Püha kihelkond enamikus osas praeguse Pihtla vallaga. Püha <b>Jakobi kirikut</b> hakati kihelkonna keskusesse rajama juba 13. sajandil. Püha kihelkonna suurimaks vaatamis&shy;väärsuseks on <b>Kaali meteoriidi&shy;kraater</b>.",
+    "info" : "<b>Püha</b> <i>(saksa keeles Pyha)</i> asus Saaremaa kaguosas. Tänapäeva mõistes kattus Püha kihelkond enamikus osas praeguse Pihtla vallaga. Püha <b>Jakobi kirikut</b> hakati rajama juba 13. sajandil. Püha kihelkonna suurimaks vaatamis&shy;väärsuseks on <b>Kaali meteoriidi&shy;kraater</b>.",
     "costume":"costume_pyha.jpg",
     "view" : "view_pyha.jpg",
     "viewInfo" : ""
@@ -264,10 +267,10 @@ var gameData = [
         "Mulgi kuub",
         "Kuft",
         "Suurtükk",
-        "Lambakantsik",
+        "Tormivastane",
         "Ümbrik"
       ],
-      "itemInfo" : "Pikk-kuube kanti kirikusse minnes. Kindlasti pidid välja paistma kuue alt kõik seljas olevad pidulikud riided. 19. sajandi alguses oli levinud avara tüüriga kuub, mille keset selga abaluude kõrguselt algasid kolm sügavalt sisse pressitud volti. Peale selja&shy;voltide oli Valjalas veel kummalgi küljel kaenla alt algav madal volt.",
+      "itemInfo" : "<b class='nkl-important'>Pikk-kuube</b> kanti kirikusse minnes. Kindlasti pidid välja paistma kuue alt kõik seljas olevad pidulikud riided. 19. sajandi alguses oli levinud avara tüüriga kuub, mille keset selga abaluude kõrguselt algasid kolm sügavalt sisse pressitud volti. Peale selja&shy;voltide oli Valjalas veel kummalgi küljel kaenla alt algav madal volt.",
       "itemFound" : false
     },
     "map" : {
@@ -286,7 +289,10 @@ var gameData = [
 export const eventBus = new Vue({
   data: {
     gameData : gameData,
-    gameIndex : 0
+    gameIndex : 0,
+    finalScore : 0,
+    penalty : -5,
+    bonus : 20
   },
   methods : {
     startGame(){
@@ -304,6 +310,9 @@ export const eventBus = new Vue({
     foundItem(){
       this.$emit("itemFound");
     },
+    /*getScore(){
+      this.$emit("getGameScore");
+    },*/
     /*foundPlace(){
       this.$emit("placeFound");
     },*/
