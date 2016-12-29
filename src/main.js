@@ -310,6 +310,9 @@ export const eventBus = new Vue({
     foundItem(){
       this.$emit("itemFound");
     },
+    restartGame(){
+      this.$emit("gameRestarted");
+    },
     /*getScore(){
       this.$emit("getGameScore");
     },*/

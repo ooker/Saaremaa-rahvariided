@@ -1,25 +1,36 @@
 <template>
   <div class="intro nkl-zigzag">
 
-    <div style="width:100%;margin:4vh auto;">
+    <h1>Ongi kõik!</h1>
+
+    <div style="width:100%;margin:2vh auto;">
       <svg viewBox="0 0 100 2">
         <path fill="none" stroke="#777" stroke-width="1px" vector-effect="non-scaling-stroke"
           d="M0,1.5 48,1.5 50,0 52,1.5 100,1.5"/>
       </svg>
     </div>
 
-    <h1>Ongi kõik!</h1>
+    <section class="nkl-introInfo">
 
-    <p>
-      Sul õnnestus koguda {{this.finalScore}} punkti 940-st võimalikust ja loodetavasti ka pisut uusi teadmisi Saaremaa rahvarõivaste ning kihelkondade kohta.
-    </p>
-    <div style="width:100%;margin:4vh auto;">
+      <div class="nkl-introInfo__left">
+        <p class="nkl-intro__text">
+          Sul õnnestus koguda <b class="nkl-important">{{this.finalScore}} punkti</b> 940-st võimalikust ja <b class="nkl-important">loodetavasti ka pisut uusi teadmisi</b> Saaremaa rahvarõivaste ning kihelkondade kohta.
+        </p>
+      </div>
+      <div class="nkl-introInfo__right">
+          <button class="nkl-btn large nkl-font--special" @click="restartGame">Proovi uuesti</button>
+      </div>
+
+    </section>
+
+
+    <div style="width:100%;margin:2vh auto;">
       <svg viewBox="0 0 100 2">
         <path fill="none" stroke="#777" stroke-width="1px" vector-effect="non-scaling-stroke"
           d="M0,0.5 48,0.5 50,2 52,0.5 100,0.5"/>
       </svg>
     </div>
-    <button class="nkl-btn huge nkl-font--special" @click="launchGame">Proovi uuesti</button>
+
 
   </div>
 
@@ -37,8 +48,9 @@
       }
     },
     methods : {
-      launchGame(){
-        eventBus.changeView("nkl-guess-thing");
+      restartGame(){
+        //eventBus.changeView("nkl-guess-thing");
+        eventBus.restartGame();
       }
     },
     created() {
@@ -61,6 +73,7 @@
     text-align: center;
     @include mq-l {
       height: 90vh;
+      text-align: left;
     }
   }
   h1 {
@@ -78,5 +91,37 @@
   hr {
       width: 80%;
       margin: 4vh auto;
+  }
+
+  .nkl-introInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    &>div {
+      padding: 3vmin;
     }
+
+    @include mq-l {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .nkl-introInfo__left {
+    @include mq-l {
+      flex: 1 0 66.666%;
+    }
+  }
+  .nkl-introInfo__right {
+    @include mq-l {
+      flex: 1 0 33.333%;
+      align-self: flex-start;
+      text-align: center;
+    }
+  }
+
+  .nkl-intro__text {
+    font-size: 1.2rem;
+  }
 </style>

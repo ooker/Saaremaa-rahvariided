@@ -37,7 +37,7 @@
         key="found"
         class="nkl-viewContainer__item nkl-guessThing__content">
 
-        <transition name="fly" appear ><div class="nkl-label">{{ chants[Math.floor(Math.random()*3)] }}</div></transition>
+        <transition name="fly" appear ><div class="nkl-label">{{ chants[Math.floor(Math.random()*chants.length)] }}</div></transition>
 
         <h1>{{this.rightChoice}}</h1>
         <p class="" style="margin-top:0.5vh; text-transform:uppercase; font-size:0.8rem;"> {{ gd[gi].name }} kihelkonnast</p>
@@ -67,7 +67,7 @@
       return {
         image : require("../assets/img/game/" + this.gd[this.gi].item.img) ,
         choices : [],
-        chants : ["ÕIGE VASTUS!", "VÄGA TUBLI!", "HEA TÖÖ!"],
+        chants : ["ÕIGE VASTUS!", "VÄGA TUBLI!", "HEA TÖÖ!", "HÄSTI PAKUTUD!", "SEE ON TÕESTI"],
         itemFound : false,
         currentChoice: null,
         guessScore: 6,

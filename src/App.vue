@@ -18,7 +18,6 @@
   import Intro from "./components/Intro.vue";
   import Score from "./components/Score.vue";
 
-
   export default {
     name: 'app',
     data () {
@@ -55,6 +54,19 @@
       } );
       eventBus.$on("itemFound", ()=>{
           this.gameData[this.gameIndex].item.itemFound = true;
+      } );
+      eventBus.$on("gameRestarted", ()=>{
+          //console.log("RESTART ATTEMPT")
+          for (var i=0; i<this.gameData.length; i++) {
+            this.gameData[i].item.itemFound = false;
+            this.gameData[i].map.placeFound = false;
+          }
+          this.gameData = eventBus.shuffle(eventBus.gameData);
+          this.gameScore = 500;
+          this.gameIndex = 0;
+          this.gameStarted = false;
+          eventBus.changeView("nkl-intro");
+
       } );
       /*eventBus.$on("getGameScore", ()=>{
           eventBus.finalScore = this.gameScore;

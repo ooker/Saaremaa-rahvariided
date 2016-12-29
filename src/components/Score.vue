@@ -38,17 +38,17 @@
 
         int = setInterval(function(){
           if(vm.score == vm.newScore){
-              clearInterval(int);
-              vm.alertMe = false;
-              vm.praiseMe = false;
+            clearInterval(int);
+            vm.alertMe = false;
+            vm.praiseMe = false;
+          } else {
+            if(vm.score > vm.newScore){
+              vm.newScore++;
             } else {
-              if(vm.score > vm.newScore){
-                vm.newScore++;
-              } else {
-                vm.newScore--;
-              }
+              vm.newScore--;
             }
-          }, 100);
+          }
+        }, 100);
       }
     },
     watch : {
