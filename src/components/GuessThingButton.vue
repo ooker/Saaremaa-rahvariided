@@ -3,7 +3,7 @@
     @click="clicked"
     :disabled = "isClicked"
     :class = "{ 'nkl-btn--disabled' : this.isClicked }"
-    class="nkl-btn">{{name}}</button>
+    >{{name}}</button>
 </template>
 
 <script>
@@ -29,6 +29,7 @@
 
 <style scoped>
   button {
+    
     text-transform: uppercase;
     letter-spacing: 1.6px;
     line-height: 1;

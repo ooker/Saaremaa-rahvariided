@@ -40,9 +40,9 @@
         <transition name="fly" appear ><div class="nkl-label">{{ chants[Math.floor(Math.random()*chants.length)] }}</div></transition>
 
         <h1>{{this.rightChoice}}</h1>
-        <p class="" style="margin-top:0.5vh; text-transform:uppercase; font-size:0.8rem;"> {{ gd[gi].name }} kihelkonnast</p>
+        <p style="margin-top:0.5vh; text-transform:uppercase; font-size:0.8rem;"> {{ gd[gi].name }} kihelkonnast</p>
         <hr />
-        <p v-html="gd[gi].item.itemInfo"></p>
+        <p style="max-width:100%;" v-html="gd[gi].item.itemInfo"></p>
         <hr />
         <button @click="next" class="nkl-btn">EDASI</button>
 
@@ -149,7 +149,7 @@
 
   .nkl-guessThing__content {
     position: relative;
-    flex: 1;
+    flex: 1 0 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -168,22 +168,28 @@
     p {
       color: $nkl-white;
       line-height: 1.6;
+
     }
     @include mq-l {
       height: 90vh;
       padding: 0 $nkl-5xl 0 $nkl-m;
     }
   }
+
   .nkl-guessThing__buttons {
+    width: 100%;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 
     .nkl-btn {
-      margin: 1vw;
+      margin: 0.5vw;
       flex: 0 1 auto;
     }
+
   }
+
   .nkl-button--disabled {
     background-color: rgba(0,0,0,0.5);
     opacity: 0.6;

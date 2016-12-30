@@ -33,11 +33,19 @@
 
             <div style="margin:auto;">
               <h1>{{gd[gi].name}}</h1>
-              <hr />
+
               <p v-html="gd[gi].info"></p>
               <img :src="viewImg" />
-              <p v-html="gd[gi].viewInfo" class="viewInfo"></p>
-              <hr />
+              <p class="viewInfo">
+                <span v-html="gd[gi].viewInfo"></span>
+                <span
+                  @click="showAuthor = !showAuthor"
+                  style="cursor:pointer; text-align:right; color:hsl(54, 57%, 53%);">(Autor)</span>
+              </p>
+
+              <transition name="fade">
+                  <div v-if="showAuthor" v-html="gd[gi].viewCredits" class="viewInfo viewCredits "></div>
+              </transition>
             </div>
 
           </div>
@@ -111,6 +119,7 @@
         mapBounds : {},
         costumeImg : require("../assets/img/game/" + this.gd[this.gi].costume),
         viewImg : require("../assets/img/game/" + this.gd[this.gi].view),
+        showAuthor : false,
         isGuessed : false,
         currentChoice : null,
         rightPos : {},
@@ -126,26 +135,25 @@
       markerClicked (e) {
         if(this.isGuessed == false) {
           if(e.right == true){
-            //eventBus.foundPlace();
 
             //this.center = {lat: e.position.lat, lng:e.position.lng }
             //eventBus.changeScore(this.guessScore);
             eventBus.changeScore(eventBus.bonus);
+
             let self = this;
             let place = e;
-            self.center = { lat: place.position.lat, lng:place.position.lng };
 
             setTimeout(
               function(){
-                self.zoom = 10;
+                self.center = { lat: place.position.lat, lng:place.position.lng };
                 self.isGuessed = true;
+                self.zoom = 10;
                 //self.$refs.mymap.resizePreserveCenter();
-
-              }, 100
+              }, 200
             );
 
           } else if (e.right == false){
-            this.guessScore -= this.penalty;
+            //this.guessScore -= this.penalty;
             eventBus.changeScore(eventBus.penalty);
             this.currentChoice = false;
             this.wrongMessage = "See on hoopis <b class='nkl-important'>" + e.name.toUpperCase() + "</b> mis asub õigest kohast umbes <b class='nkl-important'>" + Math.round(this.getDistance(e.position, this.rightPos)) + " km</b> kaugusel.";
@@ -177,7 +185,6 @@
         var d = R * c;
         //console.log("DISTANTS:" + Math.round(d/1000));
         return d/1000;
-
       }
     },
     created(){
@@ -358,6 +365,13 @@
       font-style: italic;
       font-size: $nkl-s;
       color: $nkl-white;
+    }
+
+    .viewCredits {
+      background: rgba(0,0,0,0.4);
+      border-radius: $nkl-xxxs;
+      padding: $nkl-xxs;
+      border:1px solid $nkl-gray;
     }
 
     @include mq-l {

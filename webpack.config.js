@@ -2,10 +2,11 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
+  /*entry: './src/main.js',*/
+	entry: ['babel-polyfill', './src/main.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: 'dist/',
     filename: 'build.js'
   },
   module: {
@@ -15,6 +16,7 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           // vue-loader options go here
+					postcss: [require('autoprefixer')()]
         }
       },
       {
@@ -36,7 +38,7 @@ module.exports = {
       }
     ]
   },
-  resolve: {
+	resolve: {
     alias: {
       'vue$': 'vue/dist/vue.common.js'
     }
