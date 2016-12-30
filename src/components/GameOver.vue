@@ -65,6 +65,12 @@
             <br />
             <small><a href="https://www.facebook.com/tonu.ling" target="_blank">https://www.facebook.com/tonu.ling</a></small></dd>
         </li>
+        <li>
+          <dt>Ajaloolised fotod</dt>
+          <dd>Eesti Muuseumide Veebivärav
+            <br />
+            <small><a href="http://www.muis.ee" target="_blank">http://www.muis.ee</a></small></dd>
+        </li>
       </dl>
       <hr />
       <p>

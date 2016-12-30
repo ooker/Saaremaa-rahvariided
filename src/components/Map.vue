@@ -40,7 +40,7 @@
                 <span v-html="gd[gi].viewInfo"></span>
                 <span
                   @click="showAuthor = !showAuthor"
-                  style="cursor:pointer; text-align:right; color:hsl(54, 57%, 53%);">(Autor)</span>
+                  style="cursor:pointer; text-align:right; color:hsl(54, 57%, 53%);">(Allikas)</span>
               </p>
 
               <transition name="fade">
@@ -476,8 +476,9 @@
   }
 
   // gmaps infowindow style
-  .gm-style-iw { color: black; }
-
+  .gm-style-iw {
+    color: $nkl-white;
+  }
 
 
   .infoPanel__anim-enter {
