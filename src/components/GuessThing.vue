@@ -67,7 +67,7 @@
       return {
         image : require("../assets/img/game/" + this.gd[this.gi].item.img) ,
         choices : [],
-        chants : ["ÕIGE VASTUS!", "VÄGA TUBLI!", "HEA TÖÖ!", "HÄSTI PAKUTUD!", "SEE ON TÕESTI"],
+        chants : ["ÕIGE VASTUS!", "VÄGA TUBLI!", "HEA TÖÖ!", "HÄSTI PAKUTUD!", "ARVASID ÄRA!"],
         itemFound : false,
         currentChoice: null,
         guessScore: 6,

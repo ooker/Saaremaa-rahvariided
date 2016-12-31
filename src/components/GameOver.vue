@@ -37,7 +37,7 @@
         </svg>
       </div>
 
-      <h2>Mängu sündimisele aitasid kaasa:</h2>
+      <h2>Haridusliku mängu sündimisele aitasid kaasa:</h2>
 
       <dl>
         <li>
@@ -47,7 +47,7 @@
             <small>programmist "Saarte pärimuslik kultuurikeskkond 2015-2019"</small></dd>
         </li>
         <li>
-          <dt>ehitaja</dt>
+          <dt>idee ja ehitaja</dt>
           <dd><a href="https://www.facebook.com/MTÜ-Saaremaailm-140846182637341/" target="_blank">MTÜ Saaremaailm</a></dd>
         </li>
         <li>
@@ -75,6 +75,12 @@
             <br />
             <small><a href="http://www.muis.ee" target="_blank">http://www.muis.ee</a></small></dd>
         </li>
+        <li>
+          <dt>Tsitaadid rahvakalendrist</dt>
+          <dd>Eesti rahvakalender
+            <br />
+            <small><a href="http://www.folklore.ee/erk/" target="_blank">http://www.folklore.ee/erk/</a></small></dd>
+        </li>
       </dl>
       <hr />
       <p>
@@ -85,6 +91,9 @@
       </p>
       <p>
         Saaremaa mõistatusi ja ajaloolisi paiku saab ära arvata veebimängus <a href="http://saaremaa.folklore.ee/wordpress/saareseiklus/" target="_blank">&quot;Seiklus Saaremaal&quot;</a>, mille tegi MTÜ Saaremaailm.
+      </p>
+      <p>
+        Eesti rahvarõivaste kohta vaata pikemalt <a href="http://www.rahvaroivad.folkart.ee/rahvaroivad" target="_blank">siit</a>.
       </p>
 
     </div>

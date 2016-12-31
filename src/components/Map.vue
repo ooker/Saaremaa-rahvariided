@@ -164,7 +164,7 @@
         this.currentChoice = null;
       },
       next(){
-        if(this.gi < 1){
+        if(this.gi < 10){
           eventBus.changeRound();
           eventBus.changeView("nkl-guess-thing");
         } else {
