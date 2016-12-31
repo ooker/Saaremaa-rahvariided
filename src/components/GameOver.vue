@@ -16,12 +16,16 @@
 
         <div class="nkl-introInfo__left">
           <p class="nkl-intro__text">
-            Sul õnnestus koguda <b class="nkl-important">{{this.finalScore}} punkti</b> 940-st võimalikust ja <b class="nkl-important">lisaks sellele loodetavasti ka pisut uusi teadmisi</b> Saaremaa rahvarõivaste ning kihelkondade kohta. Soovi korral võid uuesti proovida.
+            Sul õnnestus koguda <b class="nkl-important">{{this.finalScore}} punkti</b> 940-st võimalikust ja <b class="nkl-important">lisaks sellele loodetavasti ka pisut uusi teadmisi</b> Saaremaa rahvarõivaste ning kihelkondade kohta. Kui tahad, võid oma tulemust sõpradega Facebookis jagada.<br />
+            <button class="nkl-btn" @click="shareToFB">Jaga FB-s</button>
           </p>
 
         </div>
         <div class="nkl-introInfo__right">
-            <button class="nkl-btn large nkl-font--special" @click="restartGame">Proovi uuesti</button>
+            <p>
+              Ei jäänud tulemusega rahule? Mis muud kui et...<br />
+                <button class="nkl-btn large nkl-font--special" @click="restartGame">PROOVI UUESTI</button>
+            </p>
         </div>
 
       </section>
@@ -76,6 +80,13 @@
       <p>
         Saaremaa rahvarõivaste kohta saab põhjalikumalt lugeda raamatust "Saare maakonna rahvarõivad", mis valmis Saaremaa rahvakultuuriseltsi ja Saaremaa muuseumi koostööna.
       </p>
+      <p>
+        Saaremaa kihelkondade pärimust - rahvalaule, muinasjutte ja muistendeid - leiab veebikogumikust <a href="http://saaremaa.folklore.ee/wordpress/" target="_blank">&quot;Söit, söit, söit Sörve poole&quot;</a>, mille tegi MTÜ Saaremaailm.
+      </p>
+      <p>
+        Saaremaa mõistatusi ja ajaloolisi paiku saab ära arvata veebimängus <a href="http://saaremaa.folklore.ee/wordpress/saareseiklus/" target="_blank">&quot;Seiklus Saaremaal&quot;</a>, mille tegi MTÜ Saaremaailm.
+      </p>
+
     </div>
   </div>
 
@@ -96,6 +107,14 @@
       restartGame(){
         //eventBus.changeView("nkl-guess-thing");
         eventBus.restartGame();
+      },
+      shareToFB() {
+        FB.shareMyScore({
+          link: 'http://polygon.onkel.ee/saaremaailm/rahvariided',
+          image: 'http://polygon.onkel.ee/saaremaailm/rahvariided/FB-share.jpg',
+          caption: 'Tee järgi või tee veel paremini!',
+          description: '...ja saavutasin ' + this.finalScore + ' punkti.'
+        });
       }
     },
     created() {
@@ -123,7 +142,7 @@
     }
   }
   h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     line-height: 1.4;
     margin: 0 auto $nkl-m auto;
     color: $nkl-yellow--pale;
@@ -137,6 +156,9 @@
     line-height: 1.6;
     color: $nkl-white;
     margin: 0 0 $nkl-s 0;
+    a {
+      color: $nkl-yellow--pale;
+    }
   }
   hr {
       width: 80%;
@@ -188,7 +210,7 @@
   .nkl-introInfo__left {
     @include mq-l {
       flex: 1 0 66.666%;
-      text-align: left;
+      //text-align: left;
     }
   }
   .nkl-introInfo__right {

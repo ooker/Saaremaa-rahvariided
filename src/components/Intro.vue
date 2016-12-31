@@ -29,15 +29,16 @@
             Tänapäeval kipuvad meie esivanemate traditsioonid vägisi moodsa elu virrvarri sisse ära kaduma ja nii on kahjuks ka rahvariietega. See väike leht või mänguke siin püüab meile tutvustada vahvaid Saaremaa rahvarõivaid, nende toredaid nimesid ja pisut ka vanu Saaremaa kihelkondi. Kas sina tead, millisest kihelkonnast sinu ema või isa pärit on? Kas sa tead, mida näiteks sinu vana-vana-vana-vanaema võis kanda seljas oma pulmapäeval sada aastat tagasi?
           </p>-->
           <p class="nkl-intro__text">
-            Pikki sajandeid on meie esivanemad kandnud omi, uhkeid ja erilisi rahvarõivaid. Tänapäeval pannakse rahvarõivas heal juhul laulupeole minnes selga. Ja ega me tihti palju rohkem neist enam ei teagi.
-            <br />
-            See väike mänguke siin on peamiselt mõeldud abivahendiks õpetajale või lapsevanemale, et koos lastega pisut tutvust teha Saaremaa oma-aegsete kihelkondade ja nende rahvarõivastega. Loomulikult on ka kõik teised teretulnud oma teadmisi proovima.
+            Pikki sajandeid on meie esivanemad Saaremaal kandnud rõivaid, mida tänapäeval nimetatakse rahvarõivasteks. Neid kantakse uhkusega laulu- ja tantsupidudel, rahvaüritustel ja isegi presidendi vastuvõtul. Vanal ajal erinesid rõivad, mida talupojad ja -naised kandsid, kihelkondade kaupa. Nii võis rõivaste järgi aru saada, kust kandist inimene pärit on. Ka tänapäeval valitakse ja valmistatakse omale rahvarõivad selle järgi, kust ema või isa pärit on.
+          </p>
+          <p class="nkl-intro__text">
+            See väike mäng siin on mõeldud abivahendiks õpetajale, lapsevanemale või lapsevanavanemale, et koos teisme-ealistega tutvust teha Saaremaa oma-aegsete kihelkondade ja nende rahvarõivastega. Loomulikult on ka kõik teised teretulnud oma teadmisi proovima.
           </p>
           <hr style="border-bottom:1px dotted #777;" />
           <p class="nkl-intro__text nkl-important">
-            Igast kihelkonnast on välja toodud üks rahvariide-ese, mille nimetuse pead sa ära arvama ja seejärel kaardilt üles leidma ka kihelkonna, kust ese pärit on.
+            Igast kihelkonnast on välja toodud üks rahvariide-ese, mille nimetus tuleb ära arvata. Seejärel tuleb kaardilt üles leida kihelkond, kust ese pärit on.
           </p>
-          <p>Mängu alguses premeerime sind 500 punktiga. Iga valesti arvatud variant võtab sealt 5 punkti maha, aga õige vastus annab 20 punkti juurde. Ole nutikas!
+          <p>Mängu alguses on igal mängijal 500 punkti. Iga valesti arvatud variant võtab sealt 5 punkti maha, aga õige vastus annab 20 punkti juurde. Olge nutikad!
           </p>
 
 
