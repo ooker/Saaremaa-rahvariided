@@ -80,7 +80,7 @@
   //@import "assets/scss/variables.scss";
   #app {
     min-height: 100vh;
-    max-width: 1500px;
+    //max-width: 1500px;
     margin: auto;
   }
 </style>

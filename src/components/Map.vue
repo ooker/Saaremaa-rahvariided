@@ -3,12 +3,26 @@
     <div class="nkl-viewContainer">
       <div class="map__mapContainer" :class="{'map__mapContainer--found':isGuessed}">
         <gmap-map
-          :center="center"
+          :center = "center"
           :zoom="zoom"
           :options="mapOptions"
-          :bounds="mapBounds"
+
           ref="mymap"
         >
+        <gmap-polygon
+          v-if="isGuessed"
+          :path="this.mapPolygon[0]"
+          :editable="false"
+          :draggable="false"
+          :options="{
+            geodesic:true,
+            strokeColor:'#000055',
+            strokeWeight:'3',
+            strokeOpacity:'0.3',
+            fillColor:'#ffff00',
+            fillOpacity:'0.2'
+          }"></gmap-polygon>
+
           <gmap-marker
             v-for="m in mapMarkers"
             :position="m.position"
@@ -19,7 +33,7 @@
             @click="markerClicked(m)"
           ></gmap-marker>
           <gmap-info-window class="map__markerInfo"
-            :position = "this.center"
+            :position = "this.rightPos"
             :opened = "this.isGuessed"
             :content = "gd[gi].name.toUpperCase()"
           ></gmap-info-window>
@@ -91,7 +105,7 @@
 
 <script>
   import * as VueGoogleMaps from 'vue2-google-maps';
-  import {load, Map, Marker, InfoWindow} from 'vue2-google-maps';
+  import {load, Map, Marker, InfoWindow, Polygon} from 'vue2-google-maps';
   import Vue from 'vue';
   import {eventBus} from "../main";
   import ResponseModal from "../components/ResponseModal.vue";
@@ -107,16 +121,18 @@
       gmapMap: Map,
       gmapMarker: Marker,
       gmapInfoWindow: InfoWindow,
+      gmapPolygon: Polygon,
       "nkl-response-modal": ResponseModal
     },
     props: ["gd", "gi"],
     data () {
       return {
-        center: { lat: 58.361886, lng: 22.605158 },
+        center: {lat:58.361886, lng:22.605158},
         zoom : 9,
         mapMarkers : [],
         mapOptions : {},
-        mapBounds : {},
+        mapPolygon : [],
+        mapBounds : new google.maps.LatLngBounds(),
         costumeImg : require("../assets/img/game/" + this.gd[this.gi].costume),
         viewImg : require("../assets/img/game/" + this.gd[this.gi].view),
         showAuthor : false,
@@ -143,14 +159,41 @@
             let self = this;
             let place = e;
 
-            setTimeout(
-              function(){
-                self.center = { lat: place.position.lat, lng:place.position.lng };
-                self.isGuessed = true;
-                self.zoom = 10;
-                //self.$refs.mymap.resizePreserveCenter();
-              }, 200
-            );
+            //this.isGuessed = true;
+            //var b = new google.maps.LatLngBounds();
+            this.isGuessed = true;
+            this.mapBounds = new google.maps.LatLngBounds();
+
+            for (var i=0; i<this.mapPolygon[0].length; i++) {
+              this.mapBounds.extend({lat:this.mapPolygon[0][i].lat, lng:this.mapPolygon[0][i].lng});
+            }
+
+            /*this.center.lat = this.mapBounds.getCenter().lat();
+            this.center.lng = this.mapBounds.getCenter().lng()-3;*/
+            //this.center = this.mapBounds.getCenter();
+
+            /*this.mapBounds.extend({
+              lat: place.position.lat-0.2,
+              lng: place.position.lng-0.2
+            });
+            this.mapBounds.extend({
+              lat: place.position.lat+0.2,
+              lng: place.position.lng+0.2
+            });
+            this.center = new google.maps.LatLng({lat:place.position.lat, lng:place.position.lng});*/
+            //google.maps.event.trigger(this.$refs.mymap, 'resize');
+            //this.$refs.mymap.fitBounds(this.mapBounds);
+            //this.$refs.mymap.setCenter(this.center);
+
+            setTimeout(function(){
+              self.$refs.mymap.resize();
+              //self.center = {lat:place.position.lat, lng:place.position.lng};
+              //self.zoom = 9;
+              self.$refs.mymap.fitBounds(self.mapBounds);
+            },300);
+
+            //this.$refs.mymap.fitBounds(this.mapBounds);
+
 
           } else if (e.right == false){
             //this.guessScore -= this.penalty;
@@ -159,6 +202,11 @@
             this.wrongMessage = "See on hoopis <b class='nkl-important'>" + e.name.toUpperCase() + "</b> mis asub õigest kohast umbes <b class='nkl-important'>" + Math.round(this.getDistance(e.position, this.rightPos)) + " km</b> kaugusel.";
           }
         }
+      },
+      keepCenter(){
+        //this.$refs.mymap.setCenter(this.center);
+        this.$refs.mymap.fitBounds(this.mapBounds);
+        //console.log("Map resized");
       },
       responseClosed(){
         this.currentChoice = null;
@@ -193,7 +241,7 @@
         mapTypeControl: false,
         streetViewControl: false,
         zoomControlOptions: {
-          position: google.maps.ControlPosition.RIGHT_CENTER
+          position: google.maps.ControlPosition.LEFT_CENTER
         },
         styles : [
           { "elementType": "labels",
@@ -225,7 +273,7 @@
           }, {
             "featureType": "road.arterial",
             "elementType": "geometry.fill",
-            "stylers": [{ "color": "#cddc10" }, {"visibility": "on"}]
+            "stylers": [{ "color": "#519c1f" }, {"visibility": "on"}]
           }, {
             "featureType": "road.arterial",
             "elementType": "labels",
@@ -233,7 +281,11 @@
           }, {
             "featureType": "road.highway",
             "elementType": "geometry.fill",
-            "stylers": [{ "color": "#cddc10" }, { "visibility": "on" }, { "weight": 1.5 }]
+            "stylers": [{ "color": "#519c1f" }, { "visibility": "on" }, { "weight": 1.5 }]
+          }, {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [{ "visibility": "off" }]
           }, {
             "featureType": "road.highway",
             "elementType": "labels",
@@ -268,14 +320,45 @@
         }
       }
 
+      this.mapPolygon.push(this.gd[this.gi].map.polygon);
+      //console.log(this.mapPolygon);
+
+
+      /*var testCoords = [
+        {lat: 58, lng: 21},
+        {lat: 58, lng: 23},
+        {lat: 0, lng: 0}
+      ];
+ var myPath = new google.maps.Polyline({
+   path: testCoords,
+   geodesic: true,
+   strokeColor: '#FF0000',
+   strokeOpacity: 1.0,
+   strokeWeight: 2
+ });*/
+      //this.mapPolygons.push(myPath);
+
+      this.mapBounds.extend({
+        lat: this.center.lat-0.6,
+        lng: this.center.lng-0.9
+      });
+      this.mapBounds.extend({
+        lat: this.center.lat+0.6,
+        lng: this.center.lng+0.9
+      });
+
+
+
+      //this.$refs.mymap.;
+
       //this.currentPlace = this.gd[this.gi].name;
-      //this.$emit('fitBounds', this.mapBounds);
 
-      this.mapBounds.north = 58.639969;
-      this.mapBounds.west = 21.757071;
-      this.mapBounds.south = 57.891453;
-      this.mapBounds.east = 23.431412;
-
+      //google.maps.event.addDomListener(this.$refs.mymap, 'resize', this.mapResized);
+    },
+    mounted(){
+      //this.$refs.mymap.setCenter(this.center);
+      this.$refs.mymap.fitBounds(this.mapBounds);
+      google.maps.event.addDomListener(this.$refs.mymap, 'resize', this.keepCenter);
     }
   }
 </script>
@@ -291,8 +374,9 @@
     }
   }
   .map__mapContainer--found {
-    flex: 1 1 33.333%;
+    flex: 0 1 100%;
     height: 60vh;
+    //width: 100%;
     @include mq-l {
       height: 90vh;
     }

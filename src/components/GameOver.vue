@@ -23,7 +23,7 @@
         </div>
         <div class="nkl-introInfo__right">
             <p>
-              Ei jäänud tulemusega rahule? Mis muud kui et...<br />
+              Ei jäänud tulemusega rahule?<br />
                 <button class="nkl-btn large nkl-font--special" @click="restartGame">PROOVI UUESTI</button>
             </p>
         </div>
