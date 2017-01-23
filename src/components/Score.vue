@@ -63,7 +63,7 @@
   @import "../assets/scss/variables.scss";
 
   .nkl-score {
-    position: absolute;
+    position: fixed;
     top: 2vmin;
     right: 2vmin;
     width: 4.6rem;

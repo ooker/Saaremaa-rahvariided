@@ -119,8 +119,8 @@
       },
       shareToFB() {
         FB.shareMyScore({
-          link: 'http://polygon.onkel.ee/saaremaailm/rahvariided',
-          image: 'http://polygon.onkel.ee/saaremaailm/rahvariided/FB-share.jpg',
+          link: 'http://saaremaa.folklore.ee/rahvariided/',
+          image: 'http://saaremaa.folklore.ee/rahvariided/FB-share.jpg',
           caption: 'Tee järgi või tee veel paremini!',
           description: '...ja saavutasin ' + this.finalScore + ' punkti.'
         });
